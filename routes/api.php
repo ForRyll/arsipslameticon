@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\NewsCategoryController;
 use App\Http\Controllers\Api\NewsController;
+use App\Http\Controllers\Api\PositionController;
+use App\Http\Controllers\Api\TeamMemberController; // <-- 1. Ditambahkan
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,5 +59,14 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/news-categories/{id}', [NewsCategoryController::class, 'update']);
         Route::delete('/news-categories/{id}', [NewsCategoryController::class, 'destroy']);
     });
+
+    // ==========================================
+    // 3. POSITIONS & TEAM MANAGEMENT (Kelola Jabatan & Tim)
+    // ==========================================
+    Route::apiResource('positions', PositionController::class);
+
+    // <-- 2. Ditambahkan di sini
+    Route::apiResource('team-members', TeamMemberController::class);
+    Route::post('/team-members/{team_member}', [TeamMemberController::class, 'update']); 
 
 });
