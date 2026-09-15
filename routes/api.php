@@ -31,8 +31,9 @@ Route::get('/news-categories/{id}', [NewsCategoryController::class, 'show']);
 // ==========================================
 Route::middleware('auth:sanctum')->group(function () {
 
-    // Auth Endpoints
+    // Auth & Profile Endpoints
     Route::get('/me', [AuthController::class, 'me']);
+    Route::put('/profile', [AuthController::class, 'updateProfile']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
     // Admin Endpoints (Khusus Kelola Staf & Permissions)

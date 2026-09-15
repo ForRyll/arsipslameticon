@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Helper untuk cek hak akses permission
+     * Helper untuk cek hak akses permission (via Role)
      */
     public function hasPermission(string $permissionName): bool
     {
@@ -56,7 +56,7 @@ class User extends Authenticatable
         }
 
         // Admin selalu punya akses penuh (Bypass)
-        if ($this->role->name === 'admin') {
+        if ($this->role->name === 'admin' || $this->role->name === 'Admin') {
             return true;
         }
 
