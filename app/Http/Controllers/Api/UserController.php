@@ -12,13 +12,13 @@ use Illuminate\Support\Str;
 class UserController extends Controller
 {
     /**
-     * Ambil daftar Staf beserta Role & Permissions role-nya
+     * Ambil daftar Staf beserta Role & Direct Permissions milik user
      */
     public function index()
     {
         $stafs = User::whereHas('role', function ($q) {
             $q->where('name', 'staf')->orWhere('name', 'Staf');
-        })->with('role.permissions')->latest()->get();
+        })->with(['role', 'permissions'])->latest()->get();
 
         return response()->json([
             'status' => 'success',
@@ -40,18 +40,27 @@ class UserController extends Controller
             'role_id'       => $roleStaf->id,
             'name'          => $data['name'],
             'email'         => $data['email'],
-            'password_hash' => $data['password'], // Otomatis ter-hash dari $casts di User model
+            'password_hash' => $data['password'],
         ]);
+
+        // Jika request membawa array permission saat create
+        if (!empty($data['permissions'])) {
+            $syncData = [];
+            foreach ($data['permissions'] as $permId) {
+                $syncData[$permId] = ['id' => (string) Str::uuid()];
+            }
+            $staf->permissions()->sync($syncData);
+        }
 
         return response()->json([
             'status'  => 'success',
             'message' => 'Staf berhasil ditambahkan.',
-            'data'    => $staf->load('role.permissions')
+            'data'    => $staf->load(['role', 'permissions'])
         ], 201);
     }
 
     /**
-     * Admin Mengatur Fitur / Permission Spesifik pada Role Staf
+     * Admin Mengatur Fitur / Permission Spesifik per User Staf
      */
     public function updateStafPermissions(Request $request, string $stafId)
     {
@@ -70,19 +79,19 @@ class UserController extends Controller
             ], 400);
         }
 
-        // Format sync pivot untuk relasi permissions pada Role
+        // Format sync pivot untuk relasi direct permissions milik User
         $syncData = [];
         foreach ($request->permissions as $permId) {
             $syncData[$permId] = ['id' => (string) Str::uuid()];
         }
 
-        // Sync ke permission milik Role Staf
-        $staf->role->permissions()->sync($syncData);
+        // PERBAIKAN: Sync langsung ke relasi permissions milik USER ($staf)
+        $staf->permissions()->sync($syncData);
 
         return response()->json([
             'status'  => 'success',
             'message' => 'Hak akses fitur staf berhasil diperbarui!',
-            'data'    => $staf->load('role.permissions')
+            'data'    => $staf->load(['role', 'permissions'])
         ]);
     }
 }

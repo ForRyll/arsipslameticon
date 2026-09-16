@@ -99,7 +99,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/profile', [AuthController::class, 'updateProfile']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    // Admin Endpoints (Khusus Kelola Staf & Permissions)
+    // Admin Endpoints (Kelola Staf & User)
     Route::middleware('permission:manage-users')->group(function () {
         Route::get('/admin/staf', [UserController::class, 'index']);
         Route::post('/admin/staf', [UserController::class, 'storeStaf']);
@@ -111,86 +111,94 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/activity-logs/{id}', [ActivityLogController::class, 'destroy']);
     });
 
-    // Content Management Endpoints
+    // Fitur Kelola Berita
     Route::middleware('permission:manage-news')->group(function () {
-
-        // Company Profile Management
-        Route::post('/company-profile', [CompanyProfileController::class, 'updateOrCreate']);
-        Route::put('/company-profile', [CompanyProfileController::class, 'updateOrCreate']);
-
-        // News Management
         Route::post('/news', [NewsController::class, 'store']);
         Route::post('/news/{id}', [NewsController::class, 'update']); 
         Route::put('/news/{id}', [NewsController::class, 'update']);
         Route::delete('/news/{id}', [NewsController::class, 'destroy']);
 
-        // News Categories Management
         Route::post('/news-categories', [NewsCategoryController::class, 'store']);
         Route::put('/news-categories/{id}', [NewsCategoryController::class, 'update']);
         Route::delete('/news-categories/{id}', [NewsCategoryController::class, 'destroy']);
+    });
 
-        // Product Categories Management
-        Route::post('/product-categories', [ProductCategoryController::class, 'store']);
-        Route::put('/product-categories/{id}', [ProductCategoryController::class, 'update']);
-        Route::delete('/product-categories/{id}', [ProductCategoryController::class, 'destroy']);
-
-        // Client Management
-        Route::post('/clients', [ClientController::class, 'store']);
-        Route::post('/clients/{id}', [ClientController::class, 'update']);
-        Route::put('/clients/{id}', [ClientController::class, 'update']);
-        Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
-
-        // Product Management
+    // Fitur Kelola Produk
+    Route::middleware('permission:manage-products')->group(function () {
         Route::post('/products', [ProductController::class, 'store']);
         Route::post('/products/{id}', [ProductController::class, 'update']);
         Route::put('/products/{id}', [ProductController::class, 'update']);
         Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
-        // Gallery Categories Management
-        Route::post('/gallery-categories', [GalleryCategoryController::class, 'store']);
-        Route::put('/gallery-categories/{id}', [GalleryCategoryController::class, 'update']);
-        Route::delete('/gallery-categories/{id}', [GalleryCategoryController::class, 'destroy']);
+        Route::post('/product-categories', [ProductCategoryController::class, 'store']);
+        Route::put('/product-categories/{id}', [ProductCategoryController::class, 'update']);
+        Route::delete('/product-categories/{id}', [ProductCategoryController::class, 'destroy']);
+    });
 
-        // Gallery Management
+    // Fitur Kelola Client
+    Route::middleware('permission:manage-clients')->group(function () {
+        Route::post('/clients', [ClientController::class, 'store']);
+        Route::post('/clients/{id}', [ClientController::class, 'update']);
+        Route::put('/clients/{id}', [ClientController::class, 'update']);
+        Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
+    });
+
+    // Fitur Kelola Galeri
+    Route::middleware('permission:manage-galleries')->group(function () {
         Route::post('/galleries', [GalleryController::class, 'store']);
         Route::post('/galleries/{id}', [GalleryController::class, 'update']);
         Route::put('/galleries/{id}', [GalleryController::class, 'update']);
         Route::delete('/galleries/{id}', [GalleryController::class, 'destroy']);
 
-        // Job Openings Management
+        Route::post('/gallery-categories', [GalleryCategoryController::class, 'store']);
+        Route::put('/gallery-categories/{id}', [GalleryCategoryController::class, 'update']);
+        Route::delete('/gallery-categories/{id}', [GalleryCategoryController::class, 'destroy']);
+    });
+
+    // Fitur Kelola Lowongan & Pelamar
+    Route::middleware('permission:manage-careers')->group(function () {
         Route::post('/job-openings', [JobOpeningController::class, 'store']);
         Route::put('/job-openings/{id}', [JobOpeningController::class, 'update']);
         Route::delete('/job-openings/{id}', [JobOpeningController::class, 'destroy']);
 
-        // Job Applications Management (Khusus Admin / HR)
         Route::get('/job-applications', [JobApplicationController::class, 'index']);
         Route::get('/job-applications/{id}', [JobApplicationController::class, 'show']);
         Route::patch('/job-applications/{id}/status', [JobApplicationController::class, 'updateStatus']);
         Route::delete('/job-applications/{id}', [JobApplicationController::class, 'destroy']);
+    });
 
-        // Positions Management (Create, Update, Delete)
+    // Fitur Kelola Tim & Jabatan
+    Route::middleware('permission:manage-team')->group(function () {
         Route::post('/positions', [PositionController::class, 'store']);
         Route::put('/positions/{position}', [PositionController::class, 'update']);
         Route::delete('/positions/{position}', [PositionController::class, 'destroy']);
 
-        // Team Members Management (Create, Update, Delete)
         Route::post('/team-members', [TeamMemberController::class, 'store']);
         Route::post('/team-members/{team_member}', [TeamMemberController::class, 'update']); 
         Route::put('/team-members/{team_member}', [TeamMemberController::class, 'update']);
         Route::delete('/team-members/{team_member}', [TeamMemberController::class, 'destroy']);
+    });
 
-        // Services Management (Create, Update, Delete)
+    // Fitur Kelola Layanan
+    Route::middleware('permission:manage-services')->group(function () {
         Route::post('/services', [ServiceController::class, 'store']);
         Route::post('/services/{service}', [ServiceController::class, 'update']);
         Route::put('/services/{service}', [ServiceController::class, 'update']);
         Route::delete('/services/{service}', [ServiceController::class, 'destroy']);
+    });
 
-        // Settings Management (Create, Update, Delete)
+    // Fitur Kelola Profil Perusahaan & Settings
+    Route::middleware('permission:manage-settings')->group(function () {
+        Route::post('/company-profile', [CompanyProfileController::class, 'updateOrCreate']);
+        Route::put('/company-profile', [CompanyProfileController::class, 'updateOrCreate']);
+
         Route::post('/settings', [SettingController::class, 'updateOrCreate']);
         Route::put('/settings', [SettingController::class, 'updateOrCreate']);
         Route::delete('/settings/{key}', [SettingController::class, 'destroy']);
+    });
 
-        // Contacts Management (Kelola Pesan Masuk)
+    // Fitur Kelola Pesan Kontak Masuk
+    Route::middleware('permission:manage-contacts')->group(function () {
         Route::get('/contacts', [ContactController::class, 'index']);
         Route::get('/contacts/{contact}', [ContactController::class, 'show']);
         Route::patch('/contacts/{contact}/status', [ContactController::class, 'updateStatus']);
