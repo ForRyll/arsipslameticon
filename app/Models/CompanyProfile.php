@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class CompanyProfile extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, LogsActivity;
 
     protected $keyType = 'string';
     public $incrementing = false;
@@ -26,4 +27,12 @@ class CompanyProfile extends Model
         'tiktok_url',
         'tagline',
     ];
+
+    /**
+     * Nama kustom untuk deskripsi log
+     */
+    public function getActivityLogName(): string
+    {
+        return 'Profil Perusahaan';
+    }
 }

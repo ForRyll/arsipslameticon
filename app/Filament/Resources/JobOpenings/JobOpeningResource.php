@@ -20,7 +20,7 @@ class JobOpeningResource extends Resource
 {
     protected static ?string $model = JobOpening::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserPlus;
 
     protected static ?string $recordTitleAttribute = 'title';
 

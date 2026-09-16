@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class TeamMember extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, LogsActivity;
 
     protected $keyType = 'string';
     public $incrementing = false;
@@ -23,8 +25,16 @@ class TeamMember extends Model
     /**
      * Relasi ke model Position
      */
-    public function position()
+    public function position(): BelongsTo
     {
-        return $this->belongsTo(Position::class);
+        return $this->belongsTo(Position::class, 'position_id');
+    }
+
+    /**
+     * Nama kustom untuk deskripsi log
+     */
+    public function getActivityLogName(): string
+    {
+        return 'Anggota Tim';
     }
 }

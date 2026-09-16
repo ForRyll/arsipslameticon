@@ -20,7 +20,7 @@ class NewsCategoryResource extends Resource
 {
     protected static ?string $model = NewsCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
 
     // Diubah dari 'title' ke 'name' sesuai kolom di database
     protected static ?string $recordTitleAttribute = 'name';

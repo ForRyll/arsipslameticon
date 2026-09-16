@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, LogsActivity;
 
     protected $keyType = 'string';
     public $incrementing = false;
@@ -28,5 +29,13 @@ class Contact extends Model
         return [
             'submitted_at' => 'datetime',
         ];
+    }
+
+    /**
+     * Nama kustom untuk deskripsi log
+     */
+    public function getActivityLogName(): string
+    {
+        return 'Pesan Kontak';
     }
 }
