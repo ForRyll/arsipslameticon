@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Galleries\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -22,8 +23,11 @@ class GalleryForm
                     ->required()
                     ->numeric()
                     ->default(0),
-                TextInput::make('img_url')
-                    ->url(),
+                FileUpload::make('img_url')
+                    ->image()
+                    ->directory('gallery/image')
+                    ->imageEditor()
+                    ->required(),
                 Textarea::make('caption')
                     ->columnSpanFull(),
             ]);

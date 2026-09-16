@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Clients\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -14,8 +15,8 @@ class ClientInfolist
                 TextEntry::make('id')
                     ->label('ID'),
                 TextEntry::make('name'),
-                TextEntry::make('logo_url')
-                    ->placeholder('-'),
+                ImageEntry::make('logo_url')
+                    ->label('clients/logos'),
                 TextEntry::make('website_url')
                     ->placeholder('-'),
                 TextEntry::make('display_url')
