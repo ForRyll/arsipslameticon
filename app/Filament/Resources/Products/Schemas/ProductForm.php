@@ -4,8 +4,8 @@ namespace App\Filament\Resources\Products\Schemas;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class ProductForm
@@ -29,11 +29,22 @@ class ProductForm
                     ->columnSpanFull(),
                 TextInput::make('link_url')
                     ->url(),
+<<<<<<< HEAD
                  FileUpload::make('img_url')
                     ->image()
                     ->directory('products/images')
                     ->imageEditor()
                     ->required(),
+=======
+                
+                // Ganti TextInput 'img_url' jadi FileUpload ini
+                FileUpload::make('img_url')
+                    ->label('Gambar Produk')
+                    ->image()
+                    ->directory('products')
+                    ->disk('public')
+                    ->maxSize(2048),
+>>>>>>> 33759cc (Perbaikan schemas n tables)
             ]);
     }
 }

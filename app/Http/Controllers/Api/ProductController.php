@@ -49,6 +49,7 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('products', 'public');
             $data['img_url'] = Storage::url($path);
+            unset($data['image']); // Mencegah error 'Column not found: image'
         }
 
         $product = Product::create($data);
@@ -69,6 +70,7 @@ class ProductController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('image')) {
+            // Hapus logo/gambar lama jika ada
             if ($product->img_url) {
                 $oldPath = str_replace('/storage/', '', $product->img_url);
                 Storage::disk('public')->delete($oldPath);
@@ -76,6 +78,7 @@ class ProductController extends Controller
 
             $path = $request->file('image')->store('products', 'public');
             $data['img_url'] = Storage::url($path);
+            unset($data['image']); // Mencegah error 'Column not found: image'
         }
 
         $product->update($data);

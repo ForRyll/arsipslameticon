@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClientRequest;
 use App\Models\Client;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ClientController extends Controller
@@ -38,16 +38,19 @@ class ClientController extends Controller
     /**
      * Protected: Tambah client baru
      */
-    public function store(StoreClientRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        ]);
 
         if ($request->hasFile('logo')) {
             $path = $request->file('logo')->store('clients', 'public');
-            $data['logo_url'] = Storage::url($path);
+            $validated['logo_url'] = Storage::url($path);
         }
 
-        $client = Client::create($data);
+        $client = Client::create($validated);
 
         return response()->json([
             'status'  => 'success',
@@ -59,10 +62,14 @@ class ClientController extends Controller
     /**
      * Protected: Update client
      */
-    public function update(StoreClientRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         $client = Client::findOrFail($id);
-        $data = $request->validated();
+
+        $validated = $request->validate([
+            'name' => 'sometimes|required|string|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        ]);
 
         if ($request->hasFile('logo')) {
             if ($client->logo_url) {
@@ -71,10 +78,10 @@ class ClientController extends Controller
             }
 
             $path = $request->file('logo')->store('clients', 'public');
-            $data['logo_url'] = Storage::url($path);
+            $validated['logo_url'] = Storage::url($path);
         }
 
-        $client->update($data);
+        $client->update($validated);
 
         return response()->json([
             'status'  => 'success',

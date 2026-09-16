@@ -3,8 +3,12 @@
 namespace App\Filament\Resources\CompanyProfiles\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+<<<<<<< HEAD
 use Filament\Forms\Components\TextInput;
+=======
+>>>>>>> 33759cc (Perbaikan schemas n tables)
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class CompanyProfileForm
@@ -26,11 +30,24 @@ class CompanyProfileForm
                 Textarea::make('address')
                     ->columnSpanFull(),
                 TextInput::make('whatsapp'),
+<<<<<<< HEAD
                 FileUpload::make('logo_url')
                     ->image()
                     ->directory('company/logos')
                     ->imageEditor()
                     ->required(),
+=======
+
+                // Mengubah TextInput logo_url menjadi FileUpload
+                FileUpload::make('logo_url')
+                    ->label('Logo Perusahaan')
+                    ->image()
+                    ->directory('company-profile')
+                    ->disk('public')
+                    ->maxSize(2048)
+                    ->nullable(),
+
+>>>>>>> 33759cc (Perbaikan schemas n tables)
                 Textarea::make('description')
                     ->columnSpanFull(),
                 TextInput::make('ig_url')
