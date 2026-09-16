@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Galleries\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -18,8 +19,8 @@ class GalleryInfolist
                 TextEntry::make('title'),
                 TextEntry::make('display_order')
                     ->numeric(),
-                TextEntry::make('img_url')
-                    ->placeholder('-'),
+                ImageEntry::make('img_url')
+                    ->label('gallery/image'),
                 TextEntry::make('caption')
                     ->placeholder('-')
                     ->columnSpanFull(),

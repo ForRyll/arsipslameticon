@@ -47,8 +47,12 @@ class CompanyProfileController extends Controller
                 Storage::disk('public')->delete($oldPath);
             }
 
+            // Simpan gambar baru ke storage
             $path = $request->file('logo')->store('company-profile', 'public');
             $data['logo_url'] = Storage::url($path);
+            
+            // Hapus key 'logo' agar tidak dimasukkan ke query Eloquent
+            unset($data['logo']);
         }
 
         if ($profile) {

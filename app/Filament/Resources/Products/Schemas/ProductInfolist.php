@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Products\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -26,8 +27,8 @@ class ProductInfolist
                     ->columnSpanFull(),
                 TextEntry::make('link_url')
                     ->placeholder('-'),
-                TextEntry::make('img_url')
-                    ->placeholder('-'),
+                ImageEntry::make('img_url')
+                    ->label('product/image'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
