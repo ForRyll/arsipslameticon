@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\CompanyProfiles\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -27,8 +28,8 @@ class CompanyProfileInfolist
                     ->columnSpanFull(),
                 TextEntry::make('whatsapp')
                     ->placeholder('-'),
-                TextEntry::make('logo_url')
-                    ->placeholder('-'),
+                ImageEntry::make('logo_url')
+                    ->label('clients/logos'),
                 TextEntry::make('description')
                     ->placeholder('-')
                     ->columnSpanFull(),

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\CompanyProfiles\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -25,8 +26,11 @@ class CompanyProfileForm
                 Textarea::make('address')
                     ->columnSpanFull(),
                 TextInput::make('whatsapp'),
-                TextInput::make('logo_url')
-                    ->url(),
+                FileUpload::make('logo_url')
+                    ->image()
+                    ->directory('company/logos')
+                    ->imageEditor()
+                    ->required(),
                 Textarea::make('description')
                     ->columnSpanFull(),
                 TextInput::make('ig_url')

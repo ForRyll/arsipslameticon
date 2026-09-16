@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Products\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -28,8 +29,11 @@ class ProductForm
                     ->columnSpanFull(),
                 TextInput::make('link_url')
                     ->url(),
-                TextInput::make('img_url')
-                    ->url(),
+                 FileUpload::make('img_url')
+                    ->image()
+                    ->directory('products/images')
+                    ->imageEditor()
+                    ->required(),
             ]);
     }
 }
