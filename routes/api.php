@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PositionController;
 use App\Http\Controllers\Api\ProductCategoryController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\PublicDataController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\TeamMemberController;
@@ -30,6 +31,16 @@ use Illuminate\Support\Facades\Route;
 // 1. PUBLIC ROUTES (Tanpa Autentikasi)
 // ==========================================
 Route::post('/login', [AuthController::class, 'login']);
+
+// Aggregated Public Endpoints (Untuk Frontend Landing Page)
+Route::prefix('public')->group(function () {
+    Route::get('/landing-page', [PublicDataController::class, 'getLandingPageData']);
+    Route::get('/about-us', [PublicDataController::class, 'getAboutUs']);
+    Route::get('/our-people', [PublicDataController::class, 'getTeamMembers']);
+    Route::get('/products', [PublicDataController::class, 'getProducts']);
+    Route::get('/news', [PublicDataController::class, 'getNews']);
+    Route::get('/galleries', [PublicDataController::class, 'getGalleries']);
+});
 
 // Public Endpoint Profil Perusahaan
 Route::get('/company-profile', [CompanyProfileController::class, 'show']);
