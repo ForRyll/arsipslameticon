@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Products\Tables;
 
+use App\Models\Product;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -18,29 +19,45 @@ class ProductsTable
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
-                // Mengubah TextColumn menjadi ImageColumn untuk thumbnail gambar
                 ImageColumn::make('img_url')
                     ->label('Gambar')
                     ->disk('public')
                     ->square(),
 
-                TextColumn::make('category.name')
-                    ->searchable(),
-                TextColumn::make('client.name')
-                    ->searchable(),
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Nama Produk')
+                    ->description(fn (Product $record): ?string => $record->sub_name)
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('category.name')
+                    ->label('Kategori')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('client.name')
+                    ->label('Klien')
+                    ->searchable()
+                    ->placeholder('-'),
+
                 TextColumn::make('display_order')
+                    ->label('Urutan')
                     ->numeric()
                     ->sortable(),
+
                 TextColumn::make('link_url')
-                    ->searchable(),
+                    ->label('Link')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

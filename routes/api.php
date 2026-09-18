@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ActivityLogController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ChooseUsController;
 use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\CompanyProfileController;
 use App\Http\Controllers\Api\ContactController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\TeamMemberController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\WorkPhaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +46,10 @@ Route::prefix('public')->group(function () {
 
 // Public Endpoint Profil Perusahaan
 Route::get('/company-profile', [CompanyProfileController::class, 'show']);
+
+// Public Endpoints Why Choose Us
+Route::get('/choose-us', [ChooseUsController::class, 'index']);
+Route::get('/choose-us/{id}', [ChooseUsController::class, 'show']);
 
 // Public Endpoints Berita
 Route::get('/news', [NewsController::class, 'index']);
@@ -91,6 +97,10 @@ Route::get('/team-members/{team_member}', [TeamMemberController::class, 'show'])
 // Public Endpoints Layanan (Services)
 Route::get('/services', [ServiceController::class, 'index']);
 Route::get('/services/{service}', [ServiceController::class, 'show']);
+
+// Public Endpoints Work Phases (Fase Kerja)
+Route::get('/work-phases', [WorkPhaseController::class, 'index']);
+Route::get('/work-phases/{work_phase}', [WorkPhaseController::class, 'show']);
 
 // Public Endpoints Settings
 Route::get('/settings', [SettingController::class, 'index']);
@@ -190,15 +200,20 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/team-members/{team_member}', [TeamMemberController::class, 'destroy']);
     });
 
-    // Fitur Kelola Layanan
+    // Fitur Kelola Layanan & Fase Kerja
     Route::middleware('permission:manage-services')->group(function () {
         Route::post('/services', [ServiceController::class, 'store']);
         Route::post('/services/{service}', [ServiceController::class, 'update']);
         Route::put('/services/{service}', [ServiceController::class, 'update']);
         Route::delete('/services/{service}', [ServiceController::class, 'destroy']);
+
+        // Work Phases CRUD (Protected)
+        Route::post('/work-phases', [WorkPhaseController::class, 'store']);
+        Route::put('/work-phases/{work_phase}', [WorkPhaseController::class, 'update']);
+        Route::delete('/work-phases/{work_phase}', [WorkPhaseController::class, 'destroy']);
     });
 
-    // Fitur Kelola Profil Perusahaan & Settings
+    // Fitur Kelola Profil Perusahaan, Settings & Choose Us
     Route::middleware('permission:manage-settings')->group(function () {
         Route::post('/company-profile', [CompanyProfileController::class, 'updateOrCreate']);
         Route::put('/company-profile', [CompanyProfileController::class, 'updateOrCreate']);
@@ -206,6 +221,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/settings', [SettingController::class, 'updateOrCreate']);
         Route::put('/settings', [SettingController::class, 'updateOrCreate']);
         Route::delete('/settings/{key}', [SettingController::class, 'destroy']);
+
+        // Choose Us Management
+        Route::post('/choose-us', [ChooseUsController::class, 'store']);
+        Route::put('/choose-us/{id}', [ChooseUsController::class, 'update']);
+        Route::delete('/choose-us/{id}', [ChooseUsController::class, 'destroy']);
     });
 
     // Fitur Kelola Pesan Kontak Masuk

@@ -14,24 +14,42 @@ class ProductInfolist
             ->components([
                 TextEntry::make('id')
                     ->label('ID'),
-                TextEntry::make('category.name')
-                    ->label('Category'),
-                TextEntry::make('client.name')
-                    ->label('Client')
+
+                ImageEntry::make('img_url')
+                    ->label('Gambar Produk')
+                    ->disk('public'),
+
+                TextEntry::make('name')
+                    ->label('Nama Produk'),
+
+                TextEntry::make('sub_name')
+                    ->label('Sub Nama')
                     ->placeholder('-'),
-                TextEntry::make('name'),
+
+                TextEntry::make('category.name')
+                    ->label('Kategori'),
+
+                TextEntry::make('client.name')
+                    ->label('Klien')
+                    ->placeholder('-'),
+
                 TextEntry::make('display_order')
+                    ->label('Urutan Tampilan')
                     ->numeric(),
+
+                TextEntry::make('link_url')
+                    ->label('Link URL')
+                    ->placeholder('-'),
+
                 TextEntry::make('description')
+                    ->label('Deskripsi')
                     ->placeholder('-')
                     ->columnSpanFull(),
-                TextEntry::make('link_url')
-                    ->placeholder('-'),
-                ImageEntry::make('img_url')
-                    ->label('product/image'),
+
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
+
                 TextEntry::make('updated_at')
                     ->dateTime()
                     ->placeholder('-'),

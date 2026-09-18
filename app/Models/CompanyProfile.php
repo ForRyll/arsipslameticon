@@ -20,12 +20,25 @@ class CompanyProfile extends Model
         'vision',
         'mission',
         'address',
+        'addresses',
         'whatsapp',
         'logo_url',
         'description',
         'ig_url',
         'tiktok_url',
+        'linkedin_url',
         'tagline',
+        'founded_year',
+        'is_active',
+    ];
+
+    /**
+     * Konversi tipe data otomatis (Casting)
+     */
+    protected $casts = [
+        'addresses'    => 'array',
+        'is_active'    => 'boolean',
+        'founded_year' => 'integer',
     ];
 
     /**

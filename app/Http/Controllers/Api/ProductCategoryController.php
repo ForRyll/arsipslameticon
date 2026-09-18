@@ -10,11 +10,11 @@ use Illuminate\Support\Str;
 class ProductCategoryController extends Controller
 {
     /**
-     * Public: Ambil semua kategori produk
+     * Public: Ambil semua kategori produk beserta fase kerjanya
      */
     public function index()
     {
-        $categories = ProductCategory::latest()->get();
+        $categories = ProductCategory::with('workPhases')->latest()->get();
 
         return response()->json([
             'status' => 'success',
@@ -23,11 +23,11 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * Public: Detail kategori produk
+     * Public: Detail kategori produk beserta fase kerjanya
      */
     public function show(string $id)
     {
-        $category = ProductCategory::findOrFail($id);
+        $category = ProductCategory::with('workPhases')->findOrFail($id);
 
         return response()->json([
             'status' => 'success',
@@ -42,7 +42,6 @@ class ProductCategoryController extends Controller
     {
         $data = $request->validated();
         
-        // Buat slug otomatis dari name jika tidak diisi
         $data['slug'] = !empty($data['slug']) ? Str::slug($data['slug']) : Str::slug($data['name']);
 
         $category = ProductCategory::create($data);

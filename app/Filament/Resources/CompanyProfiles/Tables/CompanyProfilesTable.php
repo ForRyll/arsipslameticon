@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -18,24 +19,37 @@ class CompanyProfilesTable
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
-                // Mengubah TextColumn logo_url menjadi ImageColumn
                 ImageColumn::make('logo_url')
                     ->label('Logo Perusahaan')
                     ->disk('public')
                     ->square(),
 
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('email')
                     ->searchable(),
+
                 TextColumn::make('whatsapp')
                     ->searchable(),
+
+                TextColumn::make('founded_year')
+                    ->label('Tahun Berdiri')
+                    ->sortable(),
+
+                IconColumn::make('is_active')
+                    ->label('Aktif')
+                    ->boolean(),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

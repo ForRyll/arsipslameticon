@@ -29,6 +29,14 @@ class ProductCategory extends Model
     }
 
     /**
+     * Relasi ke model WorkPhase
+     */
+    public function workPhases(): HasMany
+    {
+        return $this->hasMany(WorkPhase::class, 'product_category_id')->orderBy('display_order', 'asc');
+    }
+
+    /**
      * Nama kustom untuk deskripsi log
      */
     public function getActivityLogName(): string

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\TeamMembers\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -13,16 +14,40 @@ class TeamMemberInfolist
             ->components([
                 TextEntry::make('id')
                     ->label('ID'),
-                TextEntry::make('position_id'),
-                TextEntry::make('name'),
-                TextEntry::make('photo_url')
+
+                ImageEntry::make('photo_url')
+                    ->label('Foto Profil')
+                    ->disk('public'),
+
+                TextEntry::make('name')
+                    ->label('Nama Lengkap'),
+
+                TextEntry::make('position.name')
+                    ->label('Jabatan'),
+
+                TextEntry::make('last_education')
+                    ->label('Pendidikan Terakhir')
                     ->placeholder('-'),
+
                 TextEntry::make('bio')
+                    ->label('Bio Singkat')
                     ->placeholder('-')
                     ->columnSpanFull(),
+
+                TextEntry::make('about')
+                    ->label('Tentang')
+                    ->placeholder('-')
+                    ->columnSpanFull(),
+
+                TextEntry::make('quote')
+                    ->label('Kata-kata / Quote')
+                    ->placeholder('-')
+                    ->columnSpanFull(),
+
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
+
                 TextEntry::make('updated_at')
                     ->dateTime()
                     ->placeholder('-'),

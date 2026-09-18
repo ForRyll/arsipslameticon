@@ -19,6 +19,7 @@ class Product extends Model
         'category_id',
         'client_id',
         'name',
+        'sub_name',
         'display_order',
         'description',
         'link_url',

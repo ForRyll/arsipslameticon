@@ -20,6 +20,9 @@ class TeamMember extends Model
         'name',
         'photo_url',
         'bio',
+        'last_education',
+        'about',
+        'quote',
     ];
 
     /**

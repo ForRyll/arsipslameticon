@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -17,17 +18,34 @@ class TeamMembersTable
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->searchable(),
-                TextColumn::make('position_id')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                ImageColumn::make('photo_url')
+                    ->label('Foto')
+                    ->disk('public')
+                    ->circular(),
+
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('photo_url')
-                    ->searchable(),
+                    ->label('Nama')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('position.name')
+                    ->label('Jabatan')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('last_education')
+                    ->label('Pendidikan')
+                    ->searchable()
+                    ->toggleable(),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

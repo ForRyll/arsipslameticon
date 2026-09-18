@@ -15,26 +15,50 @@ class ProductForm
         return $schema
             ->components([
                 Select::make('category_id')
+                    ->label('Kategori Produk')
                     ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload()
                     ->required(),
+
                 Select::make('client_id')
-                    ->relationship('client', 'name'),
+                    ->label('Klien')
+                    ->relationship('client', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->nullable(),
+
                 TextInput::make('name')
+                    ->label('Nama Produk')
                     ->required(),
+
+                TextInput::make('sub_name')
+                    ->label('Sub Nama / Subtitle')
+                    ->placeholder('Contoh: Sistem Informasi Manajemen Desa')
+                    ->nullable(),
+
                 TextInput::make('display_order')
+                    ->label('Urutan Tampilan')
                     ->required()
                     ->numeric()
                     ->default(0),
-                Textarea::make('description')
-                    ->columnSpanFull(),
+
                 TextInput::make('link_url')
-                    ->url(),
+                    ->label('Link URL')
+                    ->url()
+                    ->placeholder('https://example.com'),
+
                 FileUpload::make('img_url')
                     ->label('Gambar Produk')
                     ->image()
                     ->directory('products')
                     ->disk('public')
-                    ->maxSize(2048),
+                    ->maxSize(2048)
+                    ->columnSpanFull(),
+
+                Textarea::make('description')
+                    ->label('Deskripsi')
+                    ->columnSpanFull(),
             ]);
     }
 }
