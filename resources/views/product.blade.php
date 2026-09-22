@@ -244,20 +244,10 @@
     <section id="projects" class="bg-[#1112A2] text-white py-20 md:py-24 px-6 md:px-12 overflow-hidden">
         <div class="max-w-[1050px] mx-auto">
 
-            {{-- <!-- SECTION TITLE -->
-            <div class="mb-10">
-                <span class="text-[12px] uppercase tracking-[0.2em] text-white/60">
-                    Our Services
-                </span>
-                <h2 class="text-[32px] md:text-[42px] font-medium leading-tight mt-2">
-                    How We Work
-                </h2>
-            </div> --}}
-
             <!-- =================================================
                  ACCORDION 1 : SOFTWARE & IT DEVELOPMENT
                  ================================================= -->
-            <div class="project-accordion border border-white/30 rounded-md mb-3 overflow-hidden" data-accordion>
+            <div class="project-accordion active border border-white/30 rounded-md mb-3 overflow-hidden" data-accordion>
                 <!-- HEADER -->
                 <button type="button" class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left" onclick="toggleAccordion(this)">
                     <span class="text-[21px] md:text-[27px] font-medium">Software & IT Development</span>
