@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\JobApplications\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
@@ -20,31 +20,61 @@ class JobApplicationsTable
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('jobOpening.title')
-                    ->label('Job Opening')
-                    ->searchable(),
+                    ->label('Lowongan')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Nama')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('email')
-                    ->label('Email address')
+                    ->label('Email')
                     ->searchable(),
+
                 TextColumn::make('phone')
-                    ->searchable(),
+                    ->label('Telepon')
+                    ->searchable()
+                    ->placeholder('-'),
+
                 TextColumn::make('status')
-                    ->badge(),
+                    ->label('Status')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'applied' => 'gray',
+                        'screened' => 'info',
+                        'interview_scheduled' => 'warning',
+                        'job_offer_extended' => 'primary',
+                        'accepted' => 'success',
+                        'rejected' => 'danger',
+                        default => 'gray',
+                    }),
+
                 TextColumn::make('cv_url')
-                    ->searchable(),
+                    ->label('CV')
+                    ->formatStateUsing(fn () => 'Lihat CV')
+                    ->url(fn ($record) => $record->cv_url ? asset('storage/' . $record->cv_url) : null, shouldOpenInNewTab: true)
+                    ->color('primary'),
+
                 TextColumn::make('applied_at')
                     ->label('Tanggal Pengajuan')
                     ->dateTime('d M Y, H:i')
                     ->sortable(),
+
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Diperbarui')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -71,11 +101,11 @@ class JobApplicationsTable
                             );
                     }),
             ])
-            ->recordActions([
+            ->actions([
                 ViewAction::make(),
                 EditAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

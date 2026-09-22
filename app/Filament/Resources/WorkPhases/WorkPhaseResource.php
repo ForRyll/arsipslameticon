@@ -10,17 +10,19 @@ use App\Filament\Resources\WorkPhases\Schemas\WorkPhaseForm;
 use App\Filament\Resources\WorkPhases\Schemas\WorkPhaseInfolist;
 use App\Filament\Resources\WorkPhases\Tables\WorkPhasesTable;
 use App\Models\WorkPhase;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class WorkPhaseResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = WorkPhase::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedQueueList;
+    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
 
     protected static ?string $navigationLabel = 'Fase Kerja';
 
@@ -30,14 +32,14 @@ class WorkPhaseResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return WorkPhaseForm::configure($schema);
+        return WorkPhaseForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return WorkPhaseInfolist::configure($schema);
+        return WorkPhaseInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table

@@ -10,29 +10,30 @@ use App\Filament\Resources\NewsCategories\Schemas\NewsCategoryForm;
 use App\Filament\Resources\NewsCategories\Schemas\NewsCategoryInfolist;
 use App\Filament\Resources\NewsCategories\Tables\NewsCategoriesTable;
 use App\Models\NewsCategory;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class NewsCategoryResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = NewsCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
 
-    // Diubah dari 'title' ke 'name' sesuai kolom di database
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return NewsCategoryForm::configure($schema);
+        return NewsCategoryForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return NewsCategoryInfolist::configure($schema);
+        return NewsCategoryInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -50,10 +51,10 @@ class NewsCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListNewsCategories::route('/'),
+            'index'  => ListNewsCategories::route('/'),
             'create' => CreateNewsCategory::route('/create'),
-            'view' => ViewNewsCategory::route('/{record}'),
-            'edit' => EditNewsCategory::route('/{record}/edit'),
+            'view'   => ViewNewsCategory::route('/{record}'),
+            'edit'   => EditNewsCategory::route('/{record}/edit'),
         ];
     }
 }

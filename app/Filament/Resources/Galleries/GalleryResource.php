@@ -10,28 +10,30 @@ use App\Filament\Resources\Galleries\Schemas\GalleryForm;
 use App\Filament\Resources\Galleries\Schemas\GalleryInfolist;
 use App\Filament\Resources\Galleries\Tables\GalleriesTable;
 use App\Models\Gallery;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class GalleryResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Gallery::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return GalleryForm::configure($schema);
+        return GalleryForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return GalleryInfolist::configure($schema);
+        return GalleryInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +51,10 @@ class GalleryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGalleries::route('/'),
+            'index'  => ListGalleries::route('/'),
             'create' => CreateGallery::route('/create'),
-            'view' => ViewGallery::route('/{record}'),
-            'edit' => EditGallery::route('/{record}/edit'),
+            'view'   => ViewGallery::route('/{record}'),
+            'edit'   => EditGallery::route('/{record}/edit'),
         ];
     }
 }

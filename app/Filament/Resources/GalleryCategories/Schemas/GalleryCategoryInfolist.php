@@ -3,23 +3,31 @@
 namespace App\Filament\Resources\GalleryCategories\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class GalleryCategoryInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('id')
                     ->label('ID'),
-                TextEntry::make('name'),
-                TextEntry::make('slug'),
+
+                TextEntry::make('name')
+                    ->label('Nama Kategori'),
+
+                TextEntry::make('slug')
+                    ->label('Slug'),
+
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('Waktu Dibuat')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
+
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('Terakhir Diperbarui')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
             ]);
     }

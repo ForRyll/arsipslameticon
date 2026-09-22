@@ -22,10 +22,14 @@ class Role extends Model
         return $this->hasMany(User::class);
     }
 
-public function permissions(): BelongsToMany
-{
-    return $this->belongsToMany(Permission::class, 'permission_role')
-                ->using(\Illuminate\Database\Eloquent\Relations\Pivot::class)
-                ->withPivot('id');
-}
+    /**
+     * Relasi permissions via pivot model PermissionRole
+     */
+    public function permissions(): BelongsToMany
+    {
+        return $this->belongsToMany(Permission::class, 'permission_role')
+            ->using(PermissionRole::class)
+            ->withPivot('id')
+            ->withTimestamps();
+    }
 }

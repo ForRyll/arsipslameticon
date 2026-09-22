@@ -4,28 +4,40 @@ namespace App\Filament\Resources\Clients\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class ClientInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('id')
                     ->label('ID'),
-                TextEntry::make('name'),
+
+                TextEntry::make('name')
+                    ->label('Nama Client'),
+
                 ImageEntry::make('logo_url')
-                    ->label('clients/logos'),
+                    ->label('Logo Client')
+                    ->disk('public'),
+
                 TextEntry::make('website_url')
+                    ->label('Website URL')
                     ->placeholder('-'),
+
                 TextEntry::make('display_url')
+                    ->label('Display URL')
                     ->placeholder('-'),
+
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('Waktu Dibuat')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
+
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('Terakhir Diperbarui')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
             ]);
     }

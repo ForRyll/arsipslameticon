@@ -10,28 +10,30 @@ use App\Filament\Resources\JobOpenings\Schemas\JobOpeningForm;
 use App\Filament\Resources\JobOpenings\Schemas\JobOpeningInfolist;
 use App\Filament\Resources\JobOpenings\Tables\JobOpeningsTable;
 use App\Models\JobOpening;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class JobOpeningResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = JobOpening::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserPlus;
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return JobOpeningForm::configure($schema);
+        return JobOpeningForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return JobOpeningInfolist::configure($schema);
+        return JobOpeningInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +51,10 @@ class JobOpeningResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListJobOpenings::route('/'),
+            'index'  => ListJobOpenings::route('/'),
             'create' => CreateJobOpening::route('/create'),
-            'view' => ViewJobOpening::route('/{record}'),
-            'edit' => EditJobOpening::route('/{record}/edit'),
+            'view'   => ViewJobOpening::route('/{record}'),
+            'edit'   => EditJobOpening::route('/{record}/edit'),
         ];
     }
 }

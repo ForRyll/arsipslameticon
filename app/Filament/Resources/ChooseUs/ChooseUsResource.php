@@ -10,19 +10,19 @@ use App\Filament\Resources\ChooseUs\Schemas\ChooseUsForm;
 use App\Filament\Resources\ChooseUs\Schemas\ChooseUsInfolist;
 use App\Filament\Resources\ChooseUs\Tables\ChooseUsTable;
 use App\Models\ChooseUs;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ChooseUsResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = ChooseUs::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCheckCircle;
-
-    // protected static ?string $navigationGroup = 'Settings & Public';
+    protected static ?string $navigationIcon = 'heroicon-o-check-circle';
 
     protected static ?string $navigationLabel = 'Why Choose Us';
 
@@ -34,14 +34,14 @@ class ChooseUsResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return ChooseUsForm::configure($schema);
+        return ChooseUsForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return ChooseUsInfolist::configure($schema);
+        return ChooseUsInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table

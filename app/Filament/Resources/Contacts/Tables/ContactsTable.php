@@ -2,11 +2,11 @@
 
 namespace App\Filament\Resources\Contacts\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
@@ -20,28 +20,53 @@ class ContactsTable
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Nama')
+                    ->searchable()
+                    ->sortable(),
+
                 TextColumn::make('email')
-                    ->label('Email address')
+                    ->label('Email Address')
                     ->searchable(),
+
                 TextColumn::make('phone')
-                    ->searchable(),
+                    ->label('Telepon')
+                    ->searchable()
+                    ->placeholder('-'),
+
                 TextColumn::make('subject')
-                    ->searchable(),
+                    ->label('Subjek')
+                    ->searchable()
+                    ->limit(30),
+
                 TextColumn::make('status')
-                    ->badge(),
+                    ->label('Status')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'unread'   => 'danger',
+                        'read'     => 'info',
+                        'replied'  => 'success',
+                        'archived' => 'gray',
+                        default    => 'gray',
+                    }),
+
                 TextColumn::make('submitted_at')
                     ->label('Tanggal Pengiriman')
                     ->dateTime('d M Y, H:i')
                     ->sortable(),
+
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Diperbarui')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -68,11 +93,11 @@ class ContactsTable
                             );
                     }),
             ])
-            ->recordActions([
+            ->actions([
                 ViewAction::make(),
                 EditAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

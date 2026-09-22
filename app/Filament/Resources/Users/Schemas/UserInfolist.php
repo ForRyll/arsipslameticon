@@ -3,29 +3,40 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class UserInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('id')
                     ->label('ID'),
+
                 TextEntry::make('role.name')
-                    ->label('Role'),
-                TextEntry::make('name'),
+                    ->label('Role')
+                    ->badge(),
+
+                TextEntry::make('name')
+                    ->label('Nama Lengkap'),
+
                 TextEntry::make('email')
-                    ->label('Email address'),
+                    ->label('Alamat Email'),
+
                 TextEntry::make('email_verified_at')
-                    ->dateTime()
-                    ->placeholder('-'),
+                    ->label('Verifikasi Email')
+                    ->dateTime('d M Y H:i')
+                    ->placeholder('Belum Diverifikasi'),
+
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('Tanggal Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->placeholder('-'),
+
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('Terakhir Diperbarui')
+                    ->dateTime('d M Y H:i')
                     ->placeholder('-'),
             ]);
     }

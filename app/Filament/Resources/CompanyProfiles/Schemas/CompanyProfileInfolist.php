@@ -6,23 +6,25 @@ use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\RepeatableEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class CompanyProfileInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('id')
                     ->label('ID'),
 
-                TextEntry::make('name'),
+                TextEntry::make('name')
+                    ->label('Nama Perusahaan'),
 
                 TextEntry::make('email')
-                    ->label('Email address'),
+                    ->label('Email Address'),
 
                 TextEntry::make('tagline')
+                    ->label('Tagline')
                     ->placeholder('-'),
 
                 TextEntry::make('founded_year')
@@ -38,14 +40,17 @@ class CompanyProfileInfolist
                     ->disk('public'),
 
                 TextEntry::make('vision')
+                    ->label('Visi')
                     ->placeholder('-')
                     ->columnSpanFull(),
 
                 TextEntry::make('mission')
+                    ->label('Misi')
                     ->placeholder('-')
                     ->columnSpanFull(),
 
                 TextEntry::make('description')
+                    ->label('Deskripsi')
                     ->placeholder('-')
                     ->columnSpanFull(),
 
@@ -58,11 +63,14 @@ class CompanyProfileInfolist
                     ->label('Daftar Alamat Cabang')
                     ->schema([
                         TextEntry::make('')
+                            ->hiddenLabel()
+                            ->getStateUsing(fn ($state) => is_array($state) ? ($state['address_item'] ?? '-') : $state)
                             ->placeholder('-'),
                     ])
                     ->columnSpanFull(),
 
                 TextEntry::make('whatsapp')
+                    ->label('WhatsApp')
                     ->placeholder('-'),
 
                 TextEntry::make('ig_url')
@@ -78,11 +86,13 @@ class CompanyProfileInfolist
                     ->placeholder('-'),
 
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('Waktu Dibuat')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
 
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('Terakhir Diperbarui')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
             ]);
     }

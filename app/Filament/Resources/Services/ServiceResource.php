@@ -10,28 +10,30 @@ use App\Filament\Resources\Services\Schemas\ServiceForm;
 use App\Filament\Resources\Services\Schemas\ServiceInfolist;
 use App\Filament\Resources\Services\Tables\ServicesTable;
 use App\Models\Service;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ServiceResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Service::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCog6Tooth;
+    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return ServiceForm::configure($schema);
+        return ServiceForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return ServiceInfolist::configure($schema);
+        return ServiceInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +51,10 @@ class ServiceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListServices::route('/'),
+            'index'  => ListServices::route('/'),
             'create' => CreateService::route('/create'),
-            'view' => ViewService::route('/{record}'),
-            'edit' => EditService::route('/{record}/edit'),
+            'view'   => ViewService::route('/{record}'),
+            'edit'   => EditService::route('/{record}/edit'),
         ];
     }
 }

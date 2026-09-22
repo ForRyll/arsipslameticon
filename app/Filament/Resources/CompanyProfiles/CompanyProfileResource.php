@@ -10,28 +10,30 @@ use App\Filament\Resources\CompanyProfiles\Schemas\CompanyProfileForm;
 use App\Filament\Resources\CompanyProfiles\Schemas\CompanyProfileInfolist;
 use App\Filament\Resources\CompanyProfiles\Tables\CompanyProfilesTable;
 use App\Models\CompanyProfile;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class CompanyProfileResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = CompanyProfile::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBuildingOffice;
+    protected static ?string $navigationIcon = 'heroicon-o-building-office';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return CompanyProfileForm::configure($schema);
+        return CompanyProfileForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return CompanyProfileInfolist::configure($schema);
+        return CompanyProfileInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +51,10 @@ class CompanyProfileResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListCompanyProfiles::route('/'),
+            'index'  => ListCompanyProfiles::route('/'),
             'create' => CreateCompanyProfile::route('/create'),
-            'view' => ViewCompanyProfile::route('/{record}'),
-            'edit' => EditCompanyProfile::route('/{record}/edit'),
+            'view'   => ViewCompanyProfile::route('/{record}'),
+            'edit'   => EditCompanyProfile::route('/{record}/edit'),
         ];
     }
 }

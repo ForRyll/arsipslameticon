@@ -2,23 +2,22 @@
 
 namespace App\Filament\Resources\News\Schemas;
 
-use App\Models\News;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Utilities\Set;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class NewsForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 Hidden::make('author_id')
                     ->default(fn () => Auth::id())
                     ->required(),
@@ -28,9 +27,11 @@ class NewsForm
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn (string $operation, $state, Set $set) => 
-                        $operation === 'create' ? $set('slug', Str::slug($state)) : null
-                    )
+                    ->afterStateUpdated(function ($state, Set $set) {
+                        if (filled($state)) {
+                            $set('slug', Str::slug($state));
+                        }
+                    })
                     ->columnSpanFull(),
 
                 TextInput::make('slug')
@@ -38,7 +39,6 @@ class NewsForm
                     ->required()
                     ->readOnly()
                     ->maxLength(255)
-                    ->unique(News::class, 'slug', ignoreRecord: true)
                     ->columnSpanFull(),
 
                 Select::make('category_id')

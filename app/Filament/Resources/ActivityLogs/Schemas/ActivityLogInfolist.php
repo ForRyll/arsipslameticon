@@ -3,32 +3,39 @@
 namespace App\Filament\Resources\ActivityLogs\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class ActivityLogInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('id')
-                    ->label('ID'),
+                    ->label('ID Log'),
                 TextEntry::make('user.name')
-                    ->label('User')
-                    ->placeholder('-'),
-                TextEntry::make('action'),
-                TextEntry::make('description')
-                    ->placeholder('-')
-                    ->columnSpanFull(),
+                    ->label('Pengguna')
+                    ->placeholder('System / Bot'),
+                TextEntry::make('action')
+                    ->label('Aksi')
+                    ->badge(),
                 TextEntry::make('target_type')
+                    ->label('Tipe Target')
                     ->placeholder('-'),
                 TextEntry::make('target_id')
+                    ->label('ID Target')
                     ->placeholder('-'),
+                TextEntry::make('description')
+                    ->label('Deskripsi')
+                    ->placeholder('-')
+                    ->columnSpanFull(),
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('Waktu Dibuat')
+                    ->dateTime('d M Y, H:i:s')
                     ->placeholder('-'),
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('Waktu Diperbarui')
+                    ->dateTime('d M Y, H:i:s')
                     ->placeholder('-'),
             ]);
     }

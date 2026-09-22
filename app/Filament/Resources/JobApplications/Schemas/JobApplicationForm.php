@@ -3,46 +3,71 @@
 namespace App\Filament\Resources\JobApplications\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Form;
 
 class JobApplicationForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 Select::make('job_opening_id')
+                    ->label('Lowongan Pekerjaan')
                     ->relationship('jobOpening', 'title')
+                    ->searchable()
+                    ->preload()
                     ->required(),
+
                 TextInput::make('name')
-                    ->required(),
+                    ->label('Nama Lengkap')
+                    ->required()
+                    ->maxLength(255),
+
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label('Alamat Email')
                     ->email()
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
+
                 TextInput::make('phone')
-                    ->tel(),
+                    ->label('Nomor Telepon')
+                    ->tel()
+                    ->maxLength(255),
+
                 Select::make('status')
+                    ->label('Status Lamaran')
                     ->options([
-            'applied' => 'Applied',
-            'screened' => 'Screened',
-            'interview_scheduled' => 'Interview scheduled',
-            'job_offer_extended' => 'Job offer extended',
-            'accepted' => 'Accepted',
-            'rejected' => 'Rejected',
-        ])
+                        'applied' => 'Applied',
+                        'screened' => 'Screened',
+                        'interview_scheduled' => 'Interview Scheduled',
+                        'job_offer_extended' => 'Job Offer Extended',
+                        'accepted' => 'Accepted',
+                        'rejected' => 'Rejected',
+                    ])
                     ->default('applied')
                     ->required(),
-                TextInput::make('cv_url')
-                    ->url()
+
+                FileUpload::make('cv_url')
+                    ->label('Berkas CV / Resume')
+                    ->directory('job-applications/cvs')
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->openable()
+                    ->downloadable()
                     ->required(),
-                Textarea::make('cover_letter')
-                    ->columnSpanFull(),
+
                 DateTimePicker::make('applied_at')
+                    ->label('Tanggal Pengajuan')
+                    ->default(now())
                     ->required(),
+
+                Textarea::make('cover_letter')
+                    ->label('Surat Lamaran (Cover Letter)')
+                    ->rows(4)
+                    ->columnSpanFull(),
             ]);
     }
 }

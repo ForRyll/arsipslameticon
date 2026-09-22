@@ -4,14 +4,14 @@ namespace App\Filament\Resources\News\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class NewsInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 ImageEntry::make('img_url')
                     ->label('Gambar Utama')
                     ->columnSpanFull(),

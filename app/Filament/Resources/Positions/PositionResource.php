@@ -10,28 +10,30 @@ use App\Filament\Resources\Positions\Schemas\PositionForm;
 use App\Filament\Resources\Positions\Schemas\PositionInfolist;
 use App\Filament\Resources\Positions\Tables\PositionsTable;
 use App\Models\Position;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class PositionResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Position::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBriefcase;
+    protected static ?string $navigationIcon = 'heroicon-o-identification';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return PositionForm::configure($schema);
+        return PositionForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return PositionInfolist::configure($schema);
+        return PositionInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +51,10 @@ class PositionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListPositions::route('/'),
+            'index'  => ListPositions::route('/'),
             'create' => CreatePosition::route('/create'),
-            'view' => ViewPosition::route('/{record}'),
-            'edit' => EditPosition::route('/{record}/edit'),
+            'view'   => ViewPosition::route('/{record}'),
+            'edit'   => EditPosition::route('/{record}/edit'),
         ];
     }
 }

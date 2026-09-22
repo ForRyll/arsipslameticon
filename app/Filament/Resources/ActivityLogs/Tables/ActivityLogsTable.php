@@ -2,10 +2,9 @@
 
 namespace App\Filament\Resources\ActivityLogs\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -17,32 +16,35 @@ class ActivityLogsTable
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('user.name')
-                    ->searchable(),
+                    ->label('User')
+                    ->searchable()
+                    ->placeholder('System'),
                 TextColumn::make('action')
-                    ->searchable(),
+                    ->label('Aksi')
+                    ->searchable()
+                    ->badge(),
                 TextColumn::make('target_type')
+                    ->label('Tipe Target')
                     ->searchable(),
                 TextColumn::make('target_id')
+                    ->label('ID Target')
                     ->searchable(),
                 TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('Waktu')
+                    ->dateTime('d M Y, H:i')
+                    ->sortable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
-            ->recordActions([
+            ->actions([
                 ViewAction::make(),
-                EditAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

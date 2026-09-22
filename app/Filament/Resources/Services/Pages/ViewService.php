@@ -4,15 +4,19 @@ namespace App\Filament\Resources\Services\Pages;
 
 use App\Filament\Resources\Services\ServiceResource;
 use Filament\Actions\EditAction;
+use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ViewRecord;
 
 class ViewService extends ViewRecord
 {
+    use ViewRecord\Concerns\Translatable;
+
     protected static string $resource = ServiceResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
+            LocaleSwitcher::make(),
             EditAction::make(),
         ];
     }

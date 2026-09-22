@@ -10,28 +10,27 @@ use App\Filament\Resources\Settings\Schemas\SettingForm;
 use App\Filament\Resources\Settings\Schemas\SettingInfolist;
 use App\Filament\Resources\Settings\Tables\SettingsTable;
 use App\Models\Setting;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class SettingResource extends Resource
 {
     protected static ?string $model = Setting::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedAdjustmentsHorizontal;
+    protected static ?string $navigationIcon = 'heroicon-o-adjustments-horizontal';
 
     protected static ?string $recordTitleAttribute = 'key';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return SettingForm::configure($schema);
+        return SettingForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return SettingInfolist::configure($schema);
+        return SettingInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +48,10 @@ class SettingResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListSettings::route('/'),
+            'index'  => ListSettings::route('/'),
             'create' => CreateSetting::route('/create'),
-            'view' => ViewSetting::route('/{record}'),
-            'edit' => EditSetting::route('/{record}/edit'),
+            'view'   => ViewSetting::route('/{record}'),
+            'edit'   => EditSetting::route('/{record}/edit'),
         ];
     }
 }

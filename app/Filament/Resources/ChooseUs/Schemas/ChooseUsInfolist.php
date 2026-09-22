@@ -3,16 +3,16 @@
 namespace App\Filament\Resources\ChooseUs\Schemas;
 
 use Filament\Infolists\Components\IconEntry;
+use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Components\Section; // <-- Perbaikan di sini
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class ChooseUsInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 Section::make('Detail Point')
                     ->schema([
                         TextEntry::make('id')

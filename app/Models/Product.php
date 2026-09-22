@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Translatable\HasTranslations;
 
 class Product extends Model
 {
-    use HasFactory, HasUuids, LogsActivity;
+    use HasFactory, HasUuids, LogsActivity, HasTranslations;
 
     protected $keyType = 'string';
     public $incrementing = false;
+
+    public array $translatable = [
+        'name',
+        'sub_name',
+        'description',
+    ];
 
     protected $fillable = [
         'category_id',
@@ -26,25 +33,16 @@ class Product extends Model
         'img_url',
     ];
 
-    /**
-     * Relasi ke ProductCategory
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(ProductCategory::class, 'category_id');
     }
 
-    /**
-     * Relasi ke Client
-     */
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class, 'client_id');
     }
 
-    /**
-     * Nama kustom untuk deskripsi log
-     */
     public function getActivityLogName(): string
     {
         return 'Produk';

@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\Translatable\HasTranslations;
 
 class News extends Model
 {
-    use HasFactory, HasUuids, LogsActivity;
+    use HasFactory, HasUuids, LogsActivity, HasTranslations;
 
     protected $keyType = 'string';
     public $incrementing = false;
+
+    public array $translatable = [
+        'title',
+        'slug',
+        'content',
+    ];
 
     protected $fillable = [
         'author_id',
@@ -24,25 +31,16 @@ class News extends Model
         'content',
     ];
 
-    /**
-     * Relasi ke model User (sebagai Author)
-     */
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author_id');
     }
 
-    /**
-     * Relasi ke model NewsCategory
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(NewsCategory::class, 'category_id');
     }
 
-    /**
-     * Nama kustom untuk deskripsi log
-     */
     public function getActivityLogName(): string
     {
         return 'Berita';

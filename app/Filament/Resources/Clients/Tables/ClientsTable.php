@@ -2,10 +2,11 @@
 
 namespace App\Filament\Resources\Clients\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -17,32 +18,50 @@ class ClientsTable
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
+                ImageColumn::make('logo_url')
+                    ->label('Logo')
+                    ->disk('public')
+                    ->circular(),
+
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('logo_url')
-                    ->searchable(),
+                    ->label('Nama Client')
+                    ->searchable()
+                    ->sortable()
+                    ->weight('bold'),
+
                 TextColumn::make('website_url')
-                    ->searchable(),
+                    ->label('Website')
+                    ->searchable()
+                    ->placeholder('-'),
+
                 TextColumn::make('display_url')
-                    ->searchable(),
+                    ->label('Display URL')
+                    ->searchable()
+                    ->placeholder('-'),
+
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Diperbarui')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
-            ->recordActions([
+            ->actions([
                 ViewAction::make(),
                 EditAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

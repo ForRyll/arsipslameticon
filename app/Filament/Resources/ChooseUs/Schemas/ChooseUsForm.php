@@ -2,18 +2,18 @@
 
 namespace App\Filament\Resources\ChooseUs\Schemas;
 
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Schemas\Components\Section; // <-- Perbaikan di sini
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 class ChooseUsForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 Section::make('Informasi Why Choose Us')
                     ->schema([
                         TextInput::make('title')

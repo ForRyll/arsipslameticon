@@ -6,13 +6,21 @@ use App\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class CompanyProfile extends Model
 {
-    use HasFactory, HasUuids, LogsActivity;
+    use HasFactory, HasUuids, LogsActivity, HasTranslations;
 
     protected $keyType = 'string';
     public $incrementing = false;
+
+    public array $translatable = [
+        'vision',
+        'mission',
+        'description',
+        'tagline',
+    ];
 
     protected $fillable = [
         'name',
@@ -32,18 +40,12 @@ class CompanyProfile extends Model
         'is_active',
     ];
 
-    /**
-     * Konversi tipe data otomatis (Casting)
-     */
     protected $casts = [
         'addresses'    => 'array',
         'is_active'    => 'boolean',
         'founded_year' => 'integer',
     ];
 
-    /**
-     * Nama kustom untuk deskripsi log
-     */
     public function getActivityLogName(): string
     {
         return 'Profil Perusahaan';

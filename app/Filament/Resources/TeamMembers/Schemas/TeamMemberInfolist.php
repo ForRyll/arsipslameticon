@@ -4,20 +4,21 @@ namespace App\Filament\Resources\TeamMembers\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class TeamMemberInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('id')
                     ->label('ID'),
 
                 ImageEntry::make('photo_url')
                     ->label('Foto Profil')
-                    ->disk('public'),
+                    ->disk('public')
+                    ->circular(),
 
                 TextEntry::make('name')
                     ->label('Nama Lengkap'),
@@ -45,11 +46,13 @@ class TeamMemberInfolist
                     ->columnSpanFull(),
 
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('Tanggal Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->placeholder('-'),
 
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('Terakhir Diperbarui')
+                    ->dateTime('d M Y H:i')
                     ->placeholder('-'),
             ]);
     }

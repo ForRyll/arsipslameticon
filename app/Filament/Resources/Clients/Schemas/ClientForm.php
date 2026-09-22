@@ -4,18 +4,19 @@ namespace App\Filament\Resources\Clients\Schemas;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 class ClientForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 TextInput::make('name')
-                    ->required(),
+                    ->label('Nama Client')
+                    ->required()
+                    ->maxLength(255),
 
-                // Mengubah TextInput menjadi FileUpload untuk logo
                 FileUpload::make('logo_url')
                     ->label('Logo Client')
                     ->image()
@@ -25,10 +26,14 @@ class ClientForm
                     ->nullable(),
 
                 TextInput::make('website_url')
-                    ->url(),
+                    ->label('Website URL')
+                    ->url()
+                    ->maxLength(255),
 
                 TextInput::make('display_url')
-                    ->url(),
+                    ->label('Display URL')
+                    ->url()
+                    ->maxLength(255),
             ]);
     }
 }

@@ -4,31 +4,44 @@ namespace App\Filament\Resources\Galleries\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class GalleryInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('id')
                     ->label('ID'),
+
                 TextEntry::make('category.name')
-                    ->label('Category'),
-                TextEntry::make('title'),
+                    ->label('Kategori'),
+
+                TextEntry::make('title')
+                    ->label('Judul'),
+
                 TextEntry::make('display_order')
+                    ->label('Urutan Tampil')
                     ->numeric(),
+
                 ImageEntry::make('img_url')
-                    ->label('gallery/image'),
+                    ->label('Gambar')
+                    ->disk('public'),
+
                 TextEntry::make('caption')
+                    ->label('Keterangan / Caption')
                     ->placeholder('-')
                     ->columnSpanFull(),
+
                 TextEntry::make('created_at')
-                    ->dateTime()
+                    ->label('Waktu Dibuat')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
+
                 TextEntry::make('updated_at')
-                    ->dateTime()
+                    ->label('Terakhir Diperbarui')
+                    ->dateTime('d M Y, H:i')
                     ->placeholder('-'),
             ]);
     }

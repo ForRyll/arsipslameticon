@@ -7,23 +7,28 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 class CompanyProfileForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 TextInput::make('name')
-                    ->required(),
+                    ->label('Nama Perusahaan')
+                    ->required()
+                    ->maxLength(255),
 
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label('Email Address')
                     ->email()
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
 
-                TextInput::make('tagline'),
+                TextInput::make('tagline')
+                    ->label('Tagline')
+                    ->maxLength(255),
 
                 TextInput::make('founded_year')
                     ->label('Tahun Berdiri')
@@ -44,20 +49,21 @@ class CompanyProfileForm
                     ->nullable(),
 
                 Textarea::make('vision')
+                    ->label('Visi')
                     ->columnSpanFull(),
 
                 Textarea::make('mission')
+                    ->label('Misi')
                     ->columnSpanFull(),
 
                 Textarea::make('description')
+                    ->label('Deskripsi')
                     ->columnSpanFull(),
 
-                // Field alamat utama (legacy/single text)
                 Textarea::make('address')
                     ->label('Alamat Utama')
                     ->columnSpanFull(),
 
-                // Field daftar alamat opsional (array/JSON)
                 Repeater::make('addresses')
                     ->label('Daftar Alamat Cabang / Lengkap')
                     ->simple(
@@ -68,19 +74,24 @@ class CompanyProfileForm
                     ->addActionLabel('Tambah Alamat')
                     ->columnSpanFull(),
 
-                TextInput::make('whatsapp'),
+                TextInput::make('whatsapp')
+                    ->label('Nomor WhatsApp')
+                    ->maxLength(255),
 
                 TextInput::make('ig_url')
                     ->label('Instagram URL')
-                    ->url(),
+                    ->url()
+                    ->maxLength(255),
 
                 TextInput::make('tiktok_url')
                     ->label('TikTok URL')
-                    ->url(),
+                    ->url()
+                    ->maxLength(255),
 
                 TextInput::make('linkedin_url')
                     ->label('LinkedIn URL')
-                    ->url(),
+                    ->url()
+                    ->maxLength(255),
             ]);
     }
 }

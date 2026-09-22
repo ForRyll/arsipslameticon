@@ -10,28 +10,27 @@ use App\Filament\Resources\Contacts\Schemas\ContactForm;
 use App\Filament\Resources\Contacts\Schemas\ContactInfolist;
 use App\Filament\Resources\Contacts\Tables\ContactsTable;
 use App\Models\Contact;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedEnvelope;
+    protected static ?string $navigationIcon = 'heroicon-o-envelope';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return ContactForm::configure($schema);
+        return ContactForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return ContactInfolist::configure($schema);
+        return ContactInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +48,10 @@ class ContactResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListContacts::route('/'),
+            'index'  => ListContacts::route('/'),
             'create' => CreateContact::route('/create'),
-            'view' => ViewContact::route('/{record}'),
-            'edit' => EditContact::route('/{record}/edit'),
+            'view'   => ViewContact::route('/{record}'),
+            'edit'   => EditContact::route('/{record}/edit'),
         ];
     }
 }

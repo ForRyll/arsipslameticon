@@ -2,10 +2,10 @@
 
 namespace App\Filament\Resources\CompanyProfiles\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -28,13 +28,17 @@ class CompanyProfilesTable
                     ->square(),
 
                 TextColumn::make('name')
+                    ->label('Nama Perusahaan')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->weight('bold'),
 
                 TextColumn::make('email')
+                    ->label('Email')
                     ->searchable(),
 
                 TextColumn::make('whatsapp')
+                    ->label('WhatsApp')
                     ->searchable(),
 
                 TextColumn::make('founded_year')
@@ -46,23 +50,25 @@ class CompanyProfilesTable
                     ->boolean(),
 
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->label('Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->label('Diperbarui')
+                    ->dateTime('d M Y H:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
-            ->recordActions([
+            ->actions([
                 ViewAction::make(),
                 EditAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),

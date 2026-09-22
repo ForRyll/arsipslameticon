@@ -10,28 +10,27 @@ use App\Filament\Resources\Clients\Schemas\ClientForm;
 use App\Filament\Resources\Clients\Schemas\ClientInfolist;
 use App\Filament\Resources\Clients\Tables\ClientsTable;
 use App\Models\Client;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ClientResource extends Resource
 {
     protected static ?string $model = Client::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return ClientForm::configure($schema);
+        return ClientForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return ClientInfolist::configure($schema);
+        return ClientInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +48,10 @@ class ClientResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListClients::route('/'),
+            'index'  => ListClients::route('/'),
             'create' => CreateClient::route('/create'),
-            'view' => ViewClient::route('/{record}'),
-            'edit' => EditClient::route('/{record}/edit'),
+            'view'   => ViewClient::route('/{record}'),
+            'edit'   => EditClient::route('/{record}/edit'),
         ];
     }
 }

@@ -10,28 +10,30 @@ use App\Filament\Resources\ProductCategories\Schemas\ProductCategoryForm;
 use App\Filament\Resources\ProductCategories\Schemas\ProductCategoryInfolist;
 use App\Filament\Resources\ProductCategories\Tables\ProductCategoriesTable;
 use App\Models\ProductCategory;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ProductCategoryResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = ProductCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCube;
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return ProductCategoryForm::configure($schema);
+        return ProductCategoryForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return ProductCategoryInfolist::configure($schema);
+        return ProductCategoryInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table
@@ -49,10 +51,10 @@ class ProductCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListProductCategories::route('/'),
+            'index'  => ListProductCategories::route('/'),
             'create' => CreateProductCategory::route('/create'),
-            'view' => ViewProductCategory::route('/{record}'),
-            'edit' => EditProductCategory::route('/{record}/edit'),
+            'view'   => ViewProductCategory::route('/{record}'),
+            'edit'   => EditProductCategory::route('/{record}/edit'),
         ];
     }
 }

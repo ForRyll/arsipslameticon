@@ -10,28 +10,27 @@ use App\Filament\Resources\ActivityLogs\Schemas\ActivityLogForm;
 use App\Filament\Resources\ActivityLogs\Schemas\ActivityLogInfolist;
 use App\Filament\Resources\ActivityLogs\Tables\ActivityLogsTable;
 use App\Models\ActivityLog;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class ActivityLogResource extends Resource
 {
     protected static ?string $model = ActivityLog::class;
 
-   protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     protected static ?string $recordTitleAttribute = 'action';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return ActivityLogForm::configure($schema);
+        return ActivityLogForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return ActivityLogInfolist::configure($schema);
+        return ActivityLogInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table

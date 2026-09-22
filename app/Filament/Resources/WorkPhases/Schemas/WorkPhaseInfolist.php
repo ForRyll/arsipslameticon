@@ -3,14 +3,14 @@
 namespace App\Filament\Resources\WorkPhases\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
+use Filament\Infolists\Infolist;
 
 class WorkPhaseInfolist
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Infolist $infolist): Infolist
     {
-        return $schema
-            ->components([
+        return $infolist
+            ->schema([
                 TextEntry::make('productCategory.name')
                     ->label('Kategori Produk')
                     ->badge(),
@@ -33,12 +33,12 @@ class WorkPhaseInfolist
 
                 TextEntry::make('created_at')
                     ->label('Dibuat Pada')
-                    ->dateTime()
+                    ->dateTime('d M Y H:i')
                     ->placeholder('-'),
 
                 TextEntry::make('updated_at')
                     ->label('Diperbarui Pada')
-                    ->dateTime()
+                    ->dateTime('d M Y H:i')
                     ->placeholder('-'),
             ]);
     }

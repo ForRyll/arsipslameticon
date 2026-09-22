@@ -6,14 +6,14 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 class ProductForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
-            ->components([
+        return $form
+            ->schema([
                 Select::make('category_id')
                     ->label('Kategori Produk')
                     ->relationship('category', 'name')
@@ -30,11 +30,13 @@ class ProductForm
 
                 TextInput::make('name')
                     ->label('Nama Produk')
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
 
                 TextInput::make('sub_name')
                     ->label('Sub Nama / Subtitle')
                     ->placeholder('Contoh: Sistem Informasi Manajemen Desa')
+                    ->maxLength(255)
                     ->nullable(),
 
                 TextInput::make('display_order')
@@ -46,11 +48,13 @@ class ProductForm
                 TextInput::make('link_url')
                     ->label('Link URL')
                     ->url()
-                    ->placeholder('https://example.com'),
+                    ->placeholder('https://example.com')
+                    ->maxLength(255),
 
                 FileUpload::make('img_url')
                     ->label('Gambar Produk')
                     ->image()
+                    ->imageEditor()
                     ->directory('products')
                     ->disk('public')
                     ->maxSize(2048)
@@ -58,6 +62,7 @@ class ProductForm
 
                 Textarea::make('description')
                     ->label('Deskripsi')
+                    ->rows(4)
                     ->columnSpanFull(),
             ]);
     }
