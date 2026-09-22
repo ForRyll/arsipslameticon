@@ -24,114 +24,532 @@
     <!-- Manggil Navbar -->
     @include('partials.navbar')
 
-    <!-- 2. HERO SECTION — EXACT LAYOUT DARI REFERENSI GAMBAR -->
-    <section class="relative min-h-screen w-full bg-[#f2f2f0] overflow-hidden pt-24 pb-16" id="home">
-        <div class="max-w-[1440px] mx-auto min-h-[calc(100vh-100px)] relative px-6 md:px-12">
+<!-- =========================================================
+     2. HERO SECTION
+========================================================= -->
+<section
+    class="relative min-h-screen w-full bg-[#f2f2f0] overflow-hidden pt-24 pb-16"
+    id="home"
+>
 
-            <!-- Hero Copy (Kiri Atas) -->
-            <div class="relative z-20 md:absolute md:left-[5%] md:top-[10%] max-w-xl mb-12 md:mb-0">
-                <h1
-                    class="font-['Inter_Tight'] text-5xl sm:text-6xl md:text-[3.3rem] font-normal italic leading-[1.05] tracking-tight text-[#1218ae]">
-                    Digging the <strong class="font-bold not-italic text-[#1218ae]">Treasure,</strong><br>
-                    Embracing the <strong class="font-bold not-italic text-[#1218ae]">Venture,</strong><br>
-                    Shaping the <strong class="font-bold not-italic text-[#1218ae]">Future,</strong>
-                </h1>
-                <p class="mt-6 text-sm font-medium tracking-widest text-gray-500 uppercase">
-                    Architecture · Development · Creative
-                </p>
-            </div>
+    <div
+        class="max-w-[1440px] mx-auto min-h-[calc(100vh-100px)]
+               relative px-6 md:px-12
+               flex flex-col"
+    >
 
-            <!-- Hero Visual: Auto-Scroll Diagonal -->
-            <div class="relative w-full h-[500px] md:absolute md:inset-0 md:h-full overflow-hidden pointer-events-none">
-                <div class="hero-diagonal-wrap">
-                    <div class="hero-track">
-                        <div class="hero-card"><img src="{{ asset('images/bimbelio.jpeg') }}" alt="Project Preview 1">
-                        </div>
-                        <div class="hero-card"><img src="{{ asset('images/humanusia.jpeg') }}" alt="Project Preview 2">
-                        </div>
-                        <div class="hero-card"><img src="{{ asset('images/soemitro.jpeg') }}" alt="Project Preview 3">
-                        </div>
-                        <div class="hero-card bg-white"><img src="{{ asset('images/logo1.png') }}"
-                                class="!object-contain" alt="Project Preview 4"></div>
-                        <div class="hero-card bg-white"><img src="{{ asset('images/slameticon.png') }}"
-                                class="!object-contain p-4" alt="Project Preview 5"></div>
-                        <!-- duplikat (wajib sama urutan & jumlah, buat loop mulus) -->
-                        <div class="hero-card"><img src="{{ asset('images/bimbelio.jpeg') }}" alt="Project Preview 1">
-                        </div>
-                        <div class="hero-card"><img src="{{ asset('images/humanusia.jpeg') }}" alt="Project Preview 2">
-                        </div>
-                        <div class="hero-card"><img src="{{ asset('images/soemitro.jpeg') }}" alt="Project Preview 3">
-                        </div>
-                        <div class="hero-card bg-white"><img src="{{ asset('images/logo1.png') }}"
-                                class="!object-contain" alt="Project Preview 4"></div>
-                        <div class="hero-card bg-white"><img src="{{ asset('images/slameticon.png') }}"
-                                class="!object-contain p-4" alt="Project Preview 5"></div>
+        <!-- =================================================
+             HERO VISUAL
+             MOBILE : tampil paling atas
+             DESKTOP: tetap absolute memenuhi hero
+        ================================================== -->
+        <div
+            class="relative
+                   order-1
+                   w-full
+                   h-[500px]
+                   md:absolute md:inset-0 md:h-full
+                   overflow-hidden
+                   pointer-events-none"
+        >
+
+            <div class="hero-diagonal-wrap">
+
+                <div class="hero-track">
+
+                    <!-- =========================
+                         LOOP SET 1
+                    ========================== -->
+
+                    <div class="hero-card">
+                        <img
+                            src="{{ asset('images/bimbelio.jpeg') }}"
+                            alt="Project Preview 1"
+                        >
                     </div>
+
+                    <div class="hero-card">
+                        <img
+                            src="{{ asset('images/humanusia.jpeg') }}"
+                            alt="Project Preview 2"
+                        >
+                    </div>
+
+                    <div class="hero-card">
+                        <img
+                            src="{{ asset('images/soemitro.jpeg') }}"
+                            alt="Project Preview 3"
+                        >
+                    </div>
+
+                    <div class="hero-card bg-white">
+                        <img
+                            src="{{ asset('images/logo1.png') }}"
+                            class="!object-contain"
+                            alt="Project Preview 4"
+                        >
+                    </div>
+
+                    <div class="hero-card bg-white">
+                        <img
+                            src="{{ asset('images/slameticon.png') }}"
+                            class="!object-contain p-4"
+                            alt="Project Preview 5"
+                        >
+                    </div>
+
+
+                    <!-- =========================
+                         LOOP SET 2
+                         HARUS SAMA PERSIS
+                    ========================== -->
+
+                    <div class="hero-card">
+                        <img
+                            src="{{ asset('images/bimbelio.jpeg') }}"
+                            alt="Project Preview 1"
+                        >
+                    </div>
+
+                    <div class="hero-card">
+                        <img
+                            src="{{ asset('images/humanusia.jpeg') }}"
+                            alt="Project Preview 2"
+                        >
+                    </div>
+
+                    <div class="hero-card">
+                        <img
+                            src="{{ asset('images/soemitro.jpeg') }}"
+                            alt="Project Preview 3"
+                        >
+                    </div>
+
+                    <div class="hero-card bg-white">
+                        <img
+                            src="{{ asset('images/logo1.png') }}"
+                            class="!object-contain"
+                            alt="Project Preview 4"
+                        >
+                    </div>
+
+                    <div class="hero-card bg-white">
+                        <img
+                            src="{{ asset('images/slameticon.png') }}"
+                            class="!object-contain p-4"
+                            alt="Project Preview 5"
+                        >
+                    </div>
+
                 </div>
-            </div>
 
-            <style>
-                .hero-diagonal-wrap {
-                    position: absolute;
-                    inset: -60% -60%;
-                    /* dibikin lebih gede dari box biar pas dirotate gak ada celah kosong di pojok */
-                    transform: rotate(40deg);
-                    /* ini sudut kemiringannya, atur sampai pas kayak video */
-                    transform-origin: center;
-                }
-
-                .hero-track {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 32px;
-                    width: 100%;
-                    animation: heroScrollUp 30s linear infinite;
-                }
-
-                .hero-card {
-                    width: 380px;
-                    height: 220px;
-                    border-radius: 4px;
-                    overflow: hidden;
-                    flex-shrink: 0;
-                    transform: rotate(-40deg);
-                    /* WAJIB sama besar tapi kebalik sama .hero-diagonal-wrap, biar foto tetep lurus */
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
-                }
-
-                .hero-card img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-                @keyframes heroScrollUp {
-                    from {
-                        transform: translateY(0);
-                    }
-
-                    to {
-                        transform: translateY(-50%);
-                    }
-                }
-            </style>
-
-            <!-- Hero Info & CTA (Kanan Bawah) -->
-            <div class="relative z-30 md:absolute md:right-[5%] md:bottom-[10%] max-w-md mt-8 md:mt-0">
-                <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6 font-normal">
-                    Design, publish, and scale gorgeous responsive websites in real-time. No code required. Loved by
-                    over 100,000+ designers globally.
-                </p>
-                <a href="#contact"
-                    class="inline-flex items-center gap-2 px-7 py-3.5 rounded bg-[#1218ae] text-white text-sm font-semibold hover:bg-blue-900 transition shadow-lg shadow-blue-900/20">
-                    <span>Start Collaboration</span>
-                    <span>↗</span>
-                </a>
             </div>
 
         </div>
-    </section>
+
+
+        <!-- =================================================
+             HERO COPY
+
+             DESKTOP:
+             kiri atas
+
+             MOBILE:
+             dipindahkan ke bawah gambar
+        ================================================== -->
+        <div
+            class="relative
+                   z-20
+                   order-2
+                   md:absolute
+                   md:left-[5%]
+                   md:top-[10%]
+                   max-w-xl
+                   mt-10
+                   md:mt-0
+                   mb-0
+                   md:mb-0"
+        >
+
+            <h1
+                class="font-['Inter_Tight']
+                       text-5xl
+                       sm:text-6xl
+                       md:text-[3.3rem]
+                       font-normal
+                       italic
+                       leading-[1.05]
+                       tracking-tight
+                       text-[#1218ae]"
+            >
+
+                Digging the
+                <strong class="font-bold not-italic text-[#1218ae]">
+                    Treasure,
+                </strong>
+                <br>
+
+                Embracing the
+                <strong class="font-bold not-italic text-[#1218ae]">
+                    Venture,
+                </strong>
+                <br>
+
+                Shaping the
+                <strong class="font-bold not-italic text-[#1218ae]">
+                    Future,
+                </strong>
+
+            </h1>
+
+
+            <p
+                class="mt-6
+                       text-sm
+                       font-medium
+                       tracking-widest
+                       text-gray-500
+                       uppercase"
+            >
+                Architecture · Development · Creative
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             HERO INFO & CTA
+
+             DESKTOP:
+             kanan bawah
+
+             MOBILE:
+             tepat di bawah Hero Copy
+        ================================================== -->
+        <div
+            class="relative
+                   z-30
+                   order-3
+                   max-w-md
+                   mt-10
+                   md:mt-0
+                   md:absolute
+                   md:right-[5%]
+                   md:bottom-[10%]"
+        >
+
+            <p
+                class="text-gray-700
+                       text-base
+                       md:text-lg
+                       leading-relaxed
+                       mb-6
+                       font-normal"
+            >
+                Design, publish, and scale gorgeous responsive
+                websites in real-time. No code required. Loved by
+                over 100,000+ designers globally.
+            </p>
+
+
+            <a
+                href="#contact"
+                class="inline-flex
+                       items-center
+                       gap-2
+                       px-7
+                       py-3.5
+                       rounded
+                       bg-[#1218ae]
+                       text-white
+                       text-sm
+                       font-semibold
+                       hover:bg-blue-900
+                       transition
+                       shadow-lg
+                       shadow-blue-900/20"
+            >
+
+                <span>
+                    Start Collaboration
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HERO ANIMATION CSS
+    ====================================================== -->
+    <style>
+
+        /* =====================================================
+           DIAGONAL CONTAINER
+        ====================================================== */
+
+        .hero-diagonal-wrap {
+            position: absolute;
+
+            /*
+             * Dibuat jauh lebih besar supaya ketika
+             * dirotasi tidak muncul area kosong.
+             */
+            inset: -60% -60%;
+
+            transform: rotate(40deg);
+
+            transform-origin: center;
+        }
+
+
+        /* =====================================================
+           IMAGE TRACK
+        ====================================================== */
+
+        .hero-track {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            /*
+             * Jarak antar gambar tetap sama
+             */
+            gap: 32px;
+
+            width: 100%;
+
+            /*
+             * Animasi dibuat linear agar kecepatannya
+             * konstan dari awal sampai akhir.
+             */
+            animation:
+                heroScrollLoop
+                30s
+                linear
+                infinite;
+
+            /*
+             * Mengurangi kemungkinan flicker
+             * saat browser melakukan repaint.
+             */
+            will-change: transform;
+        }
+
+
+        /* =====================================================
+           IMAGE CARD
+        ====================================================== */
+
+        .hero-card {
+
+            width: 380px;
+
+            height: 220px;
+
+            border-radius: 4px;
+
+            overflow: hidden;
+
+            flex-shrink: 0;
+
+            /*
+             * Membalik kembali rotasi parent
+             * supaya foto tetap lurus.
+             */
+            transform: rotate(-40deg);
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        /* =====================================================
+           IMAGE
+        ====================================================== */
+
+        .hero-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        /* =====================================================
+           CONTINUOUS LOOP
+
+           5 gambar pertama =
+           5 gambar berikutnya
+
+           Ketika set pertama selesai,
+           set kedua sudah berada tepat
+           di posisi set pertama.
+
+           Jadi perpindahan tidak terlihat
+           seperti restart dari awal.
+        ====================================================== */
+
+        @keyframes heroScrollLoop {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                /*
+                 * -50% ditambah setengah gap.
+                 *
+                 * Karena ada 10 card dan 9 gap,
+                 * -50% saja akan menghasilkan sedikit
+                 * ketidaktepatan pada sambungan.
+                 *
+                 * Gap 32px → koreksi 16px.
+                 */
+                transform: translateY(
+                    calc(-50% - 16px)
+                );
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 767px) {
+
+            /*
+             * Visual tetap menjadi bagian pertama.
+             */
+            .hero-diagonal-wrap {
+
+                /*
+                 * Tetap mempertahankan sudut
+                 * diagonal yang sama.
+                 */
+                inset: -55% -75%;
+
+                transform: rotate(40deg);
+
+            }
+
+
+            /*
+             * Ukuran card sedikit disesuaikan
+             * agar tetap nyaman di layar HP.
+             */
+            .hero-card {
+
+                width: 300px;
+
+                height: 180px;
+
+            }
+
+
+            /*
+             * Track sedikit lebih rapat
+             * pada mobile.
+             */
+            .hero-track {
+
+                gap: 28px;
+
+                animation-duration: 26s;
+
+            }
+
+
+            /*
+             * Koreksi loop mobile.
+             *
+             * gap 28px / 2 = 14px
+             */
+            @keyframes heroScrollLoop {
+
+                from {
+
+                    transform: translateY(0);
+
+                }
+
+                to {
+
+                    transform: translateY(
+                        calc(-50% - 14px)
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+           Contoh: 360px - 390px
+        ====================================================== */
+
+        @media (max-width: 390px) {
+
+            .hero-card {
+
+                width: 270px;
+
+                height: 165px;
+
+            }
+
+            .hero-track {
+
+                gap: 24px;
+
+                animation-duration: 24s;
+
+            }
+
+
+            @keyframes heroScrollLoop {
+
+                from {
+
+                    transform: translateY(0);
+
+                }
+
+                to {
+
+                    transform: translateY(
+                        calc(-50% - 12px)
+                    );
+
+                }
+
+            }
+
+        }
+
+    </style>
+
+</section>
 
     <!-- ==========================================
          4. INTRODUCTION SECTION (Sesuai Referensi)
