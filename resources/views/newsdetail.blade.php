@@ -65,7 +65,7 @@
 
                     <a
                         href="{{ route('news') }}"
-                        class="inline-flex items-center gap-2 text-[12px] md:text-[13px] font-medium text-gray-500 hover:text-[#0c1285] transition-colors duration-300"
+                        class="inline-flex items-center gap-2 text-[12px] md:text-[13px] font-medium text-gray-500 hover:text-[#1112A2] transition-colors duration-300"
                     >
 
                         <span class="text-lg leading-none">
@@ -91,7 +91,7 @@
                     <div class="mb-5">
 
                         <span
-                            class="text-[13px] md:text-[14px] font-semibold text-[#0c1285] tracking-wide"
+                            class="text-[13px] md:text-[14px] font-semibold text-[#1112A2] tracking-wide"
                         >
                             Slameticon News
                         </span>
@@ -278,30 +278,6 @@
                     </div>
 
                 </article>
-
-
-                {{-- BACK BUTTON BOTTOM --}}
-
-                <div
-                    class="max-w-[900px] mx-auto mt-12 md:mt-16"
-                >
-
-                    <a
-                        href="{{ route('news') }}"
-                        class="inline-flex items-center gap-3 px-5 py-3 bg-[#0c1285] text-white rounded-sm text-[12px] md:text-[13px] font-medium hover:bg-[#080d68] transition-all duration-300"
-                    >
-
-                        <span class="text-base">
-                            ←
-                        </span>
-
-                        <span>
-                            Back to News
-                        </span>
-
-                    </a>
-
-                </div>
 
             </div>
 

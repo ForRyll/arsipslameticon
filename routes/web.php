@@ -36,6 +36,10 @@ Route::get('/gallery', function () {
     return view('gallery');
 });
 
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
 Route::get('/news', function () {
     return view('news');
 })->name('news');
