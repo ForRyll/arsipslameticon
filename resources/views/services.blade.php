@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
@@ -13,10 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -187,11 +185,8 @@
 
                     <div class="aspect-square w-[78%] overflow-hidden">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Digital Business Solutions"
-                            class="h-full w-full object-cover"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Digital Business Solutions"
+                            class="h-full w-full object-cover">
 
                     </div>
 
@@ -199,14 +194,10 @@
                     {{-- Small Image --}}
 
                     <div
-                        class="absolute bottom-[12%] right-0 aspect-[4/3] w-[45%] overflow-hidden shadow-[0_12px_25px_rgba(0,0,0,0.18)]"
-                    >
+                        class="absolute bottom-[12%] right-0 aspect-[4/3] w-[45%] overflow-hidden shadow-[0_12px_25px_rgba(0,0,0,0.18)]">
 
-                        <img
-                            src="{{ asset('images/humanusia.jpeg') }}"
-                            alt="Digital Solutions"
-                            class="h-full w-full object-cover"
-                        >
+                        <img src="{{ asset('images/humanusia.jpeg') }}" alt="Digital Solutions"
+                            class="h-full w-full object-cover">
 
                     </div>
 
@@ -219,8 +210,7 @@
                 <div class="max-w-[540px]">
 
                     <h2
-                        class="mb-7 text-[24px] font-medium leading-[1.2] tracking-tight text-[#1112A2] md:text-[27px] lg:text-[29px]"
-                    >
+                        class="mb-7 text-[24px] font-medium leading-[1.2] tracking-tight text-[#1112A2] md:text-[27px] lg:text-[29px]">
                         We also develop integrated digital
                         solutions designed to support
                         business operations, improve
@@ -229,9 +219,7 @@
                     </h2>
 
 
-                    <ul
-                        class="space-y-3 text-[15px] leading-relaxed text-gray-500 md:text-[16px]"
-                    >
+                    <ul class="space-y-3 text-[15px] leading-relaxed text-gray-500 md:text-[16px]">
 
                         <li class="flex items-start gap-3">
                             <span class="mt-[2px]">•</span>
@@ -296,17 +284,14 @@
 
         <div class="mx-auto max-w-[1200px]">
 
-            <div
-                class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-20"
-            >
+            <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-20">
 
                 {{-- LEFT --}}
 
                 <div>
 
                     <h2
-                        class="max-w-[420px] text-[34px] font-bold leading-[1.05] tracking-tight md:text-[40px] lg:text-[44px]"
-                    >
+                        class="max-w-[420px] text-[34px] font-bold leading-[1.05] tracking-tight md:text-[40px] lg:text-[44px]">
                         More Than a
                         <br>
                         Service Provider
@@ -319,9 +304,7 @@
 
                 <div class="max-w-[520px]">
 
-                    <p
-                        class="text-[14px] leading-[1.5] text-white/95 md:text-[15px]"
-                    >
+                    <p class="text-[14px] leading-[1.5] text-white/95 md:text-[15px]">
                         More than a service provider, PT Slameticon Digital
                         Valley serves as a strategic partner for businesses
                         navigating the digital landscape. We combine technology,
@@ -348,4 +331,5 @@
 
 
 </body>
+
 </html>

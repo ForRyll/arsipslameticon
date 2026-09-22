@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Our People - Slameticon Digital Valley</title>
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
@@ -15,10 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -299,31 +297,28 @@
             {{-- TITLE --}}
             <div class="mb-10 md:mb-12 text-center">
 
-            <div class="text-center mb-8 md:mb-12">
-                <h3 class="text-3xl md:text-4xl font-semibold text-[#1112A2] font-['Inter_Tight']">
-                    Our People
-                </h3>
-            </div>
+                <div class="text-center mb-8 md:mb-12">
+                    <h3 class="text-3xl md:text-4xl font-semibold text-[#1112A2] font-['Inter_Tight']">
+                        Our People
+                    </h3>
+                </div>
 
             </div>
 
 
-{{-- FOTO + INFORMASI --}}
+            {{-- FOTO + INFORMASI --}}
             <div class="people-content">
 
                 {{-- FOTO --}}
-                <img
-                    src="{{ asset('images/harryadin.png') }}"
-                    alt="Harryadin Mahardika"
-                    class="people-photo"
-                >
+                <img src="{{ asset('images/harryadin.png') }}" alt="Harryadin Mahardika" class="people-photo">
 
 
                 {{-- INFORMASI --}}
                 <div class="people-info">
 
                     {{-- NAMA (Diperbesar ukurannya) --}}
-                    <h2 class="people-name text-2xl md:text-3xl lg:text-4xl font-bold text-[#1112A2] mb-1 font-['Inter_Tight']">
+                    <h2
+                        class="people-name text-2xl md:text-3xl lg:text-4xl font-bold text-[#1112A2] mb-1 font-['Inter_Tight']">
                         Harryadin Mahardika
                     </h2>
 
@@ -335,7 +330,8 @@
 
 
                     {{-- UNIVERSITAS (Diperbesar ukurannya) --}}
-                    <span class="people-university inline-block text-xs md:text-sm font-medium text-gray-500 tracking-wide uppercase mb-6">
+                    <span
+                        class="people-university inline-block text-xs md:text-sm font-medium text-gray-500 tracking-wide uppercase mb-6">
                         University of Indonesia | Monash University
                     </span>
 
@@ -395,7 +391,7 @@
     </section>
 
 
-{{-- =========================================
+    {{-- =========================================
          OUR TEAM SECTION
          ========================================= --}}
     <section class="bg-white text-black py-16 md:py-24 px-6 md:px-16 w-full">
@@ -432,15 +428,14 @@
                 @endphp
 
                 @foreach ($teams as $person)
-                    <div class="team-card bg-[#f8f9fa] border border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <div
+                        class="team-card bg-[#f8f9fa] border border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
 
                         <!-- FOTO PROFIL (DIRESIZIING AGAR PRESISI) -->
-                        <div class="w-28 h-28 md:w-37 md:h-39 rounded-lg overflow-hidden mb-5 border-2 border-white shadow-md">
-                            <img
-                                src="{{ asset('images/' . $person['image']) }}"
-                                alt="{{ $person['name'] }}"
-                                class="w-full h-full object-cover"
-                            >
+                        <div
+                            class="w-28 h-28 md:w-37 md:h-39 rounded-lg overflow-hidden mb-5 border-2 border-white shadow-md">
+                            <img src="{{ asset('images/' . $person['image']) }}" alt="{{ $person['name'] }}"
+                                class="w-full h-full object-cover">
                         </div>
 
                         <!-- JABATAN / ROLE -->
@@ -455,50 +450,41 @@
 
                         <!-- DESKRIPSI (DIPERBESAR & UBAH LINE-HEIGHT) -->
                         <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6 flex-1">
-                            /Studio is powerful enough with all the features I needed, built at the same time is still easy
+                            /Studio is powerful enough with all the features I needed, built at the same time is still
+                            easy
                         </p>
 
                         {{-- SOCIAL MEDIA ICON --}}
                         <div class="flex items-center justify-center gap-4 text-gray-400">
 
                             {{-- Instagram --}}
-                            <a
-                                href="https://instagram.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
                                 aria-label="Instagram {{ $person['name'] }}"
-                                class="hover:text-[#1218ae] transition-colors"
-                            >
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                    <circle cx="12" cy="12" r="4"/>
-                                    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+                                class="hover:text-[#1218ae] transition-colors">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                                    <circle cx="12" cy="12" r="4" />
+                                    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
                                 </svg>
                             </a>
 
                             {{-- Facebook --}}
-                            <a
-                                href="https://facebook.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
                                 aria-label="Facebook {{ $person['name'] }}"
-                                class="hover:text-[#1218ae] transition-colors"
-                            >
+                                class="hover:text-[#1218ae] transition-colors">
                                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"/>
+                                    <path
+                                        d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z" />
                                 </svg>
                             </a>
 
                             {{-- X / Twitter --}}
-                            <a
-                                href="https://x.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="X {{ $person['name'] }}"
-                                class="hover:text-[#1218ae] transition-colors"
-                            >
+                            <a href="https://x.com/" target="_blank" rel="noopener noreferrer"
+                                aria-label="X {{ $person['name'] }}" class="hover:text-[#1218ae] transition-colors">
                                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"/>
+                                    <path
+                                        d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z" />
                                 </svg>
                             </a>
 

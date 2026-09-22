@@ -15,10 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -76,51 +74,36 @@
             <div class="flex flex-wrap justify-center gap-2 mb-8">
 
                 {{-- ALL --}}
-                <button
-                    type="button"
-                    onclick="filterNews('All', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-[#1112A2] bg-[#1112A2] text-white text-[11px] font-medium transition-all duration-300"
-                >
+                <button type="button" onclick="filterNews('All', this)"
+                    class="news-filter px-4 py-2 rounded-full border border-[#1112A2] bg-[#1112A2] text-white text-[11px] font-medium transition-all duration-300">
                     All
                 </button>
 
 
                 {{-- COMPANY NEWS --}}
-                <button
-                    type="button"
-                    onclick="filterNews('Company News', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
-                >
+                <button type="button" onclick="filterNews('Company News', this)"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300">
                     Company News
                 </button>
 
 
                 {{-- DIGITAL MARKETING --}}
-                <button
-                    type="button"
-                    onclick="filterNews('Digital Marketing', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
-                >
+                <button type="button" onclick="filterNews('Digital Marketing', this)"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300">
                     Digital Marketing
                 </button>
 
 
                 {{-- TECHNOLOGY --}}
-                <button
-                    type="button"
-                    onclick="filterNews('Technology', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
-                >
+                <button type="button" onclick="filterNews('Technology', this)"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300">
                     Technology
                 </button>
 
 
                 {{-- CLIENT STORIES --}}
-                <button
-                    type="button"
-                    onclick="filterNews('Client Stories', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
-                >
+                <button type="button" onclick="filterNews('Client Stories', this)"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300">
                     Client Stories
                 </button>
 
@@ -131,34 +114,24 @@
                  NEWS GRID
             =========================================== --}}
 
-            <div
-                id="newsGrid"
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
-            >
+            <div id="newsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
 
 
                 {{-- NEWS 1 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Technology"
-                >
+                    data-category="Technology">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Technology News"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Technology News"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Technology
                         </span>
 
@@ -167,20 +140,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Accelerating Growth: How Generative AI is Reshaping CRM Systems
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Discover how modern businesses are leveraging advanced AI systems to automate customer workflows and improve business efficiency.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Discover how modern businesses are leveraging advanced AI systems to automate customer
+                            workflows and improve business efficiency.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -190,27 +160,20 @@
 
 
                 {{-- NEWS 2 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Company News"
-                >
+                    data-category="Company News">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Company News"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Company News"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Company News
                         </span>
 
@@ -219,20 +182,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Slameticon Digital Valey Expands Its Digital Innovation Services
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Slameticon Digital Valey continues to develop integrated digital solutions to support businesses in navigating digital transformation.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Slameticon Digital Valey continues to develop integrated digital solutions to support
+                            businesses in navigating digital transformation.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -242,27 +202,20 @@
 
 
                 {{-- NEWS 3 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Digital Marketing"
-                >
+                    data-category="Digital Marketing">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Digital Marketing News"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Digital Marketing News"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Digital Marketing
                         </span>
 
@@ -271,20 +224,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Building Stronger Digital Presence Through Data-Driven Marketing
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Data-driven marketing enables businesses to understand their audience and create more relevant digital campaigns.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Data-driven marketing enables businesses to understand their audience and create more
+                            relevant digital campaigns.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -294,27 +244,20 @@
 
 
                 {{-- NEWS 4 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Technology"
-                >
+                    data-category="Technology">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Technology News"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Technology News"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Technology
                         </span>
 
@@ -323,20 +266,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Digital Transformation and the Future of Business Technology
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Technology continues to reshape the way businesses operate, communicate, and deliver value to their customers.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Technology continues to reshape the way businesses operate, communicate, and deliver value
+                            to their customers.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -346,27 +286,20 @@
 
 
                 {{-- NEWS 5 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Client Stories"
-                >
+                    data-category="Client Stories">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Client Stories"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Client Stories"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Client Stories
                         </span>
 
@@ -375,20 +308,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Helping Businesses Build Better Digital Experiences
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Through technology and creative strategies, businesses can create digital experiences that are more effective and meaningful.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Through technology and creative strategies, businesses can create digital experiences that
+                            are more effective and meaningful.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -398,27 +328,20 @@
 
 
                 {{-- NEWS 6 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Digital Marketing"
-                >
+                    data-category="Digital Marketing">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Digital Marketing"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Digital Marketing"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Digital Marketing
                         </span>
 
@@ -427,20 +350,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Turning Creative Ideas Into Meaningful Digital Campaigns
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Creative ideas combined with strategic planning can help businesses communicate their message and reach the right audience.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Creative ideas combined with strategic planning can help businesses communicate their
+                            message and reach the right audience.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -450,27 +370,20 @@
 
 
                 {{-- NEWS 7 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Technology"
-                >
+                    data-category="Technology">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Technology"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Technology"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Technology
                         </span>
 
@@ -479,20 +392,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Custom Technology Solutions for Modern Business Challenges
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Custom technology solutions provide businesses with flexible tools designed around their specific operational needs.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Custom technology solutions provide businesses with flexible tools designed around their
+                            specific operational needs.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -502,27 +412,20 @@
 
 
                 {{-- NEWS 8 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Company News"
-                >
+                    data-category="Company News">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Company News"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Company News"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Company News
                         </span>
 
@@ -531,20 +434,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Connecting Strategy, Creativity, and Technology
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Combining strategy, creativity, and technology allows businesses to approach digital challenges from a broader perspective.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Combining strategy, creativity, and technology allows businesses to approach digital
+                            challenges from a broader perspective.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -554,27 +454,20 @@
 
 
                 {{-- NEWS 9 --}}
-                <article
-                    onclick="window.location.href='/newsdetail'"
+                <article onclick="window.location.href='/newsdetail'"
                     class="news-card cursor-pointer bg-white border border-gray-200 rounded-sm overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                    data-category="Client Stories"
-                >
+                    data-category="Client Stories">
 
                     <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
 
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            alt="Client Stories"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        >
+                        <img src="{{ asset('images/slameticon.png') }}" alt="Client Stories"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div
-                            class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300"
-                        ></div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-all duration-300">
+                        </div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
-                        >
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide">
                             Client Stories
                         </span>
 
@@ -583,20 +476,17 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors">
                             Creating Practical Solutions That Support Business Growth
                         </h3>
 
-                        <p
-                            class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4"
-                        >
-                            Digital solutions are most effective when they are designed to solve real business problems and create measurable value.
+                        <p class="text-[11px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                            Digital solutions are most effective when they are designed to solve real business problems
+                            and create measurable value.
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
-                        >
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors">
                             Read More →
                         </span>
 
@@ -666,4 +556,5 @@
     @include('partials.footer')
 
 </body>
+
 </html>

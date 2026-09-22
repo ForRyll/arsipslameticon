@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // 1. Hapus kunci Unique dari kolom slug terlebih dahulu
         Schema::table('product_categories', function (Blueprint $table) {
-            // Langsung ubah tipe kolom slug dari VARCHAR menjadi JSON
+            $table->dropUnique(['slug']);
+        });
+
+        // 2. Baru ubah tipe kolom slug dari VARCHAR menjadi JSON
+        Schema::table('product_categories', function (Blueprint $table) {
             $table->json('slug')->change();
         });
     }
@@ -25,6 +30,7 @@ return new class extends Migration
         Schema::table('product_categories', function (Blueprint $table) {
             // Kembalikan ke VARCHAR jika rollback
             $table->string('slug', 255)->change();
+            $table->unique('slug');
         });
     }
 };

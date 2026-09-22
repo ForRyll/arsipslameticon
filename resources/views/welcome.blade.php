@@ -24,131 +24,94 @@
     <!-- Manggil Navbar -->
     @include('partials.navbar')
 
-<!-- =========================================================
+    <!-- =========================================================
      2. HERO SECTION
 ========================================================= -->
-<section
-    class="relative min-h-screen w-full bg-[#f2f2f0] overflow-hidden pt-24 pb-16"
-    id="home"
->
+    <section class="relative min-h-screen w-full bg-[#f2f2f0] overflow-hidden pt-24 pb-16" id="home">
 
-    <div
-        class="max-w-[1440px] mx-auto min-h-[calc(100vh-100px)]
+        <div
+            class="max-w-[1440px] mx-auto min-h-[calc(100vh-100px)]
                relative px-6 md:px-12
-               flex flex-col"
-    >
+               flex flex-col">
 
-        <!-- =================================================
+            <!-- =================================================
              HERO VISUAL
              MOBILE : tampil paling atas
              DESKTOP: tetap absolute memenuhi hero
         ================================================== -->
-        <div
-            class="relative
+            <div
+                class="relative
                    order-1
                    w-full
                    h-[500px]
                    md:absolute md:inset-0 md:h-full
                    overflow-hidden
-                   pointer-events-none"
-        >
+                   pointer-events-none">
 
-            <div class="hero-diagonal-wrap">
+                <div class="hero-diagonal-wrap">
 
-                <div class="hero-track">
+                    <div class="hero-track">
 
-                    <!-- =========================
+                        <!-- =========================
                          LOOP SET 1
                     ========================== -->
 
-                    <div class="hero-card">
-                        <img
-                            src="{{ asset('images/bimbelio.jpeg') }}"
-                            alt="Project Preview 1"
-                        >
-                    </div>
+                        <div class="hero-card">
+                            <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Project Preview 1">
+                        </div>
 
-                    <div class="hero-card">
-                        <img
-                            src="{{ asset('images/humanusia.jpeg') }}"
-                            alt="Project Preview 2"
-                        >
-                    </div>
+                        <div class="hero-card">
+                            <img src="{{ asset('images/humanusia.jpeg') }}" alt="Project Preview 2">
+                        </div>
 
-                    <div class="hero-card">
-                        <img
-                            src="{{ asset('images/soemitro.jpeg') }}"
-                            alt="Project Preview 3"
-                        >
-                    </div>
+                        <div class="hero-card">
+                            <img src="{{ asset('images/soemitro.jpeg') }}" alt="Project Preview 3">
+                        </div>
 
-                    <div class="hero-card bg-white">
-                        <img
-                            src="{{ asset('images/logo1.png') }}"
-                            class="!object-contain"
-                            alt="Project Preview 4"
-                        >
-                    </div>
+                        <div class="hero-card bg-white">
+                            <img src="{{ asset('images/logo1.png') }}" class="!object-contain" alt="Project Preview 4">
+                        </div>
 
-                    <div class="hero-card bg-white">
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            class="!object-contain p-4"
-                            alt="Project Preview 5"
-                        >
-                    </div>
+                        <div class="hero-card bg-white">
+                            <img src="{{ asset('images/slameticon.png') }}" class="!object-contain p-4"
+                                alt="Project Preview 5">
+                        </div>
 
 
-                    <!-- =========================
+                        <!-- =========================
                          LOOP SET 2
                          HARUS SAMA PERSIS
                     ========================== -->
 
-                    <div class="hero-card">
-                        <img
-                            src="{{ asset('images/bimbelio.jpeg') }}"
-                            alt="Project Preview 1"
-                        >
-                    </div>
+                        <div class="hero-card">
+                            <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Project Preview 1">
+                        </div>
 
-                    <div class="hero-card">
-                        <img
-                            src="{{ asset('images/humanusia.jpeg') }}"
-                            alt="Project Preview 2"
-                        >
-                    </div>
+                        <div class="hero-card">
+                            <img src="{{ asset('images/humanusia.jpeg') }}" alt="Project Preview 2">
+                        </div>
 
-                    <div class="hero-card">
-                        <img
-                            src="{{ asset('images/soemitro.jpeg') }}"
-                            alt="Project Preview 3"
-                        >
-                    </div>
+                        <div class="hero-card">
+                            <img src="{{ asset('images/soemitro.jpeg') }}" alt="Project Preview 3">
+                        </div>
 
-                    <div class="hero-card bg-white">
-                        <img
-                            src="{{ asset('images/logo1.png') }}"
-                            class="!object-contain"
-                            alt="Project Preview 4"
-                        >
-                    </div>
+                        <div class="hero-card bg-white">
+                            <img src="{{ asset('images/logo1.png') }}" class="!object-contain" alt="Project Preview 4">
+                        </div>
 
-                    <div class="hero-card bg-white">
-                        <img
-                            src="{{ asset('images/slameticon.png') }}"
-                            class="!object-contain p-4"
-                            alt="Project Preview 5"
-                        >
+                        <div class="hero-card bg-white">
+                            <img src="{{ asset('images/slameticon.png') }}" class="!object-contain p-4"
+                                alt="Project Preview 5">
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
 
-        </div>
 
-
-        <!-- =================================================
+            <!-- =================================================
              HERO COPY
 
              DESKTOP:
@@ -157,8 +120,8 @@
              MOBILE:
              dipindahkan ke bawah gambar
         ================================================== -->
-        <div
-            class="relative
+            <div
+                class="relative
                    z-20
                    order-2
                    md:absolute
@@ -168,11 +131,10 @@
                    mt-10
                    md:mt-0
                    mb-0
-                   md:mb-0"
-        >
+                   md:mb-0">
 
-            <h1
-                class="font-['Inter_Tight']
+                <h1
+                    class="font-['Inter_Tight']
                        text-5xl
                        sm:text-4xl
                        md:text-[3.3rem]
@@ -180,32 +142,31 @@
                        italic
                        leading-[1.05]
                        tracking-tight
-                       text-[#1218ae]"
-            >
+                       text-[#1218ae]">
 
-                Digging the
-                <strong class="font-bold not-italic text-[#1218ae]">
-                    Treasure,
-                </strong>
-                <br>
+                    Digging the
+                    <strong class="font-bold not-italic text-[#1218ae]">
+                        Treasure,
+                    </strong>
+                    <br>
 
-                Embracing the
-                <strong class="font-bold not-italic text-[#1218ae]">
-                    Venture,
-                </strong>
-                <br>
+                    Embracing the
+                    <strong class="font-bold not-italic text-[#1218ae]">
+                        Venture,
+                    </strong>
+                    <br>
 
-                Shaping the
-                <strong class="font-bold not-italic text-[#1218ae]">
-                    Future,
-                </strong>
+                    Shaping the
+                    <strong class="font-bold not-italic text-[#1218ae]">
+                        Future,
+                    </strong>
 
-            </h1>
+                </h1>
 
-        </div>
+            </div>
 
 
-        <!-- =================================================
+            <!-- =================================================
              HERO INFO & CTA
 
              DESKTOP:
@@ -214,8 +175,8 @@
              MOBILE:
              tepat di bawah Hero Copy
         ================================================== -->
-        <div
-            class="relative
+            <div
+                class="relative
                    z-30
                    order-3
                    max-w-md
@@ -223,26 +184,23 @@
                    md:mt-0
                    md:absolute
                    md:right-[5%]
-                   md:bottom-[10%]"
-        >
+                   md:bottom-[10%]">
 
-            <p
-                class="text-gray-700
+                <p
+                    class="text-gray-700
                        text-base
                        md:text-lg
                        leading-relaxed
                        mb-6
-                       font-normal"
-            >
-                Design, publish, and scale gorgeous responsive
-                websites in real-time. No code required. Loved by
-                over 100,000+ designers globally.
-            </p>
+                       font-normal">
+                    Design, publish, and scale gorgeous responsive
+                    websites in real-time. No code required. Loved by
+                    over 100,000+ designers globally.
+                </p>
 
 
-            <a
-                href="#contact"
-                class="inline-flex
+                <a href="#contact"
+                    class="inline-flex
                        items-center
                        gap-2
                        px-7
@@ -255,131 +213,126 @@
                        hover:bg-blue-900
                        transition
                        shadow-lg
-                       shadow-blue-900/20"
-            >
+                       shadow-blue-900/20">
 
-                <span>
-                    Start Collaboration
-                </span>
+                    <span>
+                        Start Collaboration
+                    </span>
 
-                <span>
-                    ↗
-                </span>
+                    <span>
+                        ↗
+                    </span>
 
-            </a>
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
 
-
-    <!-- =====================================================
+        <!-- =====================================================
          HERO ANIMATION CSS
     ====================================================== -->
-    <style>
-
-        /* =====================================================
+        <style>
+            /* =====================================================
            DIAGONAL CONTAINER
         ====================================================== */
 
-        .hero-diagonal-wrap {
-            position: absolute;
+            .hero-diagonal-wrap {
+                position: absolute;
 
-            /*
+                /*
              * Dibuat jauh lebih besar supaya ketika
              * dirotasi tidak muncul area kosong.
              */
-            inset: -60% -60%;
+                inset: -60% -60%;
 
-            transform: rotate(40deg);
+                transform: rotate(40deg);
 
-            transform-origin: center;
-        }
+                transform-origin: center;
+            }
 
 
-        /* =====================================================
+            /* =====================================================
            IMAGE TRACK
         ====================================================== */
 
-        .hero-track {
+            .hero-track {
 
-            display: flex;
+                display: flex;
 
-            flex-direction: column;
+                flex-direction: column;
 
-            align-items: center;
+                align-items: center;
 
-            /*
+                /*
              * Jarak antar gambar tetap sama
              */
-            gap: 32px;
+                gap: 32px;
 
-            width: 100%;
+                width: 100%;
 
-            /*
+                /*
              * Animasi dibuat linear agar kecepatannya
              * konstan dari awal sampai akhir.
              */
-            animation:
-                heroScrollLoop
-                30s
-                linear
-                infinite;
+                animation:
+                    heroScrollLoop 30s linear infinite;
 
-            /*
+                /*
              * Mengurangi kemungkinan flicker
              * saat browser melakukan repaint.
              */
-            will-change: transform;
-        }
+                will-change: transform;
+            }
 
 
-        /* =====================================================
+            /* =====================================================
            IMAGE CARD
         ====================================================== */
 
-        .hero-card {
+            .hero-card {
 
-            width: 380px;
+                width: 380px;
 
-            height: 220px;
+                height: 220px;
 
-            border-radius: 4px;
+                border-radius: 4px;
 
-            overflow: hidden;
+                overflow: hidden;
 
-            flex-shrink: 0;
+                flex-shrink: 0;
 
-            /*
+                /*
              * Membalik kembali rotasi parent
              * supaya foto tetap lurus.
              */
-            transform: rotate(-40deg);
+                transform: rotate(-40deg);
 
-            box-shadow:
-                0 4px 12px rgba(0, 0, 0, 0.08);
+                box-shadow:
+                    0 4px 12px rgba(0, 0, 0, 0.08);
 
-        }
+            }
 
 
-        /* =====================================================
+            /* =====================================================
            IMAGE
         ====================================================== */
 
-        .hero-card img {
+            .hero-card img {
 
-            width: 100%;
+                width: 100%;
 
-            height: 100%;
+                height: 100%;
 
-            object-fit: cover;
+                object-fit: cover;
 
-            display: block;
+                display: block;
 
-        }
+            }
 
 
-        /* =====================================================
+            /* =====================================================
            CONTINUOUS LOOP
 
            5 gambar pertama =
@@ -393,14 +346,14 @@
            seperti restart dari awal.
         ====================================================== */
 
-        @keyframes heroScrollLoop {
+            @keyframes heroScrollLoop {
 
-            from {
-                transform: translateY(0);
-            }
+                from {
+                    transform: translateY(0);
+                }
 
-            to {
-                /*
+                to {
+                    /*
                  * -50% ditambah setengah gap.
                  *
                  * Karena ada 10 card dan 9 gap,
@@ -409,135 +362,128 @@
                  *
                  * Gap 32px → koreksi 16px.
                  */
-                transform: translateY(
-                    calc(-50% - 16px)
-                );
+                    transform: translateY(calc(-50% - 16px));
+                }
+
             }
 
-        }
 
-
-        /* =====================================================
+            /* =====================================================
            MOBILE
         ====================================================== */
 
-        @media (max-width: 767px) {
-
-            /*
-             * Visual tetap menjadi bagian pertama.
-             */
-            .hero-diagonal-wrap {
+            @media (max-width: 767px) {
 
                 /*
+             * Visual tetap menjadi bagian pertama.
+             */
+                .hero-diagonal-wrap {
+
+                    /*
                  * Tetap mempertahankan sudut
                  * diagonal yang sama.
                  */
-                inset: -55% -75%;
+                    inset: -55% -75%;
 
-                transform: rotate(40deg);
+                    transform: rotate(40deg);
 
-            }
+                }
 
 
-            /*
+                /*
              * Ukuran card sedikit disesuaikan
              * agar tetap nyaman di layar HP.
              */
-            .hero-card {
+                .hero-card {
 
-                width: 300px;
+                    width: 300px;
 
-                height: 180px;
+                    height: 180px;
 
-            }
+                }
 
 
-            /*
+                /*
              * Track sedikit lebih rapat
              * pada mobile.
              */
-            .hero-track {
+                .hero-track {
 
-                gap: 28px;
+                    gap: 28px;
 
-                animation-duration: 26s;
+                    animation-duration: 26s;
 
-            }
+                }
 
 
-            /*
+                /*
              * Koreksi loop mobile.
              *
              * gap 28px / 2 = 14px
              */
-            @keyframes heroScrollLoop {
+                @keyframes heroScrollLoop {
 
-                from {
+                    from {
 
-                    transform: translateY(0);
+                        transform: translateY(0);
 
-                }
+                    }
 
-                to {
+                    to {
 
-                    transform: translateY(
-                        calc(-50% - 14px)
-                    );
+                        transform: translateY(calc(-50% - 14px));
+
+                    }
 
                 }
 
             }
 
-        }
 
-
-        /* =====================================================
+            /* =====================================================
            SMALL MOBILE
            Contoh: 360px - 390px
         ====================================================== */
 
-        @media (max-width: 390px) {
+            @media (max-width: 390px) {
 
-            .hero-card {
+                .hero-card {
 
-                width: 270px;
+                    width: 270px;
 
-                height: 165px;
-
-            }
-
-            .hero-track {
-
-                gap: 24px;
-
-                animation-duration: 24s;
-
-            }
-
-
-            @keyframes heroScrollLoop {
-
-                from {
-
-                    transform: translateY(0);
+                    height: 165px;
 
                 }
 
-                to {
+                .hero-track {
 
-                    transform: translateY(
-                        calc(-50% - 12px)
-                    );
+                    gap: 24px;
+
+                    animation-duration: 24s;
+
+                }
+
+
+                @keyframes heroScrollLoop {
+
+                    from {
+
+                        transform: translateY(0);
+
+                    }
+
+                    to {
+
+                        transform: translateY(calc(-50% - 12px));
+
+                    }
 
                 }
 
             }
+        </style>
 
-        }
-
-    </style>
-
-</section>
+    </section>
 
     <!-- ==========================================
          4. INTRODUCTION SECTION (Sesuai Referensi)
@@ -591,7 +537,8 @@
                         </div>
                         <!-- Stat 2 -->
                         <div class="flex items-start gap-6 border-b border-gray-200 pb-6">
-                            <h3 class="text-3xl md:text-4xl font-normal font-['Inter_Tight'] text-[#1218ae] w-20 shrink-0">
+                            <h3
+                                class="text-3xl md:text-4xl font-normal font-['Inter_Tight'] text-[#1218ae] w-20 shrink-0">
                                 100%
                             </h3>
                             <p class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-xs mt-1">
@@ -613,7 +560,7 @@
         </div>
     </section>
 
-<!-- ==========================================
+    <!-- ==========================================
          5. WHY CHOOSE US SECTION (Sesuai Referensi Figma)
          ========================================== -->
     <section class="py-24 px-6 md:px-16 bg-white" id="why-choose-us">
@@ -623,7 +570,8 @@
 
                 <!-- Left: Text & Accordion List -->
                 <div>
-                    <span class="text-xs md:text-sm font-bold text-[#1218ae] tracking-wider uppercase block mb-4">Why choose us</span>
+                    <span class="text-xs md:text-sm font-bold text-[#1218ae] tracking-wider uppercase block mb-4">Why
+                        choose us</span>
                     <h2
                         class="text-3xl sm:text-4xl md:text-[2.6rem] font-medium text-gray-900 mb-10 leading-[1.15] font-['Inter_Tight']">
                         Elevating Your Strategy With Measurable Impact
@@ -652,8 +600,7 @@
                             <div
                                 class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                                 <div class="overflow-hidden">
-                                    <p
-                                        class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
+                                    <p class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Kami memastikan setiap
                                         solusi digital terintegrasi sempurna.
                                     </p>
@@ -679,8 +626,7 @@
                             <div
                                 class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                                 <div class="overflow-hidden">
-                                    <p
-                                        class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
+                                    <p class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
                                         Every business is unique. We develop customized strategies and solutions based
                                         on each client's objectives, challenges, and opportunities.
                                     </p>
@@ -706,8 +652,7 @@
                             <div
                                 class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                                 <div class="overflow-hidden">
-                                    <p
-                                        class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
+                                    <p class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
                                         Memanfaatkan teknologi terkini untuk mendorong inovasi dan efisiensi dalam
                                         setiap proses bisnis yang dijalankan.
                                     </p>
@@ -733,8 +678,7 @@
                             <div
                                 class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                                 <div class="overflow-hidden">
-                                    <p
-                                        class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
+                                    <p class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
                                         Kami mendampingi klien dari tahap perencanaan, eksekusi, hingga pemeliharaan
                                         jangka panjang untuk hasil maksimal.
                                     </p>
@@ -760,8 +704,7 @@
                             <div
                                 class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
                                 <div class="overflow-hidden">
-                                    <p
-                                        class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
+                                    <p class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
                                         Fokus pada pencapaian target dan metrik bisnis yang terukur untuk memastikan
                                         setiap strategi membawa dampak nyata.
                                     </p>
@@ -773,8 +716,7 @@
                 </div>
 
                 <!-- Right: Image Placeholder -->
-                <div
-                    class="w-full h-full min-h-[420px] lg:min-h-[520px] flex items-center justify-center p-8">
+                <div class="w-full h-full min-h-[420px] lg:min-h-[520px] flex items-center justify-center p-8">
                     <img src="{{ asset('images/slameticon.png') }}" alt="Why Choose Us"
                         class="w-full h-full object-contain">
                 </div>
@@ -783,7 +725,7 @@
         </div>
     </section>
 
-<!-- ==========================================
+    <!-- ==========================================
          8. SERVICES SECTION (Dengan Ikon Representatif)
          ========================================== -->
     <section class="py-24 bg-white px-6 md:px-16 w-full text-gray-900" id="services">
@@ -2239,8 +2181,8 @@
      ========================================== -->
     <script>
         /* ==========================================
-               SWITCH TAB
-               ========================================== */
+                   SWITCH TAB
+                   ========================================== */
         function switchPortfolioTab(tabId) {
 
             const contents = document.querySelectorAll('.portfolio-content');
@@ -2719,18 +2661,20 @@
         }
     </style>
 
-<!-- OUR CLIENTS & PARTNERS -->
+    <!-- OUR CLIENTS & PARTNERS -->
     <section class="py-16 bg-white overflow-hidden">
 
         <!-- HEADER & TITLE -->
         <div class="text-center max-w-7xl mx-auto mb-12 px-6">
-                <h2 class="text-3xl md:text-4xl font-semibold text-[#1112A2] mb-10 font-['Inter_Tight']">
-                    Our Clients & Partners
-                </h2>
+            <h2 class="text-3xl md:text-4xl font-semibold text-[#1112A2] mb-10 font-['Inter_Tight']">
+                Our Clients & Partners
+            </h2>
 
             <!-- PARAGRAF DESKRIPSI TAMBAHAN -->
             <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                From growing businesses to established organizations, we collaborate with clients and partners across diverse industries. By combining technology, creativity, and strategic thinking, we build solutions that address real business needs, create meaningful impact, and drive sustainable growth.
+                From growing businesses to established organizations, we collaborate with clients and partners across
+                diverse industries. By combining technology, creativity, and strategic thinking, we build solutions that
+                address real business needs, create meaningful impact, and drive sustainable growth.
             </p>
         </div>
 
@@ -2882,6 +2826,7 @@
             0% {
                 transform: translateX(calc(-100% / 3));
             }
+
             100% {
                 transform: translateX(0%);
             }
@@ -2891,6 +2836,7 @@
             0% {
                 transform: translateX(0%);
             }
+
             100% {
                 transform: translateX(calc(-100% / 3));
             }

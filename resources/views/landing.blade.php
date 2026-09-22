@@ -36,19 +36,19 @@
                                 'desc' => 'Design layouts with a powerful yet intuitive UI.',
                                 'badge' => 'Learn more',
                                 'link' => '#',
-                                'class' => 'sd-93'
+                                'class' => 'sd-93',
                             ],
                             [
                                 'title' => 'CMS without mess.',
                                 'desc' => 'Collaborate on content creation in one central location.',
                                 'badge' => 'Learn more',
                                 'link' => '#',
-                                'class' => 'sd-105'
+                                'class' => 'sd-105',
                             ],
                         ];
                     @endphp
 
-                    @foreach($features as $feature)
+                    @foreach ($features as $feature)
                         <div class="box {{ $feature['class'] }}">
                             <div class="box sd-94">
                                 <p class="text sd-95 theme-8f8fd562">{!! nl2br(e($feature['title'])) !!}</p>

@@ -13,20 +13,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="{{ asset('images/slameticon.png') }}"
-    >
+    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
 
     <style>
-
         /* =========================================================
            GLOBAL
         ========================================================= */
@@ -215,8 +207,7 @@
             pointer-events: none;
 
             background-image:
-                linear-gradient(
-                    90deg,
+                linear-gradient(90deg,
 
                     transparent 0%,
                     transparent 7%,
@@ -285,28 +276,23 @@
                     #8d3cc7 89%,
 
                     transparent 89%,
-                    transparent 100%
-                );
+                    transparent 100%);
 
             /*
              * Membuat garis semakin hilang
              * ke bawah.
              */
             mask-image:
-                linear-gradient(
-                    to bottom,
+                linear-gradient(to bottom,
                     black 0%,
                     black 35%,
-                    transparent 100%
-                );
+                    transparent 100%);
 
             -webkit-mask-image:
-                linear-gradient(
-                    to bottom,
+                linear-gradient(to bottom,
                     black 0%,
                     black 35%,
-                    transparent 100%
-                );
+                    transparent 100%);
 
             z-index: 0;
         }
@@ -576,11 +562,11 @@
                 transform 0.2s ease;
         }
 
-        .remember-checkbox:checked + .remember-switch {
+        .remember-checkbox:checked+.remember-switch {
             background: #0c1285;
         }
 
-        .remember-checkbox:checked + .remember-switch::after {
+        .remember-checkbox:checked+.remember-switch::after {
             transform: translateX(16px);
         }
 
@@ -848,7 +834,6 @@
                 font-size: 9px;
             }
         }
-
     </style>
 
 </head>
@@ -868,11 +853,8 @@
 
             <div class="illustration-box">
 
-                <img
-                    src="{{ asset('images/login.png') }}"
-                    alt="Slameticon Digital Valley Login Illustration"
-                    class="illustration-image"
-                >
+                <img src="{{ asset('images/login.png') }}" alt="Slameticon Digital Valley Login Illustration"
+                    class="illustration-image">
 
             </div>
 
@@ -906,10 +888,7 @@
 
                 <div class="login-logo">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Slameticon Digital Valley"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Slameticon Digital Valley">
 
                     <div class="login-logo-text">
 
@@ -943,11 +922,7 @@
 
                 <!-- LOGIN FORM -->
 
-                <form
-                    action="#"
-                    method="POST"
-                    class="login-form"
-                >
+                <form action="#" method="POST" class="login-form">
 
                     @csrf
 
@@ -956,22 +931,12 @@
 
                     <div class="form-group">
 
-                        <label
-                            for="login"
-                            class="form-label"
-                        >
+                        <label for="login" class="form-label">
                             Login
                         </label>
 
-                        <input
-                            id="login"
-                            name="login"
-                            type="text"
-                            placeholder="Email or phone number"
-                            autocomplete="username"
-                            class="form-input"
-                            required
-                        >
+                        <input id="login" name="login" type="text" placeholder="Email or phone number"
+                            autocomplete="username" class="form-input" required>
 
                     </div>
 
@@ -980,52 +945,26 @@
 
                     <div class="form-group">
 
-                        <label
-                            for="passwordInput"
-                            class="form-label"
-                        >
+                        <label for="passwordInput" class="form-label">
                             Password
                         </label>
 
                         <div class="password-wrapper">
 
-                            <input
-                                id="passwordInput"
-                                name="password"
-                                type="password"
-                                placeholder="Enter password"
-                                autocomplete="current-password"
-                                class="form-input password-input"
-                                required
-                            >
+                            <input id="passwordInput" name="password" type="password" placeholder="Enter password"
+                                autocomplete="current-password" class="form-input password-input" required>
 
-                            <button
-                                type="button"
-                                onclick="togglePassword()"
-                                class="password-toggle"
-                                aria-label="Show password"
-                            >
+                            <button type="button" onclick="togglePassword()" class="password-toggle"
+                                aria-label="Show password">
 
-                                <svg
-                                    id="eyeIcon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                >
+                                <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
 
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
-                                    />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
 
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 
                                 </svg>
 
@@ -1042,11 +981,7 @@
 
                         <label class="remember-label">
 
-                            <input
-                                type="checkbox"
-                                name="remember"
-                                class="remember-checkbox"
-                            >
+                            <input type="checkbox" name="remember" class="remember-checkbox">
 
                             <span class="remember-switch"></span>
 
@@ -1057,10 +992,7 @@
                         </label>
 
 
-                        <a
-                            href="#"
-                            class="forgot-link"
-                        >
+                        <a href="#" class="forgot-link">
                             Forgot password?
                         </a>
 
@@ -1069,10 +1001,7 @@
 
                     <!-- SIGN IN -->
 
-                    <button
-                        type="submit"
-                        class="login-button"
-                    >
+                    <button type="submit" class="login-button">
                         Sign in
                     </button>
 
@@ -1100,7 +1029,6 @@
     ========================================================== -->
 
     <script>
-
         function togglePassword() {
 
             const passwordInput =
@@ -1162,7 +1090,6 @@
             }
 
         }
-
     </script>
 
 </body>

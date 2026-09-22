@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gallery - Slameticon Digital Valley</title>
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
@@ -15,10 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -86,11 +84,8 @@
 
             {{-- ALL PHOTOS --}}
 
-            <button
-                type="button"
-                onclick="filterGallery()"
-                class="filter-btn active-filter px-5 py-2.5 rounded-full border border-[#1112A2] bg-[#1112A2] text-white text-[13px] font-medium transition-all duration-300 hover:opacity-90"
-            >
+            <button type="button" onclick="filterGallery()"
+                class="filter-btn active-filter px-5 py-2.5 rounded-full border border-[#1112A2] bg-[#1112A2] text-white text-[13px] font-medium transition-all duration-300 hover:opacity-90">
                 All Photos
             </button>
 
@@ -99,11 +94,8 @@
 
             <div class="relative">
 
-                <select
-                    id="yearFilter"
-                    onchange="filterGallery()"
-                    class="appearance-none w-[160px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]"
-                >
+                <select id="yearFilter" onchange="filterGallery()"
+                    class="appearance-none w-[160px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]">
 
                     <option value="">All Years</option>
                     <option value="2026">2026</option>
@@ -123,11 +115,8 @@
 
             <div class="relative">
 
-                <select
-                    id="monthFilter"
-                    onchange="filterGallery()"
-                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]"
-                >
+                <select id="monthFilter" onchange="filterGallery()"
+                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]">
 
                     <option value="">All Months</option>
 
@@ -158,11 +147,8 @@
 
             <div class="relative">
 
-                <select
-                    id="categoryFilter"
-                    onchange="filterGallery()"
-                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]"
-                >
+                <select id="categoryFilter" onchange="filterGallery()"
+                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]">
 
                     <option value="">All Categories</option>
                     <option value="Projects">Projects</option>
@@ -185,37 +171,27 @@
              GALLERY GRID
              ========================================== --}}
 
-        <div
-            id="galleryGrid"
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5"
-        >
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
 
 
             {{-- ==========================================
                  PHOTO 1
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Newest"
-                data-date="2026-09-15"
-                data-title="Mobile App Launch"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Newest" data-date="2026-09-15" data-title="Mobile App Launch"
                 data-caption="Perilisan aplikasi mobile terbaru untuk sektor edukasi, dibangun dengan React Native."
-                data-display-date="15 September 2026"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="15 September 2026" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Mobile App Launch"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Mobile App Launch"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Mobile App Launch
@@ -235,27 +211,20 @@
                  PHOTO 2
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Oldest"
-                data-date="2025-01-10"
-                data-title="Kantor Pertama Slameticon"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Oldest" data-date="2025-01-10" data-title="Kantor Pertama Slameticon"
                 data-caption="Suasana peresmian kantor pertama Slameticon Digital Valley di Purwokerto."
-                data-display-date="10 Januari 2025"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="10 Januari 2025" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Kantor Pertama Slameticon"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Kantor Pertama Slameticon"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Kantor Pertama Slameticon
@@ -275,27 +244,20 @@
                  PHOTO 3
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Projects"
-                data-date="2026-06-20"
-                data-title="Bimbelio Dashboard"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Projects" data-date="2026-06-20" data-title="Bimbelio Dashboard"
                 data-caption="Tampilan arsitektur sistem informasi akademik untuk Bimbelio."
-                data-display-date="20 Juni 2026"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="20 Juni 2026" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Bimbelio Dashboard"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Bimbelio Dashboard"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Bimbelio Dashboard
@@ -315,27 +277,20 @@
                  PHOTO 4
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Newest"
-                data-date="2026-08-30"
-                data-title="Workshop AI Terapan"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Newest" data-date="2026-08-30" data-title="Workshop AI Terapan"
                 data-caption="Pelatihan pemanfaatan AI Generatif untuk produktivitas karyawan perusahaan IT."
-                data-display-date="30 Agustus 2026"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="30 Agustus 2026" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Workshop AI Terapan"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Workshop AI Terapan"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Workshop AI Terapan
@@ -355,27 +310,20 @@
                  PHOTO 5
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Projects"
-                data-date="2026-03-12"
-                data-title="Data Center Maintenance"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Projects" data-date="2026-03-12" data-title="Data Center Maintenance"
                 data-caption="Perawatan rutin infrastruktur cloud server oleh tim infrastruktur Slameticon."
-                data-display-date="12 Maret 2026"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="12 Maret 2026" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Data Center Maintenance"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Data Center Maintenance"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Data Center Maintenance
@@ -395,27 +343,20 @@
                  PHOTO 6
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Oldest"
-                data-date="2025-05-25"
-                data-title="Meetup Klien Pertama"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Oldest" data-date="2025-05-25" data-title="Meetup Klien Pertama"
                 data-caption="Diskusi roadmap digitalisasi bisnis dengan klien manufaktur pertama kami."
-                data-display-date="25 Mei 2025"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="25 Mei 2025" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Meetup Klien Pertama"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Meetup Klien Pertama"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Meetup Klien Pertama
@@ -435,27 +376,20 @@
                  PHOTO 7
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Newest"
-                data-date="2026-09-01"
-                data-title="Brainstorming UI/UX"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Newest" data-date="2026-09-01" data-title="Brainstorming UI/UX"
                 data-caption="Tim Design sedang melakukan wireframing untuk redesign platform e-commerce."
-                data-display-date="01 September 2026"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="01 September 2026" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Brainstorming UI/UX"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Brainstorming UI/UX"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Brainstorming UI/UX
@@ -475,27 +409,20 @@
                  PHOTO 8
                  ========================================== --}}
 
-            <div
-                class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
-                data-category="Projects"
-                data-date="2025-11-15"
-                data-title="Backend API Deployment"
+            <div class="gallery-item group relative cursor-pointer rounded-xl overflow-hidden border border-gray-200 hover:shadow-xl"
+                data-category="Projects" data-date="2025-11-15" data-title="Backend API Deployment"
                 data-caption="Sukses mendeploy arsitektur microservices untuk menangani 1 juta request/hari."
-                data-display-date="15 November 2025"
-                onclick="openGalleryModal(this)"
-            >
+                data-display-date="15 November 2025" onclick="openGalleryModal(this)">
 
                 <div class="aspect-[4/3] w-full overflow-hidden bg-gray-100">
 
-                    <img
-                        src="{{ asset('images/slameticon.png') }}"
-                        alt="Backend API Deployment"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
+                    <img src="{{ asset('images/slameticon.png') }}" alt="Backend API Deployment"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                 </div>
 
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
 
                     <h4 class="text-white font-bold text-[15px]">
                         Backend API Deployment
@@ -520,33 +447,23 @@
          MODAL
          ========================================== --}}
 
-    <div
-        id="galleryModal"
-        class="fixed inset-0 z-[9999] hidden items-center justify-center p-5 opacity-0 transition-opacity duration-300"
-    >
+    <div id="galleryModal"
+        class="fixed inset-0 z-[9999] hidden items-center justify-center p-5 opacity-0 transition-opacity duration-300">
 
         {{-- Overlay --}}
 
-        <div
-            class="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            onclick="closeGalleryModal()"
-        ></div>
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeGalleryModal()"></div>
 
 
         {{-- Modal Box --}}
 
-        <div
-            id="modalBox"
-            class="relative w-full max-w-[850px] bg-white rounded-2xl shadow-2xl overflow-hidden scale-95 transition-transform duration-300 flex flex-col"
-        >
+        <div id="modalBox"
+            class="relative w-full max-w-[850px] bg-white rounded-2xl shadow-2xl overflow-hidden scale-95 transition-transform duration-300 flex flex-col">
 
             {{-- Close Button --}}
 
-            <button
-                type="button"
-                onclick="closeGalleryModal()"
-                class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 text-gray-700 hover:bg-[#1112A2] hover:text-white transition-colors duration-200 flex items-center justify-center shadow"
-            >
+            <button type="button" onclick="closeGalleryModal()"
+                class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 text-gray-700 hover:bg-[#1112A2] hover:text-white transition-colors duration-200 flex items-center justify-center shadow">
                 ✕
             </button>
 
@@ -555,12 +472,7 @@
 
             <div class="w-full bg-gray-100 border-b border-gray-200">
 
-                <img
-                    id="modalImage"
-                    src=""
-                    alt="Preview"
-                    class="w-full max-h-[60vh] object-contain"
-                >
+                <img id="modalImage" src="" alt="Preview" class="w-full max-h-[60vh] object-contain">
 
             </div>
 
@@ -571,28 +483,20 @@
 
                 <div class="flex items-center gap-2 mb-3">
 
-                    <span class="inline-block bg-[#eef0ff] text-[#1112A2] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide">
+                    <span
+                        class="inline-block bg-[#eef0ff] text-[#1112A2] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide">
                         Slameticon
                     </span>
 
-                    <span
-                        id="modalDate"
-                        class="text-[12px] text-gray-500 font-medium"
-                    ></span>
+                    <span id="modalDate" class="text-[12px] text-gray-500 font-medium"></span>
 
                 </div>
 
 
-                <h3
-                    id="modalTitle"
-                    class="text-xl md:text-2xl font-bold text-gray-900 leading-tight mb-2"
-                ></h3>
+                <h3 id="modalTitle" class="text-xl md:text-2xl font-bold text-gray-900 leading-tight mb-2"></h3>
 
 
-                <p
-                    id="modalCaption"
-                    class="text-[14px] text-gray-600 leading-relaxed"
-                ></p>
+                <p id="modalCaption" class="text-[14px] text-gray-600 leading-relaxed"></p>
 
             </div>
 
@@ -615,12 +519,11 @@
          ========================================== --}}
 
     <script>
-
         /*
-        ==========================================
-        OPEN MODAL
-        ==========================================
-        */
+            ==========================================
+            OPEN MODAL
+            ==========================================
+            */
 
         function openGalleryModal(element) {
 
@@ -824,9 +727,9 @@
             });
 
         }
-
     </script>
 
 
 </body>
+
 </html>

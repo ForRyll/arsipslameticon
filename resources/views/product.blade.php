@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product - Slameticon Digital Valley</title>
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
@@ -13,7 +13,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         body {
@@ -79,7 +80,8 @@
             flex-shrink: 0;
             font-size: 10px;
             font-weight: 500;
-            transition: all 0.3s ease; /* Transisi untuk warna */
+            transition: all 0.3s ease;
+            /* Transisi untuk warna */
         }
 
         .workphase-title {
@@ -105,7 +107,8 @@
 
         /* Efek saat area workphase di-hover */
         .workphase-item:hover .workphase-description {
-            max-height: 150px; /* Nilai max-height untuk memunculkan teks */
+            max-height: 150px;
+            /* Nilai max-height untuk memunculkan teks */
             opacity: 1;
             margin-top: 7px;
         }
@@ -113,7 +116,8 @@
         /* Efek lingkaran nomor saat area workphase di-hover */
         .workphase-item:hover .workphase-number {
             background-color: #ffffff;
-            color: #1112A2; /* Warna teks biru menyesuaikan background section */
+            color: #1112A2;
+            /* Warna teks biru menyesuaikan background section */
             font-weight: 700;
         }
 
@@ -175,8 +179,13 @@
         }
 
         @keyframes projectSlide {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         /* =========================================
@@ -187,20 +196,25 @@
                 grid-template-columns: 1fr;
                 column-gap: 0;
             }
+
             .workphase-item {
                 padding: 14px 0;
             }
+
             .workphase-title {
                 font-size: 14px;
             }
+
             .workphase-description {
                 font-size: 10px;
                 max-width: 100%;
             }
+
             .project-slide {
                 width: 230px;
                 height: 135px;
             }
+
             .project-track {
                 gap: 10px;
                 animation-duration: 24s;
@@ -213,11 +227,13 @@
         #projectModal {
             transition: opacity 0.3s ease;
         }
+
         #projectModalBox {
             transform: scale(0.95);
             opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
+
         #projectModal.show #projectModalBox {
             transform: scale(1);
             opacity: 1;
@@ -249,9 +265,12 @@
                  ================================================= -->
             <div class="project-accordion active border border-white/30 rounded-md mb-3 overflow-hidden" data-accordion>
                 <!-- HEADER -->
-                <button type="button" class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left" onclick="toggleAccordion(this)">
+                <button type="button"
+                    class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left"
+                    onclick="toggleAccordion(this)">
                     <span class="text-[21px] md:text-[27px] font-medium">Software & IT Development</span>
-                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor"
+                        stroke-width="1.7" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
                     </svg>
                 </button>
@@ -271,7 +290,11 @@
                                             <span class="workphase-number">1</span>
                                             <div>
                                                 <h4 class="workphase-title">Integrated Digital Solutions</h4>
-                                                <p class="workphase-description text-sm md:text-base leading-relaxed text-gray-600">Mengembangkan solusi digital terintegrasi yang menghubungkan berbagai kebutuhan bisnis dalam satu sistem yang efektif dan mudah digunakan.</p>
+                                                <p
+                                                    class="workphase-description text-sm md:text-base leading-relaxed text-gray-600">
+                                                    Mengembangkan solusi digital terintegrasi yang menghubungkan
+                                                    berbagai kebutuhan bisnis dalam satu sistem yang efektif dan mudah
+                                                    digunakan.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -281,7 +304,9 @@
                                             <span class="workphase-number">2</span>
                                             <div>
                                                 <h4 class="workphase-title">Solution & Product Planning</h4>
-                                                <p class="workphase-description">Kami menganalisis kebutuhan bisnis melalui riset, evaluasi sistem, fitur, alur pengguna, dan roadmap pengembangan yang jelas.</p>
+                                                <p class="workphase-description">Kami menganalisis kebutuhan bisnis
+                                                    melalui riset, evaluasi sistem, fitur, alur pengguna, dan roadmap
+                                                    pengembangan yang jelas.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -291,7 +316,9 @@
                                             <span class="workphase-number">3</span>
                                             <div>
                                                 <h4 class="workphase-title">UI/UX Design</h4>
-                                                <p class="workphase-description">Merancang pengalaman dan antarmuka digital yang intuitif, konsisten, dan sesuai dengan kebutuhan pengguna.</p>
+                                                <p class="workphase-description">Merancang pengalaman dan antarmuka
+                                                    digital yang intuitif, konsisten, dan sesuai dengan kebutuhan
+                                                    pengguna.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -301,7 +328,9 @@
                                             <span class="workphase-number">4</span>
                                             <div>
                                                 <h4 class="workphase-title">Development</h4>
-                                                <p class="workphase-description">Mengubah rancangan menjadi produk digital yang fungsional, scalable, dan dapat digunakan dalam kebutuhan bisnis nyata.</p>
+                                                <p class="workphase-description">Mengubah rancangan menjadi produk
+                                                    digital yang fungsional, scalable, dan dapat digunakan dalam
+                                                    kebutuhan bisnis nyata.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -311,7 +340,9 @@
                                             <span class="workphase-number">5</span>
                                             <div>
                                                 <h4 class="workphase-title">Testing & Quality Assurance</h4>
-                                                <p class="workphase-description">Melakukan pengujian untuk memastikan sistem berjalan sesuai kebutuhan, stabil, aman, dan minim kesalahan.</p>
+                                                <p class="workphase-description">Melakukan pengujian untuk memastikan
+                                                    sistem berjalan sesuai kebutuhan, stabil, aman, dan minim kesalahan.
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -321,7 +352,8 @@
                                             <span class="workphase-number">6</span>
                                             <div>
                                                 <h4 class="workphase-title">Deploy & Integration</h4>
-                                                <p class="workphase-description">Mengintegrasikan dan menerapkan sistem ke lingkungan produksi agar dapat digunakan secara optimal.</p>
+                                                <p class="workphase-description">Mengintegrasikan dan menerapkan sistem
+                                                    ke lingkungan produksi agar dapat digunakan secara optimal.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +363,8 @@
                                             <span class="workphase-number">7</span>
                                             <div>
                                                 <h4 class="workphase-title">Maintenance & Continuous Improvement</h4>
-                                                <p class="workphase-description">Melakukan pemeliharaan dan pengembangan berkelanjutan berdasarkan kebutuhan dan perkembangan bisnis.</p>
+                                                <p class="workphase-description">Melakukan pemeliharaan dan pengembangan
+                                                    berkelanjutan berdasarkan kebutuhan dan perkembangan bisnis.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -344,26 +377,40 @@
                                 <div class="project-slider">
                                     <div class="project-track">
                                         <!-- SET 1 -->
-                                        <div class="project-slide" onclick="openProjectModal('Bimbelio Dashboard', 'Tampilan dashboard dan sistem informasi digital yang dikembangkan untuk mendukung kebutuhan bisnis dan pengelolaan data.', '{{ asset('images/bimbelio.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Bimbelio Dashboard', 'Tampilan dashboard dan sistem informasi digital yang dikembangkan untuk mendukung kebutuhan bisnis dan pengelolaan data.', '{{ asset('images/bimbelio.jpeg') }}')">
                                             <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Bimbelio Dashboard">
-                                            <div class="project-slide-overlay"><span class="text-white text-[11px] font-medium">Bimbelio Dashboard</span></div>
+                                            <div class="project-slide-overlay"><span
+                                                    class="text-white text-[11px] font-medium">Bimbelio Dashboard</span>
+                                            </div>
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Digital Business Solution', 'Pengembangan solusi digital yang dirancang untuk membantu proses bisnis menjadi lebih terintegrasi.', '{{ asset('images/humanusia.jpeg') }}')">
-                                            <img src="{{ asset('images/humanusia.jpeg') }}" alt="Digital Business Solution">
-                                            <div class="project-slide-overlay"><span class="text-white text-[11px] font-medium">Digital Business Solution</span></div>
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Digital Business Solution', 'Pengembangan solusi digital yang dirancang untuk membantu proses bisnis menjadi lebih terintegrasi.', '{{ asset('images/humanusia.jpeg') }}')">
+                                            <img src="{{ asset('images/humanusia.jpeg') }}"
+                                                alt="Digital Business Solution">
+                                            <div class="project-slide-overlay"><span
+                                                    class="text-white text-[11px] font-medium">Digital Business
+                                                    Solution</span></div>
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Business Platform', 'Implementasi platform digital untuk mendukung kebutuhan operasional dan pengembangan bisnis.', '{{ asset('images/soemitro.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Business Platform', 'Implementasi platform digital untuk mendukung kebutuhan operasional dan pengembangan bisnis.', '{{ asset('images/soemitro.jpeg') }}')">
                                             <img src="{{ asset('images/soemitro.jpeg') }}" alt="Business Platform">
-                                            <div class="project-slide-overlay"><span class="text-white text-[11px] font-medium">Business Platform</span></div>
+                                            <div class="project-slide-overlay"><span
+                                                    class="text-white text-[11px] font-medium">Business Platform</span>
+                                            </div>
                                         </div>
                                         <!-- SET 2 -->
-                                        <div class="project-slide" onclick="openProjectModal('Bimbelio Dashboard', 'Tampilan dashboard dan sistem informasi digital yang dikembangkan untuk mendukung kebutuhan bisnis dan pengelolaan data.', '{{ asset('images/bimbelio.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Bimbelio Dashboard', 'Tampilan dashboard dan sistem informasi digital yang dikembangkan untuk mendukung kebutuhan bisnis dan pengelolaan data.', '{{ asset('images/bimbelio.jpeg') }}')">
                                             <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Bimbelio Dashboard">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Digital Business Solution', 'Pengembangan solusi digital yang dirancang untuk membantu proses bisnis menjadi lebih terintegrasi.', '{{ asset('images/humanusia.jpeg') }}')">
-                                            <img src="{{ asset('images/humanusia.jpeg') }}" alt="Digital Business Solution">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Digital Business Solution', 'Pengembangan solusi digital yang dirancang untuk membantu proses bisnis menjadi lebih terintegrasi.', '{{ asset('images/humanusia.jpeg') }}')">
+                                            <img src="{{ asset('images/humanusia.jpeg') }}"
+                                                alt="Digital Business Solution">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Business Platform', 'Implementasi platform digital untuk mendukung kebutuhan operasional dan pengembangan bisnis.', '{{ asset('images/soemitro.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Business Platform', 'Implementasi platform digital untuk mendukung kebutuhan operasional dan pengembangan bisnis.', '{{ asset('images/soemitro.jpeg') }}')">
                                             <img src="{{ asset('images/soemitro.jpeg') }}" alt="Business Platform">
                                         </div>
                                     </div>
@@ -379,9 +426,12 @@
                  ACCORDION 2 : DIGITAL MARKETING
                  ================================================= -->
             <div class="project-accordion border border-white/30 rounded-md mb-3 overflow-hidden" data-accordion>
-                <button type="button" class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left" onclick="toggleAccordion(this)">
+                <button type="button"
+                    class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left"
+                    onclick="toggleAccordion(this)">
                     <span class="text-[21px] md:text-[27px] font-medium">Digital Marketing</span>
-                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor"
+                        stroke-width="1.7" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
                     </svg>
                 </button>
@@ -397,7 +447,8 @@
                                             <span class="workphase-number">1</span>
                                             <div>
                                                 <h4 class="workphase-title">Research & Market Analysis</h4>
-                                                <p class="workphase-description">Menganalisis pasar, kompetitor, target audience, dan perilaku konsumen sebagai dasar strategi.</p>
+                                                <p class="workphase-description">Menganalisis pasar, kompetitor, target
+                                                    audience, dan perilaku konsumen sebagai dasar strategi.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -406,7 +457,8 @@
                                             <span class="workphase-number">2</span>
                                             <div>
                                                 <h4 class="workphase-title">Digital Strategy</h4>
-                                                <p class="workphase-description">Menyusun strategi digital berdasarkan tujuan bisnis dan karakteristik target audience.</p>
+                                                <p class="workphase-description">Menyusun strategi digital berdasarkan
+                                                    tujuan bisnis dan karakteristik target audience.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -415,7 +467,8 @@
                                             <span class="workphase-number">3</span>
                                             <div>
                                                 <h4 class="workphase-title">Campaign Planning</h4>
-                                                <p class="workphase-description">Merancang campaign, channel, content direction, timeline, dan target performa.</p>
+                                                <p class="workphase-description">Merancang campaign, channel, content
+                                                    direction, timeline, dan target performa.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -424,7 +477,8 @@
                                             <span class="workphase-number">4</span>
                                             <div>
                                                 <h4 class="workphase-title">Campaign Execution</h4>
-                                                <p class="workphase-description">Menjalankan campaign digital secara terukur melalui berbagai platform.</p>
+                                                <p class="workphase-description">Menjalankan campaign digital secara
+                                                    terukur melalui berbagai platform.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -433,7 +487,8 @@
                                             <span class="workphase-number">5</span>
                                             <div>
                                                 <h4 class="workphase-title">Performance Analysis</h4>
-                                                <p class="workphase-description">Mengevaluasi performa campaign berdasarkan data dan indikator yang telah ditentukan.</p>
+                                                <p class="workphase-description">Mengevaluasi performa campaign
+                                                    berdasarkan data dan indikator yang telah ditentukan.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -442,7 +497,8 @@
                                             <span class="workphase-number">6</span>
                                             <div>
                                                 <h4 class="workphase-title">Optimization</h4>
-                                                <p class="workphase-description">Mengoptimalkan campaign berdasarkan hasil evaluasi agar performa terus berkembang.</p>
+                                                <p class="workphase-description">Mengoptimalkan campaign berdasarkan
+                                                    hasil evaluasi agar performa terus berkembang.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -454,14 +510,18 @@
                                 <p class="text-[10px] md:text-[11px] text-white/70 mb-3">Selected Projects</p>
                                 <div class="project-slider">
                                     <div class="project-track">
-                                        <div class="project-slide" onclick="openProjectModal('Digital Campaign', 'Pengembangan dan implementasi campaign digital untuk meningkatkan awareness dan engagement.', '{{ asset('images/slameticon.png') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Digital Campaign', 'Pengembangan dan implementasi campaign digital untuk meningkatkan awareness dan engagement.', '{{ asset('images/slameticon.png') }}')">
                                             <img src="{{ asset('images/slameticon.png') }}" alt="Digital Campaign">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Marketing Strategy', 'Strategi pemasaran digital yang disusun berdasarkan data dan karakteristik target audience.', '{{ asset('images/humanusia.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Marketing Strategy', 'Strategi pemasaran digital yang disusun berdasarkan data dan karakteristik target audience.', '{{ asset('images/humanusia.jpeg') }}')">
                                             <img src="{{ asset('images/humanusia.jpeg') }}" alt="Marketing Strategy">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Campaign Development', 'Pengembangan campaign dan konten digital untuk kebutuhan brand.', '{{ asset('images/bimbelio.jpeg') }}')">
-                                            <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Campaign Development">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Campaign Development', 'Pengembangan campaign dan konten digital untuk kebutuhan brand.', '{{ asset('images/bimbelio.jpeg') }}')">
+                                            <img src="{{ asset('images/bimbelio.jpeg') }}"
+                                                alt="Campaign Development">
                                         </div>
                                         <!-- DUPLICATE -->
                                         <div class="project-slide">
@@ -471,7 +531,8 @@
                                             <img src="{{ asset('images/humanusia.jpeg') }}" alt="Marketing Strategy">
                                         </div>
                                         <div class="project-slide">
-                                            <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Campaign Development">
+                                            <img src="{{ asset('images/bimbelio.jpeg') }}"
+                                                alt="Campaign Development">
                                         </div>
                                     </div>
                                 </div>
@@ -485,9 +546,12 @@
                  ACCORDION 3 : SOCIAL MEDIA MANAGEMENT
                  ================================================= -->
             <div class="project-accordion border border-white/30 rounded-md mb-3 overflow-hidden" data-accordion>
-                <button type="button" class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left" onclick="toggleAccordion(this)">
+                <button type="button"
+                    class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left"
+                    onclick="toggleAccordion(this)">
                     <span class="text-[21px] md:text-[27px] font-medium">Social Media Management</span>
-                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor"
+                        stroke-width="1.7" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
                     </svg>
                 </button>
@@ -503,7 +567,8 @@
                                             <span class="workphase-number">1</span>
                                             <div>
                                                 <h4 class="workphase-title">Social Media Audit</h4>
-                                                <p class="workphase-description">Mengevaluasi kondisi akun, konten, audience, engagement, dan performa media sosial.</p>
+                                                <p class="workphase-description">Mengevaluasi kondisi akun, konten,
+                                                    audience, engagement, dan performa media sosial.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -512,7 +577,8 @@
                                             <span class="workphase-number">2</span>
                                             <div>
                                                 <h4 class="workphase-title">Content Strategy</h4>
-                                                <p class="workphase-description">Menentukan content pillar, gaya komunikasi, format, dan kalender konten.</p>
+                                                <p class="workphase-description">Menentukan content pillar, gaya
+                                                    komunikasi, format, dan kalender konten.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -521,7 +587,8 @@
                                             <span class="workphase-number">3</span>
                                             <div>
                                                 <h4 class="workphase-title">Content Production</h4>
-                                                <p class="workphase-description">Menghasilkan konten visual dan copywriting yang sesuai dengan identitas brand.</p>
+                                                <p class="workphase-description">Menghasilkan konten visual dan
+                                                    copywriting yang sesuai dengan identitas brand.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -530,7 +597,8 @@
                                             <span class="workphase-number">4</span>
                                             <div>
                                                 <h4 class="workphase-title">Publishing & Management</h4>
-                                                <p class="workphase-description">Mengatur jadwal publikasi, distribusi konten, dan pengelolaan akun.</p>
+                                                <p class="workphase-description">Mengatur jadwal publikasi, distribusi
+                                                    konten, dan pengelolaan akun.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -539,7 +607,8 @@
                                             <span class="workphase-number">5</span>
                                             <div>
                                                 <h4 class="workphase-title">Community Engagement</h4>
-                                                <p class="workphase-description">Membangun interaksi dengan audience melalui komentar, pesan, dan aktivitas komunitas.</p>
+                                                <p class="workphase-description">Membangun interaksi dengan audience
+                                                    melalui komentar, pesan, dan aktivitas komunitas.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -548,7 +617,8 @@
                                             <span class="workphase-number">6</span>
                                             <div>
                                                 <h4 class="workphase-title">Performance Report</h4>
-                                                <p class="workphase-description">Menganalisis performa konten dan memberikan laporan sebagai dasar pengembangan strategi.</p>
+                                                <p class="workphase-description">Menganalisis performa konten dan
+                                                    memberikan laporan sebagai dasar pengembangan strategi.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -560,14 +630,19 @@
                                 <p class="text-[10px] md:text-[11px] text-white/70 mb-3">Selected Projects</p>
                                 <div class="project-slider">
                                     <div class="project-track">
-                                        <div class="project-slide" onclick="openProjectModal('Social Media Campaign', 'Pengelolaan media sosial melalui strategi konten dan campaign yang terarah.', '{{ asset('images/humanusia.jpeg') }}')">
-                                            <img src="{{ asset('images/humanusia.jpeg') }}" alt="Social Media Campaign">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Social Media Campaign', 'Pengelolaan media sosial melalui strategi konten dan campaign yang terarah.', '{{ asset('images/humanusia.jpeg') }}')">
+                                            <img src="{{ asset('images/humanusia.jpeg') }}"
+                                                alt="Social Media Campaign">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Creative Content', 'Produksi konten kreatif yang disesuaikan dengan identitas dan karakter brand.', '{{ asset('images/bimbelio.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Creative Content', 'Produksi konten kreatif yang disesuaikan dengan identitas dan karakter brand.', '{{ asset('images/bimbelio.jpeg') }}')">
                                             <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Creative Content">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Social Media Management', 'Pengelolaan akun media sosial secara terstruktur dan konsisten.', '{{ asset('images/soemitro.jpeg') }}')">
-                                            <img src="{{ asset('images/soemitro.jpeg') }}" alt="Social Media Management">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Social Media Management', 'Pengelolaan akun media sosial secara terstruktur dan konsisten.', '{{ asset('images/soemitro.jpeg') }}')">
+                                            <img src="{{ asset('images/soemitro.jpeg') }}"
+                                                alt="Social Media Management">
                                         </div>
                                         <!-- DUPLICATE -->
                                         <div class="project-slide">
@@ -591,9 +666,12 @@
                  ACCORDION 4 : BRANDING & BRAND IDENTITY
                  ================================================= -->
             <div class="project-accordion border border-white/30 rounded-md overflow-hidden" data-accordion>
-                <button type="button" class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left" onclick="toggleAccordion(this)">
+                <button type="button"
+                    class="w-full flex items-center justify-between px-5 md:px-6 py-4 md:py-5 text-left"
+                    onclick="toggleAccordion(this)">
                     <span class="text-[21px] md:text-[27px] font-medium">Branding & Brand Identity</span>
-                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                    <svg class="accordion-icon w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor"
+                        stroke-width="1.7" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
                     </svg>
                 </button>
@@ -609,7 +687,8 @@
                                             <span class="workphase-number">1</span>
                                             <div>
                                                 <h4 class="workphase-title">Brand Discovery</h4>
-                                                <p class="workphase-description">Memahami karakter bisnis, nilai brand, target audience, dan positioning.</p>
+                                                <p class="workphase-description">Memahami karakter bisnis, nilai brand,
+                                                    target audience, dan positioning.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -618,7 +697,8 @@
                                             <span class="workphase-number">2</span>
                                             <div>
                                                 <h4 class="workphase-title">Brand Strategy</h4>
-                                                <p class="workphase-description">Menentukan arah strategi, positioning, personality, dan komunikasi brand.</p>
+                                                <p class="workphase-description">Menentukan arah strategi, positioning,
+                                                    personality, dan komunikasi brand.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -627,7 +707,8 @@
                                             <span class="workphase-number">3</span>
                                             <div>
                                                 <h4 class="workphase-title">Visual Identity</h4>
-                                                <p class="workphase-description">Mengembangkan elemen visual seperti logo, warna, typography, dan visual system.</p>
+                                                <p class="workphase-description">Mengembangkan elemen visual seperti
+                                                    logo, warna, typography, dan visual system.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -636,7 +717,8 @@
                                             <span class="workphase-number">4</span>
                                             <div>
                                                 <h4 class="workphase-title">Brand Guidelines</h4>
-                                                <p class="workphase-description">Menyusun panduan penggunaan identitas agar brand tetap konsisten di berbagai media.</p>
+                                                <p class="workphase-description">Menyusun panduan penggunaan identitas
+                                                    agar brand tetap konsisten di berbagai media.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -645,7 +727,8 @@
                                             <span class="workphase-number">5</span>
                                             <div>
                                                 <h4 class="workphase-title">Brand Implementation</h4>
-                                                <p class="workphase-description">Menerapkan identitas brand pada berbagai kebutuhan komunikasi bisnis.</p>
+                                                <p class="workphase-description">Menerapkan identitas brand pada
+                                                    berbagai kebutuhan komunikasi bisnis.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -654,7 +737,8 @@
                                             <span class="workphase-number">6</span>
                                             <div>
                                                 <h4 class="workphase-title">Brand Evaluation</h4>
-                                                <p class="workphase-description">Mengevaluasi konsistensi dan efektivitas identitas brand setelah implementasi.</p>
+                                                <p class="workphase-description">Mengevaluasi konsistensi dan
+                                                    efektivitas identitas brand setelah implementasi.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -666,13 +750,16 @@
                                 <p class="text-[10px] md:text-[11px] text-white/70 mb-3">Selected Projects</p>
                                 <div class="project-slider">
                                     <div class="project-track">
-                                        <div class="project-slide" onclick="openProjectModal('Brand Identity', 'Pengembangan identitas visual untuk membangun karakter brand yang kuat dan konsisten.', '{{ asset('images/soemitro.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Brand Identity', 'Pengembangan identitas visual untuk membangun karakter brand yang kuat dan konsisten.', '{{ asset('images/soemitro.jpeg') }}')">
                                             <img src="{{ asset('images/soemitro.jpeg') }}" alt="Brand Identity">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Visual Branding', 'Pengembangan elemen visual yang merepresentasikan nilai dan karakter sebuah brand.', '{{ asset('images/humanusia.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Visual Branding', 'Pengembangan elemen visual yang merepresentasikan nilai dan karakter sebuah brand.', '{{ asset('images/humanusia.jpeg') }}')">
                                             <img src="{{ asset('images/humanusia.jpeg') }}" alt="Visual Branding">
                                         </div>
-                                        <div class="project-slide" onclick="openProjectModal('Brand Development', 'Pengembangan dan implementasi strategi brand untuk kebutuhan bisnis.', '{{ asset('images/bimbelio.jpeg') }}')">
+                                        <div class="project-slide"
+                                            onclick="openProjectModal('Brand Development', 'Pengembangan dan implementasi strategi brand untuk kebutuhan bisnis.', '{{ asset('images/bimbelio.jpeg') }}')">
                                             <img src="{{ asset('images/bimbelio.jpeg') }}" alt="Brand Development">
                                         </div>
                                         <!-- DUPLICATE -->
@@ -699,25 +786,30 @@
     <!-- =========================================================
          PROJECT MODAL
          ========================================================= -->
-    <div id="projectModal" class="fixed inset-0 z-[9999] hidden items-center justify-center p-5 bg-black/80 backdrop-blur-sm">
+    <div id="projectModal"
+        class="fixed inset-0 z-[9999] hidden items-center justify-center p-5 bg-black/80 backdrop-blur-sm">
         <!-- OVERLAY -->
         <div class="absolute inset-0" onclick="closeProjectModal()"></div>
 
         <!-- MODAL BOX -->
-        <div id="projectModalBox" class="relative w-full max-w-[800px] bg-white rounded-xl overflow-hidden shadow-2xl">
+        <div id="projectModalBox"
+            class="relative w-full max-w-[800px] bg-white rounded-xl overflow-hidden shadow-2xl">
             <!-- CLOSE -->
-            <button onclick="closeProjectModal()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/90 text-gray-700 flex items-center justify-center shadow hover:bg-[#1112A2] hover:text-white transition">
+            <button onclick="closeProjectModal()"
+                class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/90 text-gray-700 flex items-center justify-center shadow hover:bg-[#1112A2] hover:text-white transition">
                 ✕
             </button>
 
             <!-- IMAGE -->
             <div class="w-full bg-gray-100">
-                <img id="projectModalImage" src="" alt="Project" class="w-full max-h-[55vh] object-contain">
+                <img id="projectModalImage" src="" alt="Project"
+                    class="w-full max-h-[55vh] object-contain">
             </div>
 
             <!-- CONTENT -->
             <div class="p-6 md:p-8">
-                <span class="inline-block bg-[#eef0ff] text-[#1112A2] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide mb-3">
+                <span
+                    class="inline-block bg-[#eef0ff] text-[#1112A2] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide mb-3">
                     Slameticon
                 </span>
                 <h3 id="projectModalTitle" class="text-xl md:text-2xl font-bold text-gray-900 mb-3"></h3>
@@ -775,4 +867,5 @@
         });
     </script>
 </body>
+
 </html>
