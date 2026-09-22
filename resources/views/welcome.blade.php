@@ -174,7 +174,7 @@
             <h1
                 class="font-['Inter_Tight']
                        text-5xl
-                       sm:text-6xl
+                       sm:text-4xl
                        md:text-[3.3rem]
                        font-normal
                        italic
@@ -201,18 +201,6 @@
                 </strong>
 
             </h1>
-
-
-            <p
-                class="mt-6
-                       text-sm
-                       font-medium
-                       tracking-widest
-                       text-gray-500
-                       uppercase"
-            >
-                Architecture · Development · Creative
-            </p>
 
         </div>
 
@@ -575,7 +563,7 @@
             <!-- Image & Stats Content -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <!-- Left: Image (Menggunakan slameticon.png sementara) -->
-                <div class="w-full aspect-[4/3] bg-gray-100 rounded-md overflow-hidden shadow-sm">
+                <div class="w-full aspect-[4/3] bg-gray-100 rounded-md overflow-hidden">
                     <img src="{{ asset('images/slameticon.png') }}" alt="Slameticon Model"
                         class="w-full h-full object-cover">
                 </div>
@@ -786,7 +774,7 @@
 
                 <!-- Right: Image Placeholder -->
                 <div
-                    class="w-full h-full min-h-[420px] lg:min-h-[520px] rounded-2xl overflow-hidden shadow-lg relative bg-gray-50 flex items-center justify-center p-8">
+                    class="w-full h-full min-h-[420px] lg:min-h-[520px] flex items-center justify-center p-8">
                     <img src="{{ asset('images/slameticon.png') }}" alt="Why Choose Us"
                         class="w-full h-full object-contain">
                 </div>

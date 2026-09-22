@@ -63,7 +63,7 @@
     <!-- ==========================================
          SECTION 2: OUR VISION & MISSION
          ========================================== -->
-    <section class="py-16 md:py-24 px-6 md:px-12 bg-gray-50 overflow-hidden relative">
+    <section class="py-16 md:py-24 px-6 md:px-12 overflow-hidden relative">
         <div class="max-w-[1100px] mx-auto relative flex flex-col md:flex-row items-stretch gap-12 md:gap-0">
 
             <!-- GARIS MIRING TENGAH (Hanya Tampil di Layar Desktop/Tablet) -->
@@ -91,32 +91,6 @@
                     <li>Continuously leverage emerging technologies, including Artificial Intelligence, to create measurable value for clients.</li>
                     <li>Develop an ecosystem that integrates sales, marketing, design, and technology into one seamless business solution.</li>
                 </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ==========================================
-         SECTION 3: TOP #1 ECOSYSTEM
-         ========================================== -->
-    <section class="py-12 md:py-16 px-6 md:px-12 bg-[#1112A2] text-white">
-        <div class="max-w-[1100px] mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16">
-
-            <!-- Kiri: Judul TOP #1 -->
-            <div class="shrink-0 text-center md:text-left w-full md:w-auto">
-                <h2 class="text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight">
-                    TOP #1
-                </h2>
-            </div>
-
-            <!-- Kanan: Teks Deskripsi -->
-            <div class="text-[15px] md:text-[16px] text-white/90 leading-relaxed space-y-6 text-center md:text-left max-w-xl">
-                <p>
-                    Digital Marketing, Design, and IT Development Ecosystem in Indonesia
-                </p>
-                <p>
-                    More than thousand packages and hundred employess joined in our ecosystem
-                </p>
             </div>
 
         </div>
