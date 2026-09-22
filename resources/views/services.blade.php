@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body class="bg-white text-black antialiased selection:bg-[#0c1285] selection:text-white">
+<body class="bg-white text-black antialiased selection:bg-[#1112A2] selection:text-white">
 
     {{-- ==========================================
          NAVBAR
@@ -44,315 +44,125 @@
          SECTION 1 : SERVICES
     =========================================== --}}
 
-    <section
-        id="services"
-        class="w-full bg-white px-6 py-20 md:px-12 md:py-24"
-    >
+    <section class="py-24 bg-white px-6 md:px-16 w-full text-gray-900" id="services">
+        <div class="max-w-[1400px] mx-auto w-full">
 
-        <div class="mx-auto w-full max-w-[1200px]">
-
-
-            {{-- ==========================================
-                 TITLE
-            =========================================== --}}
-
-            <div class="mb-6 text-center">
-
-                <span
-                    class="text-3xl font-bold uppercase tracking-widest text-[#0c1285]">
+            <!-- Subtitle -->
+            <div class="text-center mb-4">
+                <h2 class="text-3xl md:text-5xl font-semibold text-[#1112A2] mb-6 font-['Inter_Tight']">
                     Services
-                </span>
-
+                </h2>
             </div>
 
-
-            {{-- ==========================================
-                 INTRO
-            =========================================== --}}
-
-            <div class="mx-auto mb-16 max-w-[900px] text-center">
-
-                <p
-                    class="text-[14px] leading-[1.7] tracking-tight text-[#a0a0a1] md:text-[15px]"
-                >
-                    PT Slameticon Digital Valey combines technology, creativity,
-                    and strategy to help businesses thrive in the digital era
-                    through end-to-end solutions in software development,
-                    digital marketing, social media management, and branding.
+            <!-- Header Title / Intro Panjang (Tidak Capital Semua & Diperbesar) -->
+            <div class="max-w-[1100px] mx-auto text-center mb-16">
+                <p class="text-sm md:text-base font-large text-gray-600 leading-relaxed">
+                    PT Slameticon Digital Valey combines technology, creativity, and strategy to help businesses thrive
+                    in the digital era through end-to-end solutions in software development, digital marketing, social
+                    media management, and branding.
                 </p>
-
             </div>
 
+            <!-- 4 Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-
-            {{-- ==========================================
-                 4 SERVICES CARDS
-            =========================================== --}}
-
-            <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-
-
-                {{-- ==========================================
-                     CARD 1
-                     SOFTWARE & IT DEVELOPMENT
-                =========================================== --}}
-
+                <!-- Card 1: Software & IT Development (Abu-abu) -->
                 <div
-                    class="flex min-h-[420px] flex-col justify-between rounded-xl bg-[#f0f2f5] p-8 transition-transform duration-300 hover:-translate-y-1"
-                >
-
+                    class="bg-[#f0f2f5] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[460px] transition-transform duration-300 hover:-translate-y-1 shadow-sm">
                     <div>
-
-                        <h3
-                            class="mb-4 text-xl font-bold leading-tight text-gray-900"
-                        >
-                            Software & IT
-                            <br>
-                            Development
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 min-h-[64px] mb-6 font-['Inter_Tight']">
+                            Software & IT<br>Development
                         </h3>
-
-                        <p
-                            class="text-[13px] leading-relaxed text-gray-600"
-                        >
-                            Building reliable and scalable digital solutions,
-                            from websites and web applications to custom
-                            software and business systems.
+                        <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+                            Building reliable and scalable digital solutions, from websites and web applications to
+                            custom software and business systems.
                         </p>
-
                     </div>
-
-
-                    {{-- ICON --}}
-
-                    <div
-                        class="mt-6 flex h-28 w-full items-end justify-start text-gray-800 opacity-30"
-                    >
-
-                        <svg
-                            class="h-24 w-24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.2"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                            />
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M10.5 9l-2 2 2 2m3-4l2 2-2 2"
-                            />
-
+                    <!-- Ilustrasi Ikon Komputer & Gear -->
+                    <div class="w-full h-28 mt-6 flex items-end justify-start opacity-30 text-gray-800">
+                        <svg class="w-24 h-24" fill="none" stroke="currentColor" stroke-width="1.2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 9l-2 2 2 2m3-4l2 2-2 2">
+                            </path>
                         </svg>
-
                     </div>
-
                 </div>
 
-
-
-                {{-- ==========================================
-                     CARD 2
-                     DIGITAL MARKETING
-                =========================================== --}}
-
+                <!-- Card 2: Digital Marketing (Biru) -->
                 <div
-                    class="flex min-h-[420px] flex-col justify-between rounded-xl bg-[#0c1285] p-8 text-white shadow-lg transition-transform duration-300 hover:-translate-y-1"
-                >
-
+                    class="bg-[#1112A2] text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[460px] transition-transform duration-300 hover:-translate-y-1 shadow-lg">
                     <div>
-
-                        <h3
-                            class="mb-4 text-xl font-bold leading-tight"
-                        >
+                        <h3 class="text-xl md:text-2xl font-bold min-h-[64px] mb-6 font-['Inter_Tight']">
                             Digital Marketing
                         </h3>
-
-                        <p
-                            class="text-[13px] leading-relaxed text-white/80"
-                        >
-                            Developing data-driven digital marketing
-                            strategies and campaigns designed to increase
+                        <p class="text-xs md:text-sm text-white/80 leading-relaxed">
+                            Developing data-driven digital marketing strategies and campaigns designed to increase
                             visibility, reach, engagement, and business growth.
                         </p>
-
                     </div>
-
-
-                    {{-- ICON --}}
-
-                    <div
-                        class="mt-6 flex h-28 w-full items-end justify-start text-white opacity-30"
-                    >
-
-                        <svg
-                            class="h-24 w-24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.2"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 13.5l4.5-4.5 3 3L18 4.5m0 0h-3.75M18 4.5v3.75"
-                            />
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M3 21h18"
-                            />
-
+                    <!-- Ilustrasi Ikon Grafik / Analytics -->
+                    <div class="w-full h-28 mt-6 flex items-end justify-start opacity-30 text-white">
+                        <svg class="w-24 h-24" fill="none" stroke="currentColor" stroke-width="1.2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 13.5l4.5-4.5 3 3L18 4.5m0 0h-3.75M18 4.5v3.75"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18"></path>
                         </svg>
-
                     </div>
-
                 </div>
 
-
-
-                {{-- ==========================================
-                     CARD 3
-                     SOCIAL MEDIA MANAGEMENT
-                =========================================== --}}
-
+                <!-- Card 3: Social Media Management (Abu-abu) -->
                 <div
-                    class="flex min-h-[420px] flex-col justify-between rounded-xl bg-[#f0f2f5] p-8 transition-transform duration-300 hover:-translate-y-1"
-                >
-
+                    class="bg-[#f0f2f5] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[460px] transition-transform duration-300 hover:-translate-y-1 shadow-sm">
                     <div>
-
-                        <h3
-                            class="mb-4 text-xl font-bold leading-tight text-gray-900"
-                        >
-                            Social Media
-                            <br>
-                            Management
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 min-h-[64px] mb-6 font-['Inter_Tight']">
+                            Social Media<br>Management
                         </h3>
-
-                        <p
-                            class="text-[13px] leading-relaxed text-gray-600"
-                        >
-                            Managing and developing social media presence
-                            through strategic content planning, creative
-                            content production, community engagement,
-                            and performance analysis.
+                        <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+                            Managing and developing social media presence through strategic content planning, creative
+                            content production, community engagement, and performance analysis.
                         </p>
-
                     </div>
-
-
-                    {{-- ICON --}}
-
-                    <div
-                        class="mt-6 flex h-28 w-full items-end justify-start text-gray-800 opacity-30"
-                    >
-
-                        <svg
-                            class="h-24 w-24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.2"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-
-                            <rect
-                                x="7"
-                                y="2"
-                                width="10"
-                                height="20"
-                                rx="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M11 18h2"
-                            />
-
+                    <!-- Ilustrasi Ikon Handphone / Chat -->
+                    <div class="w-full h-28 mt-6 flex items-end justify-start opacity-30 text-gray-800">
+                        <svg class="w-24 h-24" fill="none" stroke="currentColor" stroke-width="1.2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="7" y="2" width="10" height="20" rx="2" stroke-linecap="round"
+                                stroke-linejoin="round"></rect>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 18h2"></path>
                         </svg>
-
                     </div>
-
                 </div>
 
-
-
-                {{-- ==========================================
-                     CARD 4
-                     BRANDING & BRAND IDENTITY
-                =========================================== --}}
-
+                <!-- Card 4: Branding & Brand Identity (Biru) -->
                 <div
-                    class="flex min-h-[420px] flex-col justify-between rounded-xl bg-[#0c1285] p-8 text-white shadow-lg transition-transform duration-300 hover:-translate-y-1"
-                >
-
+                    class="bg-[#1112A2] text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[460px] transition-transform duration-300 hover:-translate-y-1 shadow-lg">
                     <div>
-
-                        <h3
-                            class="mb-4 text-xl font-bold leading-tight"
-                        >
-                            Branding & Brand
-                            <br>
-                            Identity
+                        <h3 class="text-xl md:text-2xl font-bold min-h-[64px] mb-6 font-['Inter_Tight']">
+                            Branding & Brand<br>Identity
                         </h3>
-
-                        <p
-                            class="text-[13px] leading-relaxed text-white/80"
-                        >
-                            Creating distinctive and consistent brand
-                            identities that communicate a business's values,
-                            strengthen its positioning, and connect with its
-                            target audience.
+                        <p class="text-xs md:text-sm text-white/80 leading-relaxed">
+                            Creating distinctive and consistent brand identities that communicate a business's values,
+                            strengthen its positioning, and connect with its target audience.
                         </p>
-
                     </div>
-
-
-                    {{-- ICON --}}
-
-                    <div
-                        class="mt-6 flex h-28 w-full items-end justify-start text-white opacity-30"
-                    >
-
-                        <svg
-                            class="h-24 w-24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.2"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                            />
-
+                    <!-- Ilustrasi Ikon Desain / Pena / Kreatif -->
+                    <div class="w-full h-28 mt-6 flex items-end justify-start opacity-30 text-white">
+                        <svg class="w-24 h-24" fill="none" stroke="currentColor" stroke-width="1.2"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                            </path>
                         </svg>
-
                     </div>
-
                 </div>
-
 
             </div>
 
         </div>
-
     </section>
 
 
@@ -409,7 +219,7 @@
                 <div class="max-w-[540px]">
 
                     <h2
-                        class="mb-7 text-[24px] font-medium leading-[1.2] tracking-tight text-[#0c1285] md:text-[27px] lg:text-[29px]"
+                        class="mb-7 text-[24px] font-medium leading-[1.2] tracking-tight text-[#1112A2] md:text-[27px] lg:text-[29px]"
                     >
                         We also develop integrated digital
                         solutions designed to support
@@ -482,7 +292,7 @@
          MORE THAN A SERVICE PROVIDER
     =========================================== --}}
 
-    <section class="bg-[#0c1285] px-6 py-16 text-white md:px-12 md:py-20">
+    <section class="bg-[#1112A2] px-6 py-16 text-white md:px-12 md:py-20">
 
         <div class="mx-auto max-w-[1200px]">
 

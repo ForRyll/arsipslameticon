@@ -113,7 +113,7 @@
         /* Efek lingkaran nomor saat area workphase di-hover */
         .workphase-item:hover .workphase-number {
             background-color: #ffffff;
-            color: #0c1285; /* Warna teks biru menyesuaikan background section */
+            color: #1112A2; /* Warna teks biru menyesuaikan background section */
             font-weight: 700;
         }
 
@@ -225,7 +225,7 @@
     </style>
 </head>
 
-<body class="bg-[#ffffff] text-black antialiased selection:bg-[#0c1285] selection:text-white">
+<body class="bg-[#ffffff] text-black antialiased selection:bg-[#1112A2] selection:text-white">
 
     @include('partials.navbar')
 
@@ -233,7 +233,7 @@
 
     <!-- Subtitle -->
     <div class="text-center mb-6">
-        <span class="text-3xl font-bold text-[#0c1285] tracking-widest uppercase">
+        <span class="text-3xl font-bold text-[#1112A2] tracking-widest uppercase">
             Product
         </span>
     </div>
@@ -241,10 +241,10 @@
     <!-- =========================================================
          SECTION 2 : PROJECT / WORKPHASE ACCORDION
          ========================================================= -->
-    <section id="projects" class="bg-[#0c1285] text-white py-20 md:py-24 px-6 md:px-12 overflow-hidden">
+    <section id="projects" class="bg-[#1112A2] text-white py-20 md:py-24 px-6 md:px-12 overflow-hidden">
         <div class="max-w-[1050px] mx-auto">
 
-            <!-- SECTION TITLE -->
+            {{-- <!-- SECTION TITLE -->
             <div class="mb-10">
                 <span class="text-[12px] uppercase tracking-[0.2em] text-white/60">
                     Our Services
@@ -252,7 +252,7 @@
                 <h2 class="text-[32px] md:text-[42px] font-medium leading-tight mt-2">
                     How We Work
                 </h2>
-            </div>
+            </div> --}}
 
             <!-- =================================================
                  ACCORDION 1 : SOFTWARE & IT DEVELOPMENT
@@ -281,7 +281,7 @@
                                             <span class="workphase-number">1</span>
                                             <div>
                                                 <h4 class="workphase-title">Integrated Digital Solutions</h4>
-                                                <p class="workphase-description">Mengembangkan solusi digital terintegrasi yang menghubungkan berbagai kebutuhan bisnis dalam satu sistem yang efektif dan mudah digunakan.</p>
+                                                <p class="workphase-description text-sm md:text-base leading-relaxed text-gray-600">Mengembangkan solusi digital terintegrasi yang menghubungkan berbagai kebutuhan bisnis dalam satu sistem yang efektif dan mudah digunakan.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -716,7 +716,7 @@
         <!-- MODAL BOX -->
         <div id="projectModalBox" class="relative w-full max-w-[800px] bg-white rounded-xl overflow-hidden shadow-2xl">
             <!-- CLOSE -->
-            <button onclick="closeProjectModal()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/90 text-gray-700 flex items-center justify-center shadow hover:bg-[#0c1285] hover:text-white transition">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/90 text-gray-700 flex items-center justify-center shadow hover:bg-[#1112A2] hover:text-white transition">
                 ✕
             </button>
 
@@ -727,7 +727,7 @@
 
             <!-- CONTENT -->
             <div class="p-6 md:p-8">
-                <span class="inline-block bg-[#eef0ff] text-[#0c1285] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide mb-3">
+                <span class="inline-block bg-[#eef0ff] text-[#1112A2] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide mb-3">
                     Slameticon
                 </span>
                 <h3 id="projectModalTitle" class="text-xl md:text-2xl font-bold text-gray-900 mb-3"></h3>

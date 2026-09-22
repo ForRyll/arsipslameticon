@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>News</title>
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
@@ -31,6 +31,11 @@
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
         }
+
+        /* FIX: Tambahkan style ini agar kartu yang difilter benar-benar tersembunyi */
+        .hidden-card {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -50,7 +55,7 @@
 
     <section class="bg-white py-16 md:py-20 px-6 md:px-10 min-h-screen">
 
-        <div class="max-w-[1200px] mx-auto">
+        <div class="max-w-[1400px] mx-auto">
 
 
             {{-- ==========================================
@@ -58,11 +63,9 @@
             =========================================== --}}
 
             <div class="text-center mb-10 md:mb-12">
-
-            <h1 class="text-3xl md:text-4xl font-bold text-[#0c1285] tracking-wide mb-3">
-                News
-            </h1>
-
+                <h1 class="text-3xl md:text-4xl font-bold text-[#1112A2] tracking-wide mb-3">
+                    News
+                </h1>
             </div>
 
 
@@ -76,7 +79,7 @@
                 <button
                     type="button"
                     onclick="filterNews('All', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-[#0c1285] bg-[#0c1285] text-white text-[11px] font-medium transition-all duration-300"
+                    class="news-filter px-4 py-2 rounded-full border border-[#1112A2] bg-[#1112A2] text-white text-[11px] font-medium transition-all duration-300"
                 >
                     All
                 </button>
@@ -86,7 +89,7 @@
                 <button
                     type="button"
                     onclick="filterNews('Company News', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#0c1285] hover:text-[#0c1285] transition-all duration-300"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
                 >
                     Company News
                 </button>
@@ -96,7 +99,7 @@
                 <button
                     type="button"
                     onclick="filterNews('Digital Marketing', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#0c1285] hover:text-[#0c1285] transition-all duration-300"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
                 >
                     Digital Marketing
                 </button>
@@ -106,7 +109,7 @@
                 <button
                     type="button"
                     onclick="filterNews('Technology', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#0c1285] hover:text-[#0c1285] transition-all duration-300"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
                 >
                     Technology
                 </button>
@@ -116,7 +119,7 @@
                 <button
                     type="button"
                     onclick="filterNews('Client Stories', this)"
-                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#0c1285] hover:text-[#0c1285] transition-all duration-300"
+                    class="news-filter px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-medium hover:border-[#1112A2] hover:text-[#1112A2] transition-all duration-300"
                 >
                     Client Stories
                 </button>
@@ -154,7 +157,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Technology
                         </span>
@@ -164,7 +167,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Accelerating Growth: How Generative AI is Reshaping CRM Systems
                         </h3>
@@ -176,7 +179,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -206,7 +209,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Company News
                         </span>
@@ -216,7 +219,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Slameticon Digital Valey Expands Its Digital Innovation Services
                         </h3>
@@ -228,7 +231,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -258,7 +261,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Digital Marketing
                         </span>
@@ -268,7 +271,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Building Stronger Digital Presence Through Data-Driven Marketing
                         </h3>
@@ -280,7 +283,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -310,7 +313,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Technology
                         </span>
@@ -320,7 +323,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Digital Transformation and the Future of Business Technology
                         </h3>
@@ -332,7 +335,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -362,7 +365,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Client Stories
                         </span>
@@ -372,7 +375,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Helping Businesses Build Better Digital Experiences
                         </h3>
@@ -384,7 +387,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -414,7 +417,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Digital Marketing
                         </span>
@@ -424,7 +427,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Turning Creative Ideas Into Meaningful Digital Campaigns
                         </h3>
@@ -436,7 +439,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -466,7 +469,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Technology
                         </span>
@@ -476,7 +479,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Custom Technology Solutions for Modern Business Challenges
                         </h3>
@@ -488,7 +491,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -518,7 +521,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Company News
                         </span>
@@ -528,7 +531,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Connecting Strategy, Creativity, and Technology
                         </h3>
@@ -540,7 +543,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -570,7 +573,7 @@
                         ></div>
 
                         <span
-                            class="absolute top-3 left-3 bg-[#0c1285] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
+                            class="absolute top-3 left-3 bg-[#1112A2] text-white px-3 py-1 rounded-sm text-[9px] font-semibold uppercase tracking-wide"
                         >
                             Client Stories
                         </span>
@@ -580,7 +583,7 @@
                     <div class="p-4">
 
                         <h3
-                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#0c1285] transition-colors"
+                            class="text-[14px] md:text-[15px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-[#1112A2] transition-colors"
                         >
                             Creating Practical Solutions That Support Business Growth
                         </h3>
@@ -592,7 +595,7 @@
                         </p>
 
                         <span
-                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#0c1285] transition-colors"
+                            class="relative z-20 inline-block text-[10px] font-semibold text-gray-700 group-hover:text-[#1112A2] transition-colors"
                         >
                             Read More →
                         </span>
@@ -618,52 +621,41 @@
             const cards = document.querySelectorAll('.news-card');
             const buttons = document.querySelectorAll('.news-filter');
 
-            // Reset button
+            // Reset tombol (kembalikan ke warna default)
             buttons.forEach(btn => {
-
                 btn.classList.remove(
-                    'bg-[#0c1285]',
-                    'text-white'
+                    'bg-[#1112A2]',
+                    'text-white',
+                    'border-[#1112A2]'
                 );
-
                 btn.classList.add(
                     'bg-white',
-                    'text-gray-500'
+                    'text-gray-500',
+                    'border-gray-200'
                 );
-
             });
 
-
-            // Active button
+            // Aktifkan tombol yang diklik
             button.classList.remove(
                 'bg-white',
-                'text-gray-500'
+                'text-gray-500',
+                'border-gray-200'
             );
-
             button.classList.add(
-                'bg-[#0c1285]',
-                'text-white'
+                'bg-[#1112A2]',
+                'text-white',
+                'border-[#1112A2]'
             );
 
-
-            // Filter cards
+            // Filter kartu berita
             cards.forEach(card => {
-
                 const cardCategory = card.dataset.category;
 
-                if (
-                    category === 'All' ||
-                    cardCategory === category
-                ) {
-
+                if (category === 'All' || cardCategory === category) {
                     card.classList.remove('hidden-card');
-
                 } else {
-
                     card.classList.add('hidden-card');
-
                 }
-
             });
 
         }

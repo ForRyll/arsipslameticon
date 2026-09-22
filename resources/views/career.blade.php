@@ -16,18 +16,18 @@
         body { font-family: 'Inter Tight', sans-serif; }
     </style>
 </head>
-<body class="bg-[#ffffff] text-black antialiased selection:bg-[#0c1285] selection:text-white">
+<body class="bg-[#ffffff] text-black antialiased selection:bg-[#1112A2] selection:text-white">
 
     @include('partials.navbar')
 
 <!-- ==========================================
          SECTION: CAREER
          ========================================== -->
-    <section class="py-16 md:py-24 px-6 md:px-12 max-w-[1200px] mx-auto min-h-[calc(100vh-100px)] flex flex-col justify-center">
+    <section class="py-16 md:py-24 px-6 md:px-12 max-w-[1450px] mx-auto min-h-[calc(100vh-100px)] flex flex-col justify-center">
 
         <!-- Judul Atas Rata Tengah -->
         <div class="text-center mb-16 md:mb-24">
-                        <h1 class="text-3xl md:text-4xl font-bold text-[#0c1285] tracking-wide mb-3">
+                        <h1 class="text-3xl md:text-4xl font-bold text-[#1112A2] tracking-wide mb-3">
                 Career
             </h1>
         </div>
@@ -195,7 +195,7 @@
                                 <li>Ensure final graphics and layouts are visually appealing and on-brand.</li>
                             </ul>
                             <!-- Tombol Apply -->
-                            <a href="{{ url('/apply') }}?job=Graphic+Designer" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#0c1285] transition-colors">
+                            <a href="{{ url('/apply') }}?job=Graphic+Designer" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#1112A2] transition-colors">
                                 Apply now &rarr;
                             </a>
                         </div>
@@ -225,7 +225,7 @@
                                 <li>Identify, analyze, and interpret trends or patterns in complex data sets.</li>
                                 <li>Filter and clean data to maintain system integrity.</li>
                             </ul>
-                            <a href="{{ url('/apply') }}?job=Senior+Data+Analyst" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#0c1285] transition-colors">
+                            <a href="{{ url('/apply') }}?job=Senior+Data+Analyst" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#1112A2] transition-colors">
                                 Apply now &rarr;
                             </a>
                         </div>
@@ -255,7 +255,7 @@
                                 <li>Translate product strategy into detailed requirements and prototypes.</li>
                                 <li>Scope and prioritize activities based on business and customer impact.</li>
                             </ul>
-                            <a href="{{ url('/apply') }}?job=Product+Manager" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#0c1285] transition-colors">
+                            <a href="{{ url('/apply') }}?job=Product+Manager" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#1112A2] transition-colors">
                                 Apply now &rarr;
                             </a>
                         </div>
@@ -285,7 +285,7 @@
                                 <li>Collaborate with data engineers to deploy models into production.</li>
                                 <li>Provide technical leadership and mentor junior team members.</li>
                             </ul>
-                            <a href="/apply" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#0c1285] transition-colors">
+                            <a href="/apply" class="inline-flex items-center justify-center bg-[#1218ae] text-white px-6 py-2.5 rounded text-[14px] font-medium hover:bg-[#1112A2] transition-colors">
                                 Apply now &rarr;
                             </a>
                         </div>

@@ -273,7 +273,7 @@
 </head>
 
 
-<body class="bg-white text-black antialiased selection:bg-[#1218ae] selection:text-white">
+<body class="bg-white text-black antialiased selection:bg-[#1112A2] selection:text-white">
 
 
     {{-- =========================================
@@ -299,14 +299,16 @@
             {{-- TITLE --}}
             <div class="mb-10 md:mb-12 text-center">
 
-                            <h1 class="text-3xl md:text-4xl font-bold text-[#0c1285] tracking-wide mb-3">
-                Our People
-            </h1>
+            <div class="text-center mb-8 md:mb-12">
+                <h3 class="text-3xl md:text-4xl font-semibold text-[#1112A2] font-['Inter_Tight']">
+                    Our People
+                </h3>
+            </div>
 
             </div>
 
 
-            {{-- FOTO + INFORMASI --}}
+{{-- FOTO + INFORMASI --}}
             <div class="people-content">
 
                 {{-- FOTO --}}
@@ -320,35 +322,35 @@
                 {{-- INFORMASI --}}
                 <div class="people-info">
 
-                    {{-- NAMA --}}
-                    <h2 class="people-name">
+                    {{-- NAMA (Diperbesar ukurannya) --}}
+                    <h2 class="people-name text-2xl md:text-3xl lg:text-4xl font-bold text-[#1112A2] mb-1 font-['Inter_Tight']">
                         Harryadin Mahardika
                     </h2>
 
 
-                    {{-- JABATAN --}}
-                    <h3 class="people-position">
+                    {{-- JABATAN (Diperbesar ukurannya) --}}
+                    <h3 class="people-position text-base md:text-lg font-semibold text-[#] mb-2">
                         Founder
                     </h3>
 
 
-                    {{-- UNIVERSITAS --}}
-                    <span class="people-university">
+                    {{-- UNIVERSITAS (Diperbesar ukurannya) --}}
+                    <span class="people-university inline-block text-xs md:text-sm font-medium text-gray-500 tracking-wide uppercase mb-6">
                         University of Indonesia | Monash University
                     </span>
 
 
-                    {{-- DESKRIPSI --}}
-                    <div class="people-description">
+                    {{-- DESKRIPSI (Diperbesar ukuran teks dan line-heightnya) --}}
+                    <div class="people-description space-y-4">
 
-                        <p class="text-justify">
+                        <p class="text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed text-justify">
                             Harryadin Mahardika is the Founder of PT Slameticon Digital Valley.
                             With expertise in market research, branding, and business development,
                             he has led the company's vision of helping businesses grow through
                             technology, digital marketing, and innovative business solutions.
                         </p>
 
-                        <p class="text-justify">
+                        <p class="text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed text-justify">
                             Driven by a deep understanding of consumer behavior and market dynamics,
                             Harryadin combines strategic thinking, creativity, and data-driven insights
                             to develop solutions that create meaningful business impact. His experience
@@ -371,13 +373,13 @@
          FOUNDER QUOTE
          ========================================= --}}
 
-    <section class="w-full bg-[#1218ae] text-white py-12 md:py-14 px-6">
+    <section class="w-full bg-[#1112A2] text-white py-12 md:py-14 px-6">
 
-        <div class="max-w-[850px] mx-auto relative">
+        <div class="max-w-[1100px] mx-auto relative">
 
             <div class="px-10 md:px-14 text-center">
 
-                <p class="text-[21px] md:text-[21px] font-semibold leading-relaxed">
+                <p class="text-[24px] md:text-[24px] font-semibold leading-relaxed">
 
                     "As the founder of PT Slameticon Digital Valley, Harryadin continues to
                     lead the company in delivering integrated digital solutions that
@@ -393,1027 +395,117 @@
     </section>
 
 
-    {{-- =========================================
-         OUR TEAM
+{{-- =========================================
+         OUR TEAM SECTION
          ========================================= --}}
+    <section class="bg-white text-black py-16 md:py-24 px-6 md:px-16 w-full">
 
-    <section class="bg-white text-black py-16 md:py-20 px-6 md:px-10">
-
-        <div class="team-container">
+        <!-- KONTENER UTAMA (LEBAR DISESUAIKAN SAMA SEPERTI SECTION LAIN) -->
+        <div class="max-w-[1350px] mx-auto w-full">
 
             {{-- TITLE --}}
-            <div class="team-title">
-                Our Team
+            <div class="text-center mb-8 md:mb-12">
+                <h3 class="text-2xl md:text-3xl font-semibold text-[#1112A2] font-['Inter_Tight']">
+                    Our Team
+                </h3>
             </div>
 
-
             {{-- =========================================
-                 TEAM GRID
+                 TEAM GRID (DILEBARKAN & DIPERBESAR TAMPILANNYA)
                  ========================================= --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
 
-            <div class="team-grid">
+                @php
+                    // Array dummy untuk mempersimple perulangan kartu tim
+                    $teams = [
+                        ['name' => 'Wafi', 'role' => 'Manager', 'image' => 'wafi.png'],
+                        ['name' => 'Hadiq', 'role' => 'CEO', 'image' => 'wafi.png'],
+                        ['name' => 'Iskandar', 'role' => 'Backend Developer', 'image' => 'wafi.png'],
+                        ['name' => 'Saiful', 'role' => 'Backend Developer', 'image' => 'wafi.png'],
+                        ['name' => 'Azka', 'role' => 'UI/UX Designer', 'image' => 'wafi.png'],
+                        ['name' => 'Nisa', 'role' => 'Backend Developer', 'image' => 'wafi.png'],
+                        ['name' => 'Dandi', 'role' => 'Front End Developer', 'image' => 'wafi.png'],
+                        ['name' => 'Fadhil', 'role' => 'Front End Developer', 'image' => 'wafi.png'],
+                        ['name' => 'Fadlul', 'role' => 'Front End Developer', 'image' => 'wafi.png'],
+                        ['name' => 'Irfan', 'role' => 'UI/UX Designer', 'image' => 'wafi.png'],
+                    ];
+                @endphp
 
+                @foreach ($teams as $person)
+                    <div class="team-card bg-[#f8f9fa] border border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
 
-                {{-- =====================================
-                     PERSON 1
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    {{-- SOCIAL MEDIA --}}
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                        <!-- FOTO PROFIL (DIRESIZIING AGAR PRESISI) -->
+                        <div class="w-28 h-28 md:w-37 md:h-39 rounded-lg overflow-hidden mb-5 border-2 border-white shadow-md">
+                            <img
+                                src="{{ asset('images/' . $person['image']) }}"
+                                alt="{{ $person['name'] }}"
+                                class="w-full h-full object-cover"
                             >
-                                <rect
-                                    x="3"
-                                    y="3"
-                                    width="18"
-                                    height="18"
-                                    rx="5"
-                                />
+                        </div>
 
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="4"
-                                />
+                        <!-- JABATAN / ROLE -->
+                        <p class="text-xs md:text-sm font-bold text-[#1218ae] uppercase tracking-wider mb-1">
+                            {{ $person['role'] }}
+                        </p>
 
-                                <circle
-                                    cx="17.5"
-                                    cy="6.5"
-                                    r="0.8"
-                                    fill="currentColor"
-                                    stroke="none"
-                                />
+                        <!-- NAMA (DIPERBESAR) -->
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3 font-['Inter_Tight']">
+                            {{ $person['name'] }}
+                        </h3>
 
-                            </svg>
+                        <!-- DESKRIPSI (DIPERBESAR & UBAH LINE-HEIGHT) -->
+                        <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6 flex-1">
+                            /Studio is powerful enough with all the features I needed, built at the same time is still easy
+                        </p>
 
-                        </a>
+                        {{-- SOCIAL MEDIA ICON --}}
+                        <div class="flex items-center justify-center gap-4 text-gray-400">
 
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
+                            {{-- Instagram --}}
+                            <a
+                                href="https://instagram.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram {{ $person['name'] }}"
+                                class="hover:text-[#1218ae] transition-colors"
                             >
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-                            </svg>
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="5"/>
+                                    <circle cx="12" cy="12" r="4"/>
+                                    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+                                </svg>
+                            </a>
 
-                        </a>
-
-
-                        {{-- X / Twitter --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
+                            {{-- Facebook --}}
+                            <a
+                                href="https://facebook.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Facebook {{ $person['name'] }}"
+                                class="hover:text-[#1218ae] transition-colors"
                             >
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-                            </svg>
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"/>
+                                </svg>
+                            </a>
 
-                        </a>
+                            {{-- X / Twitter --}}
+                            <a
+                                href="https://x.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="X {{ $person['name'] }}"
+                                class="hover:text-[#1218ae] transition-colors"
+                            >
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"/>
+                                </svg>
+                            </a>
 
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 2
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
+                        </div>
 
                     </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 3
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 4
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 5
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 6
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 7
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 8
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 9
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                {{-- =====================================
-                     PERSON 10
-                     ===================================== --}}
-
-                <div class="team-card">
-
-                    <div class="team-image">
-
-                        <img
-                            src="{{ asset('images/wafi.png') }}"
-                            alt="Wafi"
-                        >
-
-                    </div>
-
-                    <p class="team-role">
-                        Manager
-                    </p>
-
-                    <h3 class="team-name">
-                        Wafi
-                    </h3>
-
-                    <p class="team-description">
-                        /Studio is powerful enough with all the features I needed,
-                        built at the same time is still easy
-                    </p>
-
-
-                    <div class="team-socials">
-
-                        {{-- Instagram --}}
-                        <a
-                            href="https://instagram.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                                stroke-linejoin="round">
-
-                                <rect x="3" y="3" width="18" height="18" rx="5"/>
-                                <circle cx="12" cy="12" r="4"/>
-                                <circle cx="17.5" cy="6.5" r="0.8"
-                                    fill="currentColor" stroke="none"/>
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- Facebook --}}
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-
-                        {{-- X --}}
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X Wafi"
-                        >
-
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-
-                                <path
-                                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z"
-                                />
-
-                            </svg>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
+                @endforeach
 
             </div>
 

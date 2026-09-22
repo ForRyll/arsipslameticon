@@ -35,7 +35,7 @@
 </head>
 
 
-<body class="bg-white text-black antialiased selection:bg-[#0c1285] selection:text-white">
+<body class="bg-white text-black antialiased selection:bg-[#1112A2] selection:text-white">
 
 
     {{-- ==========================================
@@ -56,7 +56,7 @@
          GALLERY
          ========================================== --}}
 
-    <main class="max-w-[1400px] mx-auto px-6 md:px-12 pb-24 min-h-screen">
+    <main class="max-w-[1600px] mx-auto px-6 md:px-12 pb-24 min-h-screen">
 
 
         {{-- ==========================================
@@ -65,7 +65,7 @@
 
         <div class="text-center mb-10">
 
-            <h1 class="text-3xl md:text-4xl font-bold text-[#0c1285] tracking-wide mb-3">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#1112A2] tracking-wide mb-3">
                 Gallery
             </h1>
 
@@ -89,7 +89,7 @@
             <button
                 type="button"
                 onclick="filterGallery()"
-                class="filter-btn active-filter px-5 py-2.5 rounded-full border border-[#0c1285] bg-[#0c1285] text-white text-[13px] font-medium transition-all duration-300 hover:opacity-90"
+                class="filter-btn active-filter px-5 py-2.5 rounded-full border border-[#1112A2] bg-[#1112A2] text-white text-[13px] font-medium transition-all duration-300 hover:opacity-90"
             >
                 All Photos
             </button>
@@ -102,7 +102,7 @@
                 <select
                     id="yearFilter"
                     onchange="filterGallery()"
-                    class="appearance-none w-[160px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#0c1285] focus:border-[#0c1285]"
+                    class="appearance-none w-[160px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]"
                 >
 
                     <option value="">All Years</option>
@@ -126,7 +126,7 @@
                 <select
                     id="monthFilter"
                     onchange="filterGallery()"
-                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#0c1285] focus:border-[#0c1285]"
+                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]"
                 >
 
                     <option value="">All Months</option>
@@ -161,7 +161,7 @@
                 <select
                     id="categoryFilter"
                     onchange="filterGallery()"
-                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#0c1285] focus:border-[#0c1285]"
+                    class="appearance-none w-[170px] px-5 py-2.5 pr-10 rounded-full border border-gray-300 bg-white text-gray-600 text-[13px] font-medium outline-none cursor-pointer transition-all duration-300 hover:border-[#1112A2] focus:border-[#1112A2]"
                 >
 
                     <option value="">All Categories</option>
@@ -545,7 +545,7 @@
             <button
                 type="button"
                 onclick="closeGalleryModal()"
-                class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 text-gray-700 hover:bg-[#0c1285] hover:text-white transition-colors duration-200 flex items-center justify-center shadow"
+                class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 text-gray-700 hover:bg-[#1112A2] hover:text-white transition-colors duration-200 flex items-center justify-center shadow"
             >
                 ✕
             </button>
@@ -571,7 +571,7 @@
 
                 <div class="flex items-center gap-2 mb-3">
 
-                    <span class="inline-block bg-[#eef0ff] text-[#0c1285] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide">
+                    <span class="inline-block bg-[#eef0ff] text-[#1112A2] px-3 py-1 rounded-sm text-[10px] font-semibold uppercase tracking-wide">
                         Slameticon
                     </span>
 
