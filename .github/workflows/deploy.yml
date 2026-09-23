@@ -1,0 +1,59 @@
+name: Deploy App
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_env:
+        description: "Pilih environment"
+        required: true
+        default: "main"
+        type: choice
+        options:
+          - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.target_env }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install OpenVPN and SSH Client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openvpn openssh-client
+
+      - name: Setup OpenVPN config
+        run: |
+          echo "${{ secrets.OPENVPN_CONFIG }}" > vpn.conf
+
+      - name: Connect to VPN
+        run: |
+          sudo openvpn --config vpn.conf --daemon
+          # Tunggu beberapa detik agar VPN connect
+          sleep 15
+
+      - name: Add SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Deploy Code via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VPS_PUBLIC_IP }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            cd ${{ vars.DEPLOY_PATH }}
+            git stash
+            git pull origin ${{ github.event.inputs.target_env }}
+            php8.3 artisan optimize:clear
+            php8.3 artisan migrate
+            
+      - name: Disconnect VPN
+        run: |
+          sudo killall openvpn || true
