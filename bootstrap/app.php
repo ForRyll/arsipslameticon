@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\CheckPermission;
+use App\Http\Middleware\SetLocaleMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -13,6 +14,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        // Append SetLocaleMiddleware ke grup web
+        $middleware->web(append: [
+            SetLocaleMiddleware::class,
+        ]);
+
+        // Register Route Alias
         $middleware->alias([
             'permission' => CheckPermission::class,
         ]);

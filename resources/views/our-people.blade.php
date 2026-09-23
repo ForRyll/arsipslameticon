@@ -8,505 +8,180 @@
     <title>Our People - Slameticon Digital Valley</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Inter Tight', sans-serif;
         }
-
-        /* =========================================
-           OUR PEOPLE LAYOUT
-           ========================================= */
-
-        .people-container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        .people-content {
-            display: flex;
-            align-items: center;
-            gap: 55px;
-        }
-
-        .people-photo {
-            width: 285px;
-            height: 315px;
-            flex-shrink: 0;
-            object-fit: cover;
-            object-position: top;
-            border-radius: 4px;
-        }
-
-        .people-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .people-name {
-            font-size: 30px;
-            line-height: 1.2;
-            font-weight: 700;
-            color: #1218ae;
-            margin: 0 0 5px 0;
-        }
-
-        .people-position {
-            font-size: 16px;
-            line-height: 1.4;
-            font-weight: 500;
-            color: #222;
-            margin: 0 0 3px 0;
-        }
-
-        .people-university {
-            display: block;
-            font-size: 12px;
-            line-height: 1.5;
-            font-weight: 500;
-            color: #9ca3af;
-            margin-bottom: 20px;
-        }
-
-        .people-description {
-            max-width: 570px;
-            font-size: 12px;
-            line-height: 1.65;
-            color: #6b7280;
-        }
-
-        .people-description p {
-            margin: 0 0 10px 0;
-        }
-
-
-        /* =========================================
-           OUR TEAM
-           ========================================= */
-
-        .team-container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .team-title {
-            font-size: 22px;
-            font-weight: 500;
-            color: #1218ae;
-            margin-bottom: 32px;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            column-gap: 22px;
-            row-gap: 48px;
-        }
-
-        .team-card {
-            min-width: 0;
-        }
-
-        .team-image {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-            margin-bottom: 8px;
-        }
-
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .team-card:hover .team-image img {
-            transform: scale(1.04);
-        }
-
-        .team-role {
-            font-size: 10px;
-            line-height: 1.4;
-            color: #555;
-            margin: 0 0 4px;
-        }
-
-        .team-name {
-            font-size: 17px;
-            line-height: 1.3;
-            font-weight: 500;
-            color: #1218ae;
-            margin: 0 0 8px;
-        }
-
-        .team-description {
-            font-size: 10px;
-            line-height: 1.5;
-            color: #7d8797;
-            margin: 0 0 12px;
-        }
-
-
-        /* =========================================
-           TEAM SOCIALS
-           ========================================= */
-
-        .team-socials {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .team-socials a {
-            width: 20px;
-            height: 20px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #555;
-
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
-        }
-
-        .team-socials a:hover {
-            color: #1218ae;
-            transform: translateY(-2px);
-        }
-
-        .team-socials svg {
-            width: 15px;
-            height: 15px;
-            display: block;
-        }
-
-
-        /* =========================================
-           TABLET
-           ========================================= */
-
-        @media (max-width: 900px) {
-
-            .team-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 32px 20px;
-            }
-
-        }
-
-
-        /* =========================================
-           MOBILE
-           ========================================= */
-
-        @media (max-width: 767px) {
-
-            .people-container {
-                padding: 0 24px;
-            }
-
-            .people-content {
-                flex-direction: column;
-                gap: 30px;
-                align-items: center;
-            }
-
-            .people-photo {
-                width: 280px;
-                height: 310px;
-            }
-
-            .people-info {
-                width: 100%;
-                text-align: left;
-            }
-
-            .people-name {
-                font-size: 26px;
-            }
-
-            .people-description {
-                max-width: 100%;
-                font-size: 12px;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .team-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 32px 16px;
-            }
-
-            .team-title {
-                font-size: 20px;
-            }
-
-            .team-name {
-                font-size: 15px;
-            }
-
-        }
     </style>
-
 </head>
-
 
 <body class="bg-white text-black antialiased selection:bg-[#1112A2] selection:text-white">
 
-
-    {{-- =========================================
-         NAVBAR
-         ========================================= --}}
+    {{-- NAVBAR --}}
     @include('partials.navbar')
 
-
-    {{-- =========================================
-         SPACER
-         ========================================= --}}
+    {{-- SPACER --}}
     <div class="pt-24 md:pt-28"></div>
 
-
     {{-- =========================================
-         OUR PEOPLE
-         ========================================= --}}
-
+       SECTION 1: OUR PEOPLE (FOUNDER)
+       ========================================= --}}
     <section class="py-12 md:py-16 px-6 md:px-12 bg-white">
+        <div class="max-w-[1000px] mx-auto w-full">
 
-        <div class="people-container">
-
-            {{-- TITLE --}}
-            <div class="mb-10 md:mb-12 text-center">
-
-                <div class="text-center mb-8 md:mb-12">
-                    <h3 class="text-3xl md:text-4xl font-semibold text-[#1112A2] font-['Inter_Tight']">
-                        Our People
-                    </h3>
-                </div>
-
+            {{-- JUDUL SECTION --}}
+            <div class="text-center mb-12 md:mb-16">
+                <h1 class="text-3xl md:text-4xl font-bold text-[#1112A2]">
+                    {{ __('Our People') }}
+                </h1>
             </div>
 
+            @if ($founder)
+                {{-- LAYOUT FOUNDER (FOTO KIRI, DETAIL KANAN) --}}
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-14">
 
-            {{-- FOTO + INFORMASI --}}
-            <div class="people-content">
+                    {{-- FOTO FOUNDER --}}
+                    <div class="w-[280px] h-[320px] flex-shrink-0 overflow-hidden rounded-lg shadow-sm">
+                        <img src="{{ !empty($founder->photo_url) ? asset('storage/' . $founder->photo_url) : asset('images/harryadin.png') }}" 
+                             alt="{{ $founder->name }}" 
+                             class="w-full h-full object-cover object-top">
+                    </div>
 
-                {{-- FOTO --}}
-                <img src="{{ asset('images/harryadin.png') }}" alt="Harryadin Mahardika" class="people-photo">
+                    {{-- INFORMASI FOUNDER --}}
+                    <div class="flex-1 min-w-0 text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#1112A2] mb-1">
+                            {{ $founder->name }}
+                        </h2>
 
-
-                {{-- INFORMASI --}}
-                <div class="people-info">
-
-                    {{-- NAMA (Diperbesar ukurannya) --}}
-                    <h2
-                        class="people-name text-2xl md:text-3xl lg:text-4xl font-bold text-[#1112A2] mb-1 font-['Inter_Tight']">
-                        Harryadin Mahardika
-                    </h2>
-
-
-                    {{-- JABATAN (Diperbesar ukurannya) --}}
-                    <h3 class="people-position text-base md:text-lg font-semibold text-[#] mb-2">
-                        Founder
-                    </h3>
-
-
-                    {{-- UNIVERSITAS (Diperbesar ukurannya) --}}
-                    <span
-                        class="people-university inline-block text-xs md:text-sm font-medium text-gray-500 tracking-wide uppercase mb-6">
-                        University of Indonesia | Monash University
-                    </span>
-
-
-                    {{-- DESKRIPSI (Diperbesar ukuran teks dan line-heightnya) --}}
-                    <div class="people-description space-y-4">
-
-                        <p class="text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed text-justify">
-                            Harryadin Mahardika is the Founder of PT Slameticon Digital Valley.
-                            With expertise in market research, branding, and business development,
-                            he has led the company's vision of helping businesses grow through
-                            technology, digital marketing, and innovative business solutions.
+                        <p class="text-base font-semibold text-gray-800 mb-1">
+                            {{ $founder->position?->getTranslation('name', app()->getLocale()) ?? $founder->position?->name }}
                         </p>
 
-                        <p class="text-xs md:text-sm lg:text-base text-gray-700 leading-relaxed text-justify">
-                            Driven by a deep understanding of consumer behavior and market dynamics,
-                            Harryadin combines strategic thinking, creativity, and data-driven insights
-                            to develop solutions that create meaningful business impact. His experience
-                            spans across digital transformation, brand development, marketing strategy,
-                            and technology integration.
-                        </p>
+                        {{-- LAST EDUCATION --}}
+                        @if (!empty($founder->last_education))
+                            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-6">
+                                {{ $founder->last_education }}
+                            </p>
+                        @endif
 
+                        {{-- ABOUT --}}
+                        <div class="text-xs md:text-sm text-gray-600 leading-relaxed space-y-3 text-justify max-w-[570px]">
+                            {!! nl2br(e($founder->getTranslation('about', app()->getLocale()))) !!}
+                        </div>
                     </div>
 
                 </div>
-
-            </div>
+            @endif
 
         </div>
-
     </section>
 
 
     {{-- =========================================
-         FOUNDER QUOTE
-         ========================================= --}}
-
-    <section class="w-full bg-[#1112A2] text-white py-12 md:py-14 px-6">
-
-        <div class="max-w-[1100px] mx-auto relative">
-
-            <div class="px-10 md:px-14 text-center">
-
-                <p class="text-[24px] md:text-[24px] font-semibold leading-relaxed">
-
-                    "As the founder of PT Slameticon Digital Valley, Harryadin continues to
-                    lead the company in delivering integrated digital solutions that
-                    empower businesses to adapt, grow, and succeed in an increasingly
-                    competitive digital landscape".
-
+       SECTION 2: FOUNDER QUOTE (BLUE BANNER)
+       ========================================= --}}
+    @if ($founder && !empty($founder->getTranslation('quote', app()->getLocale())))
+        <section class="w-full bg-[#1112A2] text-white py-14 px-6 md:px-12 my-6">
+            <div class="max-w-[1000px] mx-auto text-center">
+                <p class="text-lg md:text-2xl font-semibold leading-relaxed">
+                    "{{ $founder->getTranslation('quote', app()->getLocale()) }}"
                 </p>
-
             </div>
-
-        </div>
-
-    </section>
+        </section>
+    @endif
 
 
     {{-- =========================================
-         OUR TEAM SECTION
-         ========================================= --}}
-    <section class="bg-white text-black py-16 md:py-24 px-6 md:px-16 w-full">
+       SECTION 3: OUR TEAM (GRID CARDS)
+       ========================================= --}}
+    <section class="bg-white py-12 md:py-16 px-6 md:px-12 w-full">
+        <div class="max-w-[1150px] mx-auto w-full">
 
-        <!-- KONTENER UTAMA (LEBAR DISESUAIKAN SAMA SEPERTI SECTION LAIN) -->
-        <div class="max-w-[1350px] mx-auto w-full">
-
-            {{-- TITLE --}}
-            <div class="text-center mb-8 md:mb-12">
-                <h3 class="text-2xl md:text-3xl font-semibold text-[#1112A2] font-['Inter_Tight']">
-                    Our Team
-                </h3>
+            {{-- JUDUL TEAM --}}
+            <div class="text-center mb-10 md:mb-14">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#1112A2]">
+                    {{ __('Our Team') }}
+                </h2>
             </div>
 
-            {{-- =========================================
-                 TEAM GRID (DILEBARKAN & DIPERBESAR TAMPILANNYA)
-                 ========================================= --}}
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
+            {{-- TEAM GRID --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
 
-                @php
-                    // Array dummy untuk mempersimple perulangan kartu tim
-                    $teams = [
-                        ['name' => 'Wafi', 'role' => 'Manager', 'image' => 'wafi.png'],
-                        ['name' => 'Hadiq', 'role' => 'CEO', 'image' => 'wafi.png'],
-                        ['name' => 'Iskandar', 'role' => 'Backend Developer', 'image' => 'wafi.png'],
-                        ['name' => 'Saiful', 'role' => 'Backend Developer', 'image' => 'wafi.png'],
-                        ['name' => 'Azka', 'role' => 'UI/UX Designer', 'image' => 'wafi.png'],
-                        ['name' => 'Nisa', 'role' => 'Backend Developer', 'image' => 'wafi.png'],
-                        ['name' => 'Dandi', 'role' => 'Front End Developer', 'image' => 'wafi.png'],
-                        ['name' => 'Fadhil', 'role' => 'Front End Developer', 'image' => 'wafi.png'],
-                        ['name' => 'Fadlul', 'role' => 'Front End Developer', 'image' => 'wafi.png'],
-                        ['name' => 'Irfan', 'role' => 'UI/UX Designer', 'image' => 'wafi.png'],
-                    ];
-                @endphp
+                @forelse ($teams as $person)
+                    <div class="bg-[#f8f9fb] border border-gray-100 rounded-2xl p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300">
 
-                @foreach ($teams as $person)
-                    <div
-                        class="team-card bg-[#f8f9fa] border border-gray-100 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-
-                        <!-- FOTO PROFIL (DIRESIZIING AGAR PRESISI) -->
-                        <div
-                            class="w-28 h-28 md:w-37 md:h-39 rounded-lg overflow-hidden mb-5 border-2 border-white shadow-md">
-                            <img src="{{ asset('images/' . $person['image']) }}" alt="{{ $person['name'] }}"
-                                class="w-full h-full object-cover">
+                        <!-- FOTO PROFIL -->
+                        <div class="w-32 h-32 md:w-36 md:h-36 rounded-2xl overflow-hidden mb-5 flex-shrink-0">
+                            <img src="{{ !empty($person->photo_url) ? asset('storage/' . $person->photo_url) : asset('images/default-profile.png') }}" 
+                                 alt="{{ $person->name }}"
+                                 class="w-full h-full object-cover">
                         </div>
 
                         <!-- JABATAN / ROLE -->
-                        <p class="text-xs md:text-sm font-bold text-[#1218ae] uppercase tracking-wider mb-1">
-                            {{ $person['role'] }}
-                        </p>
+                        <span class="text-[11px] font-bold text-[#1112A2] uppercase tracking-wider mb-1">
+                            {{ $person->position?->getTranslation('name', app()->getLocale()) ?? $person->position?->name }}
+                        </span>
 
-                        <!-- NAMA (DIPERBESAR) -->
-                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3 font-['Inter_Tight']">
-                            {{ $person['name'] }}
+                        <!-- NAMA -->
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                            {{ $person->name }}
                         </h3>
 
-                        <!-- DESKRIPSI (DIPERBESAR & UBAH LINE-HEIGHT) -->
-                        <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6 flex-1">
-                            /Studio is powerful enough with all the features I needed, built at the same time is still
-                            easy
+                        <!-- DESKRIPSI -->
+                        <p class="text-xs text-gray-500 leading-relaxed mb-6 flex-1 line-clamp-3">
+                            {{ $person->getTranslation('about', app()->getLocale()) }}
                         </p>
 
-                        {{-- SOCIAL MEDIA ICON --}}
-                        <div class="flex items-center justify-center gap-4 text-gray-400">
+                        <!-- SOCIAL MEDIA ICONS -->
+                        <div class="flex items-center justify-center gap-4 text-gray-400 mt-auto">
+                            @if(!empty($person->instagram_url))
+                                <a href="{{ $person->instagram_url }}" target="_blank" class="hover:text-[#1112A2] transition-colors">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                            @endif
 
-                            {{-- Instagram --}}
-                            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
-                                aria-label="Instagram {{ $person['name'] }}"
-                                class="hover:text-[#1218ae] transition-colors">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="3" width="18" height="18" rx="5" />
-                                    <circle cx="12" cy="12" r="4" />
-                                    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
-                                </svg>
-                            </a>
+                            @if(!empty($person->facebook_url))
+                                <a href="{{ $person->facebook_url }}" target="_blank" class="hover:text-[#1112A2] transition-colors">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    </svg>
+                                </a>
+                            @endif
 
-                            {{-- Facebook --}}
-                            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
-                                aria-label="Facebook {{ $person['name'] }}"
-                                class="hover:text-[#1218ae] transition-colors">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M14 8h3V4.5c-.5-.1-1.8-.2-3.2-.2-3.2 0-5.4 2-5.4 5.6V13H5.5v4H8.4v6.5H12V17h3.2l.5-4H12V10.2c0-1.2.3-2.2 2-2.2Z" />
-                                </svg>
-                            </a>
-
-                            {{-- X / Twitter --}}
-                            <a href="https://x.com/" target="_blank" rel="noopener noreferrer"
-                                aria-label="X {{ $person['name'] }}" class="hover:text-[#1218ae] transition-colors">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.4l4.5 5.9L18.9 2Zm-1.1 17.8h1.7L8.2 4.1H6.4L17.8 19.8Z" />
-                                </svg>
-                            </a>
-
+                            @if(!empty($person->x_url))
+                                <a href="{{ $person->x_url }}" target="_blank" class="hover:text-[#1112A2] transition-colors">
+                                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    </svg>
+                                </a>
+                            @endif
                         </div>
 
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-span-full text-center py-8 text-gray-400">
+                        Belum ada anggota tim.
+                    </div>
+                @endforelse
 
             </div>
 
         </div>
-
     </section>
 
-
-    {{-- =========================================
-         FOOTER
-         ========================================= --}}
-
+    {{-- FOOTER --}}
     @include('partials.footer')
 
-
 </body>
-
 </html>

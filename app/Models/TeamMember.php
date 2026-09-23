@@ -17,7 +17,6 @@ class TeamMember extends Model
     public $incrementing = false;
 
     public array $translatable = [
-        'bio',
         'about',
         'quote',
     ];
@@ -26,10 +25,12 @@ class TeamMember extends Model
         'position_id',
         'name',
         'photo_url',
-        'bio',
         'last_education',
         'about',
         'quote',
+        'instagram_url',
+        'facebook_url',
+        'x_url',
     ];
 
     public function position(): BelongsTo

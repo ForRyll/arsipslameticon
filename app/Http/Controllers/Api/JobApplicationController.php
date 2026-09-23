@@ -49,26 +49,31 @@ class JobApplicationController extends Controller
     /**
      * Public: Apply / Kirim Lamaran Kerja (Upload File CV)
      */
-    public function store(StoreJobApplicationRequest $request): JsonResponse
-    {
-        $data = $request->validated();
+public function store(StoreJobApplicationRequest $request): JsonResponse
+{
+    $data = $request->validated();
 
-        if ($request->hasFile('cv')) {
-            $path = $request->file('cv')->store('cvs', 'public');
-            $data['cv_url'] = Storage::url($path);
-        }
-
-        $data['status'] = 'applied';
-        $data['applied_at'] = now();
-
-        $application = JobApplication::create($data);
-
-        return response()->json([
-            'status'  => 'success',
-            'message' => 'Lamaran kerja berhasil dikirim.',
-            'data'    => $application->load('jobOpening'),
-        ], 201);
+    // Pastikan jika JS ngirim first_name, kita petakan ke name
+    if ($request->has('first_name')) {
+        $data['name'] = $request->input('first_name');
     }
+
+    if ($request->hasFile('cv')) {
+        $path = $request->file('cv')->store('cvs', 'public');
+        $data['cv_url'] = Storage::url($path);
+    }
+
+    $data['status'] = 'applied';
+    $data['applied_at'] = now();
+
+    $application = JobApplication::create($data);
+
+    return response()->json([
+        'status'  => 'success',
+        'message' => 'Lamaran kerja berhasil dikirim.',
+        'data'    => $application->load('jobOpening'),
+    ], 201);
+}
 
     /**
      * Protected: Update Status Lamaran (Recruitment Pipeline)

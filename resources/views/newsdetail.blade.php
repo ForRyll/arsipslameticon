@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Accelerating Growth - Slameticon Digital Valey</title>
+    {{-- TITLE DINAMIS --}}
+    <title>{{ is_array($news->title) ? ($news->title[app()->getLocale()] ?? reset($news->title)) : $news->title }} - Slameticon Digital Valley</title>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
@@ -15,9 +16,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -29,228 +28,86 @@
             text-justify: inter-word;
         }
     </style>
-
 </head>
 
-
 <body class="bg-white text-gray-900">
-
 
     {{-- NAVBAR --}}
     @include('partials.navbar')
 
-
     {{-- SPACING NAVBAR --}}
     <div class="pt-24 md:pt-28"></div>
 
-
-    {{-- ==========================================
-         NEWS DETAIL
-    =========================================== --}}
-
     <main>
-
         <section class="bg-white px-6 md:px-10 lg:px-16 py-12 md:py-20">
-
             <div class="max-w-[1100px] mx-auto">
 
-
                 {{-- BACK BUTTON --}}
-
                 <div class="mb-10 md:mb-14">
-
                     <a href="{{ route('news') }}"
                         class="inline-flex items-center gap-2 text-[12px] md:text-[13px] font-medium text-gray-500 hover:text-[#1112A2] transition-colors duration-300">
-
-                        <span class="text-lg leading-none">
-                            ←
-                        </span>
-
-                        <span>
-                            Back to News
-                        </span>
-
+                        <span class="text-lg leading-none">←</span>
+                        <span>Back to News</span>
                     </a>
-
                 </div>
-
 
                 {{-- HEADER --}}
-
                 <div class="max-w-[900px] mx-auto mb-12 md:mb-16">
 
-
-                    {{-- LABEL --}}
-
+                    {{-- KATEGORI --}}
                     <div class="mb-5">
-
-                        <span class="text-[13px] md:text-[14px] font-semibold text-[#1112A2] tracking-wide">
-                            Slameticon News
+                        <span class="text-[13px] md:text-[14px] font-semibold text-[#1112A2] tracking-wide uppercase">
+                            {{ is_array($news->category->name ?? null) 
+                                ? ($news->category->name[app()->getLocale()] ?? reset($news->category->name)) 
+                                : ($news->category->name ?? 'Slameticon News') }}
                         </span>
-
                     </div>
 
-
-                    {{-- TITLE --}}
-
-                    <h1
-                        class="text-[30px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-semibold text-gray-900 leading-[1.08] tracking-tight">
-                        Accelerating Growth: How Generative AI is Reshaping CRM Systems
+                    {{-- JUDUL BERITA DINAMIS --}}
+                    <h1 class="text-[30px] sm:text-[36px] md:text-[48px] lg:text-[56px] font-semibold text-gray-900 leading-[1.08] tracking-tight">
+                        {{ is_array($news->title) ? ($news->title[app()->getLocale()] ?? reset($news->title)) : $news->title }}
                     </h1>
 
-
-                    {{-- DESCRIPTION --}}
-
-                    <p class="mt-7 text-[14px] md:text-[16px] text-gray-500 leading-relaxed max-w-[850px]">
-                        Discover how modern businesses are leveraging advanced AI systems
-                        to automate customer workflows and enhance user engagements.
-                    </p>
-
-
-                    {{-- META --}}
-
-                    <div
-                        class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-7 text-[11px] md:text-[12px] text-gray-400">
-
+                    {{-- META (TANGGAL & PENULIS) --}}
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-7 text-[11px] md:text-[12px] text-gray-400">
                         <span>
-                            12 September 2026
+                            {{ $news->created_at ? $news->created_at->format('d F Y') : '-' }}
                         </span>
-
-                        <span class="hidden sm:inline">
-                            •
-                        </span>
-
+                        <span class="hidden sm:inline">•</span>
                         <span>
-                            Slameticon Digital Valey
+                            {{-- MENGAMBIL NAMA AUTHOR SAJA (BUKAN OBJECT JSON) --}}
+                            {{ $news->author->name ?? $news->author_name ?? 'Slameticon Digital Valley' }}
                         </span>
-
                     </div>
 
                 </div>
 
+                {{-- GAMBAR UTAMA DINAMIS --}}
+                @php
+                    if ($news->img_url) {
+                        $imageUrl = filter_var($news->img_url, FILTER_VALIDATE_URL) 
+                            ? $news->img_url 
+                            : \Illuminate\Support\Facades\Storage::url($news->img_url);
+                    } else {
+                        $imageUrl = asset('images/slameticon.png');
+                    }
+                @endphp
 
-                {{-- HERO IMAGE --}}
-
-                <div class="w-full aspect-[16/7] md:aspect-[16/6] overflow-hidden bg-gray-100 mb-12 md:mb-16">
-
-                    <img src="{{ asset('images/slameticon.png') }}"
-                        alt="Accelerating Growth: How Generative AI is Reshaping CRM Systems"
-                        class="w-full h-full object-cover">
-
+                <div class="w-full aspect-[16/7] md:aspect-[16/6] overflow-hidden bg-gray-100 mb-12 md:mb-16 rounded-sm">
+                    <img src="{{ $imageUrl }}" alt="{{ is_array($news->title) ? ($news->title[app()->getLocale()] ?? '') : $news->title }}" class="w-full h-full object-cover">
                 </div>
 
-
-                {{-- ARTICLE CONTENT --}}
-
-                <article class="max-w-[900px] mx-auto news-detail-content">
-
-
-                    {{-- INTRODUCTION --}}
-
-                    <p class="text-[15px] md:text-[17px] text-gray-700 leading-[1.9] mb-7">
-                        Generative AI is changing the way businesses manage customer
-                        relationships by introducing smarter automation and more
-                        personalized customer interactions.
-                    </p>
-
-
-                    {{-- PARAGRAPH 2 --}}
-
-                    <p class="text-[14px] md:text-[16px] text-gray-600 leading-[1.9] mb-7">
-                        Modern CRM platforms can use artificial intelligence to help
-                        businesses analyze customer behavior, automate repetitive
-                        workflows, and support teams in making faster decisions.
-                        These capabilities allow organizations to focus more on
-                        creating meaningful relationships with their customers.
-                    </p>
-
-
-                    {{-- SUBHEADING --}}
-
-                    <h2 class="text-[22px] md:text-[28px] font-semibold text-gray-900 leading-tight mt-12 mb-6">
-                        The Role of Generative AI in CRM
-                    </h2>
-
-
-                    {{-- PARAGRAPH 3 --}}
-
-                    <p class="text-[14px] md:text-[16px] text-gray-600 leading-[1.9] mb-7">
-                        The integration of generative AI into customer relationship
-                        management allows businesses to process large amounts of
-                        customer information more efficiently. AI-powered systems
-                        can assist teams in identifying patterns, generating
-                        relevant responses, and improving the overall customer
-                        experience.
-                    </p>
-
-
-                    {{-- PARAGRAPH 4 --}}
-
-                    <p class="text-[14px] md:text-[16px] text-gray-600 leading-[1.9] mb-7">
-                        Automation also helps reduce repetitive tasks that previously
-                        required significant amounts of manual work. By integrating
-                        intelligent automation into CRM workflows, businesses can
-                        provide faster responses while allowing employees to focus
-                        on activities that require strategic decision-making.
-                    </p>
-
-
-                    {{-- SUBHEADING --}}
-
-                    <h2 class="text-[22px] md:text-[28px] font-semibold text-gray-900 leading-tight mt-12 mb-6">
-                        Supporting Better Business Decisions
-                    </h2>
-
-
-                    {{-- PARAGRAPH 5 --}}
-
-                    <p class="text-[14px] md:text-[16px] text-gray-600 leading-[1.9] mb-7">
-                        Beyond automation, AI can support businesses in understanding
-                        customer behavior and identifying opportunities for improvement.
-                        Insights generated from customer interactions can help teams
-                        develop more relevant communication strategies and improve
-                        how they engage with their audiences.
-                    </p>
-
-
-                    {{-- PARAGRAPH 6 --}}
-
-                    <p class="text-[14px] md:text-[16px] text-gray-600 leading-[1.9] mb-7">
-                        As digital technology continues to evolve, the integration of
-                        AI into CRM systems is becoming an important part of modern
-                        business transformation. Organizations that combine technology
-                        with a clear understanding of their customers can develop
-                        more efficient processes while creating better digital
-                        experiences.
-                    </p>
-
-
-                    {{-- CLOSING --}}
-
-                    <div class="border-t border-gray-200 mt-12 md:mt-16 pt-8">
-
-                        <p class="text-[13px] md:text-[14px] text-gray-500 leading-relaxed text-justify">
-                            Generative AI represents one of the technologies that
-                            continues to shape the future of digital business.
-                            Its application in CRM demonstrates how technology can
-                            support efficiency, personalization, and stronger
-                            relationships between businesses and their customers.
-                        </p>
-
-                    </div>
-
+                {{-- KONTEN BERITA DINAMIS --}}
+                <article class="max-w-[900px] mx-auto news-detail-content text-[14px] md:text-[16px] text-gray-700 leading-[1.9]">
+                    {!! is_array($news->content) ? ($news->content[app()->getLocale()] ?? reset($news->content)) : $news->content !!}
                 </article>
 
             </div>
-
         </section>
-
     </main>
-
 
     {{-- FOOTER --}}
     @include('partials.footer')
 
 </body>
-
 </html>

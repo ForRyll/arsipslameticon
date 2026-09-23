@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\TeamMembers\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -41,11 +42,6 @@ class TeamMemberForm
                     ->maxSize(2048)
                     ->nullable(),
 
-                Textarea::make('bio')
-                    ->label('Bio Singkat')
-                    ->rows(3)
-                    ->columnSpanFull(),
-
                 Textarea::make('about')
                     ->label('Tentang')
                     ->rows(4)
@@ -54,6 +50,33 @@ class TeamMemberForm
                 Textarea::make('quote')
                     ->label('Kata-kata / Quote')
                     ->rows(3)
+                    ->columnSpanFull(),
+
+                Section::make('Media Sosial')
+                    ->description('Tautan ke akun media sosial anggota tim')
+                    ->schema([
+                        TextInput::make('instagram_url')
+                            ->label('Instagram URL')
+                            ->url()
+                            ->prefix('https://')
+                            ->placeholder('instagram.com/username')
+                            ->maxLength(255),
+
+                        TextInput::make('facebook_url')
+                            ->label('Facebook URL')
+                            ->url()
+                            ->prefix('https://')
+                            ->placeholder('facebook.com/username')
+                            ->maxLength(255),
+
+                        TextInput::make('x_url')
+                            ->label('X (Twitter) URL')
+                            ->url()
+                            ->prefix('https://')
+                            ->placeholder('x.com/username')
+                            ->maxLength(255),
+                    ])
+                    ->columns(3)
                     ->columnSpanFull(),
             ]);
     }

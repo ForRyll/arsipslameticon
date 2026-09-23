@@ -84,7 +84,7 @@ Route::get('/job-openings', [JobOpeningController::class, 'index']);
 Route::get('/job-openings/{id}', [JobOpeningController::class, 'show']);
 
 // Public Endpoint Submit Lamaran Kerja
-Route::post('/job-applications', [JobApplicationController::class, 'store']);
+Route::post('/job-applications', [JobApplicationController::class, 'store'])->name('job-applications.store');
 
 // Public Endpoints Jabatan (Positions)
 Route::get('/positions', [PositionController::class, 'index']);
@@ -106,8 +106,8 @@ Route::get('/work-phases/{work_phase}', [WorkPhaseController::class, 'show']);
 Route::get('/settings', [SettingController::class, 'index']);
 Route::get('/settings/{key}', [SettingController::class, 'show']);
 
-// Public Endpoint Submit Pesan Kontak
-Route::post('/contacts', [ContactController::class, 'store']);
+// Public Endpoint Submit Pesan Kontak (Ditambahkan nama route disini)
+Route::post('/contacts', [ContactController::class, 'store'])->name('contact.store');
 
 
 // ==========================================

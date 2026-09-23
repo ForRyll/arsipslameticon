@@ -1,3 +1,7 @@
+@php
+    $currentLocale = app()->getLocale();
+@endphp
+
 <!-- ==========================================
      FIXED TRANSLUCENT NAVBAR
 =========================================== -->
@@ -43,523 +47,472 @@
         </a>
 
 
-        <!-- ======================================
-             DESKTOP NAVIGATION
-             Hanya muncul >= md
-        ======================================= -->
-        <nav
-            class="hidden md:flex
-                   items-center justify-center
-                   gap-8
-                   text-sm font-medium
-                   text-[#3b3b3a]
-                   flex-1 mx-8">
+<!-- ======================================
+     DESKTOP NAVIGATION
+     Hanya muncul >= md
+======================================= -->
+<nav
+    class="hidden md:flex
+           items-center justify-center
+           gap-8
+           text-sm font-medium
+           text-[#3b3b3a]
+           flex-1 mx-8">
 
-            <!-- HOME -->
-            <a href="{{ url('/') }}" class="hover:text-[#1218ae] transition-colors">
-                Home
-            </a>
+    <!-- HOME -->
+    <a href="{{ url('/') }}" class="hover:text-[#1218ae] transition-colors">
+        {{ __('Home') }}
+    </a>
 
 
-            <!-- ==================================
-                 PROFILE
-            =================================== -->
+    <!-- ==================================
+         PROFILE
+    =================================== -->
+    <div
+        class="relative group
+               flex items-center gap-1
+               cursor-pointer
+               hover:text-[#1218ae]
+               transition-colors">
+
+        <span class="py-5">
+            {{ __('Profile') }}
+        </span>
+
+        <svg class="w-3 h-3
+                   group-hover:rotate-180
+                   transition-transform duration-200"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+
+
+        <!-- PROFILE DROPDOWN -->
+        <div
+            class="absolute
+                   top-[50px]
+                   left-1/2
+                   -translate-x-1/2
+                   w-[380px]
+                   bg-white
+                   rounded-xl
+                   shadow-xl
+                   border border-gray-100
+                   p-4
+                   opacity-0
+                   invisible
+                   group-hover:opacity-100
+                   group-hover:visible
+                   transition-all duration-300">
+
+            <!-- Pointer -->
             <div
-                class="relative group
-                       flex items-center gap-1
-                       cursor-pointer
-                       hover:text-[#1218ae]
-                       transition-colors">
-
-                <span class="py-5">
-                    Profile
-                </span>
-
-                <svg class="w-3 h-3
-                           group-hover:rotate-180
-                           transition-transform duration-200"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-
-                </svg>
-
-
-                <!-- PROFILE DROPDOWN -->
-                <div
-                    class="absolute
-                           top-[50px]
-                           left-1/2
-                           -translate-x-1/2
-                           w-[380px]
-                           bg-white
-                           rounded-xl
-                           shadow-xl
-                           border border-gray-100
-                           p-4
-                           opacity-0
-                           invisible
-                           group-hover:opacity-100
-                           group-hover:visible
-                           transition-all duration-300">
-
-                    <!-- Pointer -->
-                    <div
-                        class="absolute
-                               -top-2
-                               left-1/2
-                               -translate-x-1/2
-                               w-4 h-4
-                               bg-white
-                               rotate-45
-                               border-t
-                               border-l
-                               border-gray-100">
-                    </div>
-
-
-                    <div class="grid grid-cols-2 gap-2 relative z-10">
-
-                        <!-- ABOUT US -->
-                        <a href="/about"
-                            class="flex items-start gap-3
-                                   p-3 rounded-lg
-                                   bg-white
-                                   hover:bg-[#eef0ff]
-                                   transition-colors
-                                   duration-200
-                                   group/item">
-
-                            <div
-                                class="mt-0.5 shrink-0
-                                       text-gray-400
-                                       group-hover/item:text-[#1218ae]
-                                       transition-colors">
-
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                    <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01
-                                           M21 12a9 9 0 11-18 0
-                                           9 9 0 0118 0z" />
-
-                                </svg>
-
-                            </div>
-
-                            <div>
-
-                                <h4
-                                    class="text-[13px]
-                                           font-bold
-                                           text-gray-800
-                                           group-hover/item:text-[#1218ae]">
-                                    About Us
-                                </h4>
-
-                                <p
-                                    class="text-[9px]
-                                           text-gray-500
-                                           leading-tight
-                                           mt-1">
-                                    Get to know our company
-                                </p>
-
-                            </div>
-
-                        </a>
-
-
-                        <!-- OUR PEOPLE -->
-                        <a href="/our-people"
-                            class="flex items-start gap-3
-                                   p-3 rounded-lg
-                                   bg-white
-                                   hover:bg-[#eef0ff]
-                                   transition-colors
-                                   duration-200
-                                   group/item">
-
-                            <div
-                                class="mt-0.5 shrink-0
-                                       text-gray-400
-                                       group-hover/item:text-[#1218ae]
-                                       transition-colors">
-
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                    <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292
-                                           M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1
-                                           a6 6 0 00-9-5.197
-                                           M13 7a4 4 0 11-8 0
-                                           4 4 0 018 0z" />
-
-                                </svg>
-
-                            </div>
-
-                            <div>
-
-                                <h4
-                                    class="text-[13px]
-                                           font-bold
-                                           text-gray-800
-                                           group-hover/item:text-[#1218ae]">
-                                    Our People
-                                </h4>
-
-                                <p
-                                    class="text-[9px]
-                                           text-gray-500
-                                           leading-tight
-                                           mt-1">
-                                    Meet the team behind it all
-                                </p>
-
-                            </div>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
+                class="absolute
+                       -top-2
+                       left-1/2
+                       -translate-x-1/2
+                       w-4 h-4
+                       bg-white
+                       rotate-45
+                       border-t
+                       border-l
+                       border-gray-100">
             </div>
 
 
-            <!-- ==================================
-                 WORK
-            =================================== -->
-            <div
-                class="relative group
-                       flex items-center gap-1
-                       cursor-pointer
-                       hover:text-[#1218ae]
-                       transition-colors">
+            <div class="grid grid-cols-2 gap-2 relative z-10">
 
-                <span class="py-5">
-                    Work
-                </span>
-
-                <svg class="w-3 h-3
-                           group-hover:rotate-180
-                           transition-transform duration-200"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-
-                </svg>
-
-
-                <!-- WORK DROPDOWN -->
-                <div
-                    class="absolute
-                           top-[50px]
-                           left-1/2
-                           -translate-x-1/2
-                           w-[380px]
+                <!-- ABOUT US -->
+                <a href="/about"
+                    class="flex items-start gap-3
+                           p-3 rounded-lg
                            bg-white
-                           rounded-xl
-                           shadow-xl
-                           border border-gray-100
-                           p-4
-                           opacity-0
-                           invisible
-                           group-hover:opacity-100
-                           group-hover:visible
-                           transition-all duration-300">
+                           hover:bg-[#eef0ff]
+                           transition-colors
+                           duration-200
+                           group/item">
 
                     <div
-                        class="absolute
-                               -top-2
-                               left-1/2
-                               -translate-x-1/2
-                               w-4 h-4
-                               bg-white
-                               rotate-45
-                               border-t
-                               border-l
-                               border-gray-100">
+                        class="mt-0.5 shrink-0
+                               text-gray-400
+                               group-hover/item:text-[#1218ae]
+                               transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01
+                                   M21 12a9 9 0 11-18 0
+                                   9 9 0 0118 0z" />
+                        </svg>
                     </div>
 
+                    <div>
+                        <h4
+                            class="text-[13px]
+                                   font-bold
+                                   text-gray-800
+                                   group-hover/item:text-[#1218ae]">
+                            {{ __('About Us') }}
+                        </h4>
 
-                    <div class="grid grid-cols-2 gap-2 relative z-10">
-
-                        <!-- SERVICES -->
-                        <a href="/services"
-                            class="flex items-start gap-3
-                                   p-3 rounded-lg
-                                   bg-white
-                                   hover:bg-[#eef0ff]
-                                   transition-colors
-                                   duration-200
-                                   group/item">
-
-                            <div
-                                class="mt-0.5 shrink-0
-                                       text-gray-400
-                                       group-hover/item:text-[#1218ae]">
-
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                    <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15
-                                           c-3.183 0-6.22-.62-9-1.745
-                                           M16 6V4a2 2 0 00-2-2h-4a2 2 0
-                                           00-2 2v2m4 6h.01M5 20h14a2 2
-                                           0 002-2V8a2 2 0 00-2-2H5a2
-                                           2 0 00-2 2v10a2 2 0 002 2z" />
-
-                                </svg>
-
-                            </div>
-
-                            <div>
-
-                                <h4
-                                    class="text-[13px]
-                                           font-bold
-                                           text-gray-800
-                                           group-hover/item:text-[#1218ae]">
-                                    Services
-                                </h4>
-
-                                <p
-                                    class="text-[9px]
-                                           text-gray-500
-                                           leading-tight
-                                           mt-1">
-                                    Lorem ipsum is simply dummy text
-                                </p>
-
-                            </div>
-
-                        </a>
+                        <p
+                            class="text-[9px]
+                                   text-gray-500
+                                   leading-tight
+                                   mt-1">
+                            {{ __('Get to know our company') }}
+                        </p>
+                    </div>
+                </a>
 
 
-                        <!-- PRODUCT -->
-                        <a href="/product"
-                            class="flex items-start gap-3
-                                   p-3 rounded-lg
-                                   bg-white
-                                   hover:bg-[#eef0ff]
-                                   transition-colors
-                                   duration-200
-                                   group/item">
+                <!-- OUR PEOPLE -->
+                <a href="/our-people"
+                    class="flex items-start gap-3
+                           p-3 rounded-lg
+                           bg-white
+                           hover:bg-[#eef0ff]
+                           transition-colors
+                           duration-200
+                           group/item">
 
-                            <div
-                                class="mt-0.5 shrink-0
-                                       text-gray-400
-                                       group-hover/item:text-[#1218ae]">
-
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                    <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4
-                                           v10l-8 4m0-10L4 7m8 4v10M4
-                                           7v10l8 4" />
-
-                                </svg>
-
-                            </div>
-
-                            <div>
-
-                                <h4
-                                    class="text-[13px]
-                                           font-bold
-                                           text-gray-800
-                                           group-hover/item:text-[#1218ae]">
-                                    Product
-                                </h4>
-
-                                <p
-                                    class="text-[9px]
-                                           text-gray-500
-                                           leading-tight
-                                           mt-1">
-                                    Lorem ipsum is simply dummy text
-                                </p>
-
-                            </div>
-
-                        </a>
-
+                    <div
+                        class="mt-0.5 shrink-0
+                               text-gray-400
+                               group-hover/item:text-[#1218ae]
+                               transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292
+                                   M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1
+                                   a6 6 0 00-9-5.197
+                                   M13 7a4 4 0 11-8 0
+                                   4 4 0 018 0z" />
+                        </svg>
                     </div>
 
-                </div>
+                    <div>
+                        <h4
+                            class="text-[13px]
+                                   font-bold
+                                   text-gray-800
+                                   group-hover/item:text-[#1218ae]">
+                            {{ __('Our People') }}
+                        </h4>
+
+                        <p
+                            class="text-[9px]
+                                   text-gray-500
+                                   leading-tight
+                                   mt-1">
+                            {{ __('Meet the team behind it all') }}
+                        </p>
+                    </div>
+                </a>
 
             </div>
 
+        </div>
 
-            <!-- ==================================
-                 INSIGHT
-            =================================== -->
+    </div>
+
+
+    <!-- ==================================
+         WORK
+    =================================== -->
+    <div
+        class="relative group
+               flex items-center gap-1
+               cursor-pointer
+               hover:text-[#1218ae]
+               transition-colors">
+
+        <span class="py-5">
+            {{ __('Work') }}
+        </span>
+
+        <svg class="w-3 h-3
+                   group-hover:rotate-180
+                   transition-transform duration-200"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+
+
+        <!-- WORK DROPDOWN -->
+        <div
+            class="absolute
+                   top-[50px]
+                   left-1/2
+                   -translate-x-1/2
+                   w-[380px]
+                   bg-white
+                   rounded-xl
+                   shadow-xl
+                   border border-gray-100
+                   p-4
+                   opacity-0
+                   invisible
+                   group-hover:opacity-100
+                   group-hover:visible
+                   transition-all duration-300">
+
             <div
-                class="relative group
-                       flex items-center gap-1
-                       cursor-pointer
-                       hover:text-[#1218ae]
-                       transition-colors">
-
-                <span class="py-5">
-                    Insight
-                </span>
-
-                <svg class="w-3 h-3
-                           group-hover:rotate-180
-                           transition-transform duration-200"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-
-                </svg>
-
-
-                <!-- INSIGHT DROPDOWN -->
-                <div
-                    class="absolute
-                           top-[50px]
-                           left-1/2
-                           -translate-x-1/2
-                           w-[380px]
-                           bg-white
-                           rounded-xl
-                           shadow-xl
-                           border border-gray-100
-                           p-4
-                           opacity-0
-                           invisible
-                           group-hover:opacity-100
-                           group-hover:visible
-                           transition-all duration-300">
-
-                    <div
-                        class="absolute
-                               -top-2
-                               left-1/2
-                               -translate-x-1/2
-                               w-4 h-4
-                               bg-white
-                               rotate-45
-                               border-t
-                               border-l
-                               border-gray-100">
-                    </div>
-
-
-                    <div class="grid grid-cols-2 gap-2 relative z-10">
-
-                        <!-- NEWS -->
-                        <a href="/news"
-                            class="flex items-start gap-3
-                                   p-3 rounded-lg
-                                   bg-white
-                                   hover:bg-[#eef0ff]
-                                   transition-colors
-                                   duration-200
-                                   group/item">
-
-                            <div
-                                class="mt-0.5 shrink-0
-                                       text-gray-400
-                                       group-hover/item:text-[#1218ae]">
-
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                    <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                        d="M4 4h16v16H4z" />
-
-                                    <path stroke-width="1.5" stroke-linecap="round" d="M8 8h8M8 12h8M8 16h5" />
-
-                                </svg>
-
-                            </div>
-
-                            <div>
-
-                                <h4
-                                    class="text-[13px]
-                                           font-bold
-                                           text-gray-800
-                                           group-hover/item:text-[#1218ae]">
-                                    News
-                                </h4>
-
-                                <p
-                                    class="text-[9px]
-                                           text-gray-500
-                                           leading-tight
-                                           mt-1">
-                                    Lorem ipsum is simply dummy text
-                                </p>
-
-                            </div>
-
-                        </a>
-
-
-                        <!-- GALLERY -->
-                        <a href="/gallery"
-                            class="flex items-start gap-3
-                                   p-3 rounded-lg
-                                   bg-white
-                                   hover:bg-[#eef0ff]
-                                   transition-colors
-                                   duration-200
-                                   group/item">
-
-                            <div
-                                class="mt-0.5 shrink-0
-                                       text-gray-400
-                                       group-hover/item:text-[#1218ae]">
-
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                                    <rect x="3" y="3" width="18" height="18" rx="2"
-                                        stroke-width="1.5" />
-
-                                    <circle cx="8.5" cy="8.5" r="1.5" stroke-width="1.5" />
-
-                                    <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                        d="M3 16l5-5 4 4 3-3 6 6" />
-
-                                </svg>
-
-                            </div>
-
-                            <div>
-
-                                <h4
-                                    class="text-[13px]
-                                           font-bold
-                                           text-gray-800
-                                           group-hover/item:text-[#1218ae]">
-                                    Gallery
-                                </h4>
-
-                                <p
-                                    class="text-[9px]
-                                           text-gray-500
-                                           leading-tight
-                                           mt-1">
-                                    Lorem ipsum is simply dummy text
-                                </p>
-
-                            </div>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
+                class="absolute
+                       -top-2
+                       left-1/2
+                       -translate-x-1/2
+                       w-4 h-4
+                       bg-white
+                       rotate-45
+                       border-t
+                       border-l
+                       border-gray-100">
             </div>
 
 
-            <!-- CAREER -->
-            <a href="/career" class="hover:text-[#1218ae] transition-colors">
-                Career
-            </a>
+            <div class="grid grid-cols-2 gap-2 relative z-10">
 
-        </nav>
+                <!-- SERVICES -->
+                <a href="/services"
+                    class="flex items-start gap-3
+                           p-3 rounded-lg
+                           bg-white
+                           hover:bg-[#eef0ff]
+                           transition-colors
+                           duration-200
+                           group/item">
+
+                    <div
+                        class="mt-0.5 shrink-0
+                               text-gray-400
+                               group-hover/item:text-[#1218ae]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15
+                                   c-3.183 0-6.22-.62-9-1.745
+                                   M16 6V4a2 2 0 00-2-2h-4a2 2 0
+                                   00-2 2v2m4 6h.01M5 20h14a2 2
+                                   0 002-2V8a2 2 0 00-2-2H5a2
+                                   2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-[13px]
+                                   font-bold
+                                   text-gray-800
+                                   group-hover/item:text-[#1218ae]">
+                            {{ __('Services') }}
+                        </h4>
+
+                        <p
+                            class="text-[9px]
+                                   text-gray-500
+                                   leading-tight
+                                   mt-1">
+                            {{ __('Innovative digital solutions for business') }}
+                        </p>
+                    </div>
+                </a>
+
+
+                <!-- PRODUCT -->
+                <a href="/product"
+                    class="flex items-start gap-3
+                           p-3 rounded-lg
+                           bg-white
+                           hover:bg-[#eef0ff]
+                           transition-colors
+                           duration-200
+                           group/item">
+
+                    <div
+                        class="mt-0.5 shrink-0
+                               text-gray-400
+                               group-hover/item:text-[#1218ae]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4
+                                   v10l-8 4m0-10L4 7m8 4v10M4
+                                   7v10l8 4" />
+                        </svg>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-[13px]
+                                   font-bold
+                                   text-gray-800
+                                   group-hover/item:text-[#1218ae]">
+                            {{ __('Products') }}
+                        </h4>
+
+                        <p
+                            class="text-[9px]
+                                   text-gray-500
+                                   leading-tight
+                                   mt-1">
+                            {{ __('Explore our digital ecosystem') }}
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================
+         INSIGHT
+    =================================== -->
+    <div
+        class="relative group
+               flex items-center gap-1
+               cursor-pointer
+               hover:text-[#1218ae]
+               transition-colors">
+
+        <span class="py-5">
+            {{ __('Insight') }}
+        </span>
+
+        <svg class="w-3 h-3
+                   group-hover:rotate-180
+                   transition-transform duration-200"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+
+
+        <!-- INSIGHT DROPDOWN -->
+        <div
+            class="absolute
+                   top-[50px]
+                   left-1/2
+                   -translate-x-1/2
+                   w-[380px]
+                   bg-white
+                   rounded-xl
+                   shadow-xl
+                   border border-gray-100
+                   p-4
+                   opacity-0
+                   invisible
+                   group-hover:opacity-100
+                   group-hover:visible
+                   transition-all duration-300">
+
+            <div
+                class="absolute
+                       -top-2
+                       left-1/2
+                       -translate-x-1/2
+                       w-4 h-4
+                       bg-white
+                       rotate-45
+                       border-t
+                       border-l
+                       border-gray-100">
+            </div>
+
+
+            <div class="grid grid-cols-2 gap-2 relative z-10">
+
+                <!-- NEWS -->
+                <a href="/news"
+                    class="flex items-start gap-3
+                           p-3 rounded-lg
+                           bg-white
+                           hover:bg-[#eef0ff]
+                           transition-colors
+                           duration-200
+                           group/item">
+
+                    <div
+                        class="mt-0.5 shrink-0
+                               text-gray-400
+                               group-hover/item:text-[#1218ae]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 4h16v16H4z" />
+                            <path stroke-width="1.5" stroke-linecap="round" d="M8 8h8M8 12h8M8 16h5" />
+                        </svg>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-[13px]
+                                   font-bold
+                                   text-gray-800
+                                   group-hover/item:text-[#1218ae]">
+                            {{ __('News') }}
+                        </h4>
+
+                        <p
+                            class="text-[9px]
+                                   text-gray-500
+                                   leading-tight
+                                   mt-1">
+                            {{ __('Latest updates and tech articles') }}
+                        </p>
+                    </div>
+                </a>
+
+
+                <!-- GALLERY -->
+                <a href="/gallery"
+                    class="flex items-start gap-3
+                           p-3 rounded-lg
+                           bg-white
+                           hover:bg-[#eef0ff]
+                           transition-colors
+                           duration-200
+                           group/item">
+
+                    <div
+                        class="mt-0.5 shrink-0
+                               text-gray-400
+                               group-hover/item:text-[#1218ae]">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2"
+                                stroke-width="1.5" />
+                            <circle cx="8.5" cy="8.5" r="1.5" stroke-width="1.5" />
+                            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 16l5-5 4 4 3-3 6 6" />
+                        </svg>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-[13px]
+                                   font-bold
+                                   text-gray-800
+                                   group-hover/item:text-[#1218ae]">
+                            {{ __('Gallery') }}
+                        </h4>
+
+                        <p
+                            class="text-[9px]
+                                   text-gray-500
+                                   leading-tight
+                                   mt-1">
+                            {{ __('Moments and project activities') }}
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CAREER -->
+    <a href="/career" class="hover:text-[#1218ae] transition-colors">
+        {{ __('Career') }}
+    </a>
+
+</nav>
 
 
         <!-- ======================================
@@ -571,136 +524,70 @@
                    gap-5
                    shrink-0">
 
-            <!-- LANGUAGE -->
-            <div
-                class="relative group
-                       flex items-center gap-2
-                       cursor-pointer
-                       text-[#1218ae]
-                       hover:text-blue-900
-                       transition-colors">
+            <!-- LANGUAGE (dynamic, Laravel locale-aware) -->
+            <div class="relative group flex items-center gap-2 cursor-pointer text-[#1218ae] hover:text-blue-900 transition-colors">
 
-                <!-- UK FLAG -->
-                <div
-                    class="w-5 h-3.5
-                           overflow-hidden
-                           flex items-center justify-center
-                           rounded-[2px]
-                           border border-gray-200">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-full h-full object-cover">
-
-                        <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-
-                        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
-
-                        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" />
-
-                        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
-
-                        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
-
-                    </svg>
-
+                <!-- BENDERA AKTIF -->
+                <div class="w-5 h-3.5 overflow-hidden flex items-center justify-center rounded-[2px] border border-gray-200">
+                    @if($currentLocale === 'en')
+                        <!-- UK FLAG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-full h-full object-cover">
+                            <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" />
+                            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+                        </svg>
+                    @else
+                        <!-- INDONESIA FLAG -->
+                        <div class="w-full h-full flex flex-col">
+                            <div class="h-1/2 w-full bg-[#FF0000]"></div>
+                            <div class="h-1/2 w-full bg-white"></div>
+                        </div>
+                    @endif
                 </div>
 
-
-                <span class="text-[13px] font-bold">
-                    EN
+                <span class="text-[13px] font-bold uppercase">
+                    {{ $currentLocale }}
                 </span>
 
-
                 <!-- ARROW -->
-                <svg class="w-3.5 h-3.5
-                           group-hover:rotate-180
-                           transition-transform duration-200"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
+                <svg class="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-
                 </svg>
 
-
                 <!-- LANGUAGE DROPDOWN -->
-                <div
-                    class="absolute
-                           top-[40px]
-                           right-0
-                           w-[125px]
-                           bg-white
-                           rounded-lg
-                           shadow-lg
-                           border border-gray-100
-                           p-2
-                           opacity-0
-                           invisible
-                           translate-y-[-5px]
-                           group-hover:opacity-100
-                           group-hover:visible
-                           group-hover:translate-y-0
-                           transition-all duration-200">
+                <div class="absolute top-[40px] right-0 w-[125px] bg-white rounded-lg shadow-lg border border-gray-100 p-2 opacity-0 invisible translate-y-[-5px] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
 
                     <!-- ENGLISH -->
-                    <a href="#"
-                        class="flex items-center gap-2
-                               p-2
-                               rounded
-                               bg-[#eef0ff]
-                               text-[#1218ae]">
-
-                        <div
-                            class="w-5 h-3.5
-                                   overflow-hidden
-                                   rounded-[2px]">
-
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"
-                                class="w-full h-full object-cover">
-
+                    <a href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}"
+                       class="flex items-center gap-2 p-2 rounded transition-colors {{ $currentLocale === 'en' ? 'bg-[#eef0ff] text-[#1218ae]' : 'hover:bg-gray-50 text-gray-600' }}">
+                        <div class="w-5 h-3.5 overflow-hidden rounded-[2px] border border-gray-200 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-full h-full object-cover">
                                 <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
                                 <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
                                 <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" />
                                 <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
                                 <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
-
                             </svg>
-
                         </div>
-
-                        <span class="text-xs font-bold">
+                        <span class="text-xs {{ $currentLocale === 'en' ? 'font-bold' : 'font-medium' }}">
                             English
                         </span>
-
                     </a>
-
 
                     <!-- INDONESIA -->
-                    <a href="#"
-                        class="flex items-center gap-2
-                               p-2
-                               rounded
-                               hover:bg-gray-50
-                               text-gray-600">
-
-                        <div
-                            class="w-5 h-3.5
-                                   overflow-hidden
-                                   flex flex-col
-                                   rounded-[2px]
-                                   border border-gray-200">
-
+                    <a href="{{ request()->fullUrlWithQuery(['lang' => 'id']) }}"
+                       class="flex items-center gap-2 p-2 rounded transition-colors {{ $currentLocale === 'id' ? 'bg-[#eef0ff] text-[#1218ae]' : 'hover:bg-gray-50 text-gray-600' }}">
+                        <div class="w-5 h-3.5 overflow-hidden flex flex-col rounded-[2px] border border-gray-200 shrink-0">
                             <div class="h-1/2 w-full bg-[#FF0000]"></div>
                             <div class="h-1/2 w-full bg-white"></div>
-
                         </div>
-
-                        <span class="text-xs font-medium">
+                        <span class="text-xs {{ $currentLocale === 'id' ? 'font-bold' : 'font-medium' }}">
                             Indonesia
                         </span>
-
                     </a>
-
                 </div>
-
             </div>
 
 
@@ -716,7 +603,7 @@
                        transition
                        shadow-sm">
 
-                Login
+                {{ __('Login') }}
 
             </a>
 
@@ -739,7 +626,7 @@
                        hover:bg-blue-900
                        transition">
 
-                Login
+                {{ __('Login') }}
 
             </a>
 
@@ -798,7 +685,7 @@
                        text-[#3b3b3a]
                        hover:text-[#1218ae]">
 
-                Home
+                {{ __('Home') }}
 
             </a>
 
@@ -843,7 +730,7 @@
                                text-gray-500
                                hover:text-[#1218ae]">
 
-                        About Us
+                        {{ __('About Us') }}
 
                     </a>
 
@@ -853,7 +740,7 @@
                                text-gray-500
                                hover:text-[#1218ae]">
 
-                        Our People
+                        {{ __('Our People') }}
 
                     </a>
 
@@ -902,7 +789,7 @@
                                text-gray-500
                                hover:text-[#1218ae]">
 
-                        Services
+                        {{ __('Services') }}
 
                     </a>
 
@@ -912,7 +799,7 @@
                                text-gray-500
                                hover:text-[#1218ae]">
 
-                        Product
+                        {{ __('Products') }}
 
                     </a>
 
@@ -961,7 +848,7 @@
                                text-gray-500
                                hover:text-[#1218ae]">
 
-                        News
+                        {{ __('News') }}
 
                     </a>
 
@@ -971,7 +858,7 @@
                                text-gray-500
                                hover:text-[#1218ae]">
 
-                        Gallery
+                        {{ __('Gallery') }}
 
                     </a>
 
@@ -990,7 +877,7 @@
                            text-[#3b3b3a]
                            hover:text-[#1218ae]">
 
-                    Career
+                    {{ __('Career') }}
 
                 </a>
 
@@ -998,60 +885,29 @@
 
 
             <!-- ==================================
-                 MOBILE LANGUAGE
+                 MOBILE LANGUAGE (dynamic, Laravel locale-aware)
             =================================== -->
-            <div class="border-t border-gray-100
-                       pt-4 mt-2">
+            <div class="border-t border-gray-100 pt-4 mt-2">
 
-                <p
-                    class="text-[11px]
-                           uppercase
-                           tracking-wider
-                           text-gray-400
-                           mb-3">
-
-                    Language
-
+                <p class="text-[11px] uppercase tracking-wider text-gray-400 mb-3">
+                    {{ __('Language') }}
                 </p>
-
 
                 <div class="flex items-center gap-3">
 
                     <!-- ENGLISH -->
-                    <button type="button"
-                        class="flex items-center gap-2
-                               px-3 py-2
-                               rounded-lg
-                               bg-[#eef0ff]
-                               text-[#1218ae]
-                               text-sm
-                               font-semibold">
-
-                        <span class="text-base">
-                            🇬🇧
-                        </span>
-
+                    <a href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}"
+                        class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors {{ $currentLocale === 'en' ? 'bg-[#eef0ff] text-[#1218ae] font-semibold' : 'hover:bg-gray-50 text-gray-600 font-medium' }}">
+                        <span class="text-base">🇬🇧</span>
                         EN
-
-                    </button>
-
+                    </a>
 
                     <!-- INDONESIA -->
-                    <button type="button"
-                        class="flex items-center gap-2
-                               px-3 py-2
-                               rounded-lg
-                               hover:bg-gray-50
-                               text-gray-600
-                               text-sm">
-
-                        <span class="text-base">
-                            🇮🇩
-                        </span>
-
+                    <a href="{{ request()->fullUrlWithQuery(['lang' => 'id']) }}"
+                        class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-colors {{ $currentLocale === 'id' ? 'bg-[#eef0ff] text-[#1218ae] font-semibold' : 'hover:bg-gray-50 text-gray-600 font-medium' }}">
+                        <span class="text-base">🇮🇩</span>
                         ID
-
-                    </button>
+                    </a>
 
                 </div>
 

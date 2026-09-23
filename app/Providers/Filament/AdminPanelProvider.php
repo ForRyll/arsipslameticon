@@ -29,6 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->homeUrl('/')
             ->brandName('Slameticon Admin')
             ->colors([
                 'primary' => Color::Indigo,

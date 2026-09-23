@@ -16,6 +16,7 @@ class StoreJobApplicationRequest extends FormRequest
         return [
             'job_opening_id' => 'required|exists:job_openings,id',
             'name'           => 'required|string|max:255',
+            'last_name'      => 'nullable|string|max:255',
             'email'          => 'required|email|max:255',
             'phone'          => 'nullable|string|max:20',
             'cover_letter'   => 'nullable|string',

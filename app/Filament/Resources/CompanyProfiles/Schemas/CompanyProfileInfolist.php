@@ -39,6 +39,11 @@ class CompanyProfileInfolist
                     ->label('Logo Perusahaan')
                     ->disk('public'),
 
+                TextEntry::make('headline') // <--- Infolist Headline
+                    ->label('Headline')
+                    ->placeholder('-')
+                    ->columnSpanFull(),
+
                 TextEntry::make('vision')
                     ->label('Visi')
                     ->placeholder('-')

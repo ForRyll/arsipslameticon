@@ -20,6 +20,7 @@ class CompanyProfile extends Model
         'mission',
         'description',
         'tagline',
+        'headline', // <--- Ditambahkan ke translatable
     ];
 
     protected $fillable = [
@@ -36,6 +37,7 @@ class CompanyProfile extends Model
         'tiktok_url',
         'linkedin_url',
         'tagline',
+        'headline', // <--- Ditambahkan ke fillable
         'founded_year',
         'is_active',
     ];

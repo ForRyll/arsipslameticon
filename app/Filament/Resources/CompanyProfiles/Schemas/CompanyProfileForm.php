@@ -48,6 +48,12 @@ class CompanyProfileForm
                     ->maxSize(2048)
                     ->nullable(),
 
+                Textarea::make('headline') // <--- Input Headline
+                    ->label('Headline / Slogan Utama')
+                    ->placeholder('Empowering businesses with cutting-edge digital solutions...')
+                    ->rows(3)
+                    ->columnSpanFull(),
+
                 Textarea::make('vision')
                     ->label('Visi')
                     ->columnSpanFull(),

@@ -59,6 +59,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Beritahu Laravel nama kolom password di database
+     */
+    public function getAuthPasswordName()
+    {
+        return 'password_hash';
+    }
+
+    /**
      * Helper untuk cek hak akses (Bisa via Role Permission atau Direct User Permission)
      */
     public function hasPermission(string $permissionName): bool
