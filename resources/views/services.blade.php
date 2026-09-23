@@ -170,121 +170,107 @@
 
 
 
-                {{-- RIGHT : TEXT --}}
+         {{-- RIGHT : TEXT --}}
+        <div class="max-w-[540px]">
 
-                <div class="max-w-[540px]">
+            <h2
+                class="mb-7 text-[24px] font-medium leading-[1.2] tracking-tight text-[#1112A2] md:text-[27px] lg:text-[29px]">
+                {{ __('We also develop integrated digital solutions designed to support business operations, improve efficiency, and drive sustainable growth, including:') }}
+            </h2>
 
-                    <h2
-                        class="mb-7 text-[24px] font-medium leading-[1.2] tracking-tight text-[#1112A2] md:text-[27px] lg:text-[29px]">
-                        We also develop integrated digital
-                        solutions designed to support
-                        business operations, improve
-                        efficiency, and drive sustainable
-                        growth, including:
-                    </h2>
+            <ul class="space-y-3 text-[15px] leading-relaxed text-gray-500 md:text-[16px]">
 
+                <li class="flex items-start gap-3">
+                    <span class="mt-[2px]">•</span>
+                    <span>
+                        {{ __('Human Resources Information System (HRIS)') }}
+                    </span>
+                </li>
 
-                    <ul class="space-y-3 text-[15px] leading-relaxed text-gray-500 md:text-[16px]">
+                <li class="flex items-start gap-3">
+                    <span class="mt-[2px]">•</span>
+                    <span>
+                        {{ __('Customer Relationship Management (CRM)') }}
+                    </span>
+                </li>
 
-                        <li class="flex items-start gap-3">
-                            <span class="mt-[2px]">•</span>
-                            <span>
-                                Human Resources Information System (HRIS)
-                            </span>
-                        </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-[2px]">•</span>
+                    <span>
+                        {{ __('Sales & Marketing Automation') }}
+                    </span>
+                </li>
 
-                        <li class="flex items-start gap-3">
-                            <span class="mt-[2px]">•</span>
-                            <span>
-                                Customer Relationship Management (CRM)
-                            </span>
-                        </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-[2px]">•</span>
+                    <span>
+                        {{ __('Business Management Systems') }}
+                    </span>
+                </li>
 
-                        <li class="flex items-start gap-3">
-                            <span class="mt-[2px]">•</span>
-                            <span>
-                                Sales &amp; Marketing Automation
-                            </span>
-                        </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-[2px]">•</span>
+                    <span>
+                        {{ __('Digital Transformation Solutions') }}
+                    </span>
+                </li>
 
-                        <li class="flex items-start gap-3">
-                            <span class="mt-[2px]">•</span>
-                            <span>
-                                Business Management Systems
-                            </span>
-                        </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-[2px]">•</span>
+                    <span>
+                        {{ __('Custom Technology Solutions') }}
+                    </span>
+                </li>
 
-                        <li class="flex items-start gap-3">
-                            <span class="mt-[2px]">•</span>
-                            <span>
-                                Digital Transformation Solutions
-                            </span>
-                        </li>
-
-                        <li class="flex items-start gap-3">
-                            <span class="mt-[2px]">•</span>
-                            <span>
-                                Custom Technology Solutions
-                            </span>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
+            </ul>
 
         </div>
 
-    </section>
+    </div>
+
+</div>
+
+</section>
 
 
+{{-- ==========================================
+    SECTION 3
+    MORE THAN A SERVICE PROVIDER
+=========================================== --}}
 
-    {{-- ==========================================
-         SECTION 3
-         MORE THAN A SERVICE PROVIDER
-    =========================================== --}}
+<section class="bg-[#1112A2] px-6 py-16 text-white md:px-12 md:py-20">
 
-    <section class="bg-[#1112A2] px-6 py-16 text-white md:px-12 md:py-20">
+<div class="mx-auto max-w-[1200px]">
 
-        <div class="mx-auto max-w-[1200px]">
+    <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-20">
 
-            <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-20">
+        {{-- LEFT --}}
 
-                {{-- LEFT --}}
+        <div>
 
-                <div>
-
-                    <h2
-                        class="max-w-[420px] text-[34px] font-bold leading-[1.05] tracking-tight md:text-[40px] lg:text-[44px]">
-                        More Than a
-                        <br>
-                        Service Provider
-                    </h2>
-
-                </div>
-
-
-                {{-- RIGHT --}}
-
-                <div class="max-w-[520px]">
-
-                    <p class="text-[14px] leading-[1.5] text-white/95 md:text-[15px]">
-                        More than a service provider, PT Slameticon Digital
-                        Valley serves as a strategic partner for businesses
-                        navigating the digital landscape. We combine technology,
-                        creativity, and business insight to transform ideas into
-                        practical solutions and help our clients stay competitive
-                        in a rapidly evolving market.
-                    </p>
-
-                </div>
-
-            </div>
+            <h2
+                class="max-w-[420px] text-[34px] font-bold leading-[1.05] tracking-tight md:text-[40px] lg:text-[44px]">
+                {!! __('More Than a <br> Service Provider') !!}
+            </h2>
 
         </div>
 
-    </section>
+
+        {{-- RIGHT --}}
+
+        <div class="max-w-[520px]">
+
+            <p class="text-[14px] leading-[1.5] text-white/95 md:text-[15px]">
+                {{ __('More than a service provider, PT Slameticon Digital Valley serves as a strategic partner for businesses navigating the digital landscape. We combine technology, creativity, and business insight to transform ideas into practical solutions and help our clients stay competitive in a rapidly evolving market.') }}
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
 
 
 
