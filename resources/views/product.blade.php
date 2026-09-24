@@ -115,33 +115,58 @@
         }
 
         /* =========================================
-           PROJECT IMAGE SLIDER
+           PROJECT IMAGE SLIDER (MARQUEE)
            ========================================= */
         .project-slider {
             width: 100%;
             overflow: hidden;
             position: relative;
+            container-type: inline-size; /* supaya satuan cqw mengacu ke lebar slider */
         }
 
         .project-track {
+            --slide-gap: 16px;
             display: flex;
             width: max-content;
-            gap: 12px;
             animation: projectSlide 28s linear infinite;
+        }
+
+        .project-track.few-items {
+            --slide-gap: 24px;
+            animation-duration: 22s;
+        }
+
+        .project-track.single-item {
+            --slide-gap: 24px;
+            animation-duration: 30s;
         }
 
         .project-slider:hover .project-track {
             animation-play-state: paused;
         }
 
+        /* Standar: produk >= 4 */
         .project-slide {
             width: 270px;
             height: 155px;
             flex-shrink: 0;
             overflow: hidden;
-            border-radius: 3px;
+            border-radius: 4px;
             cursor: pointer;
             position: relative;
+            margin-right: var(--slide-gap); /* pakai margin, bukan gap, supaya loop -50% mulus */
+        }
+
+        /* 2 - 3 produk: pas 2 gambar per layar */
+        .project-slide.is-wide {
+            width: calc((100cqw - var(--slide-gap)) / 2);
+            height: 260px;
+        }
+
+        /* 1 produk: gambar full selebar container */
+        .project-slide.is-single {
+            width: 100cqw;
+            height: 380px;
         }
 
         .project-slide img {
@@ -153,7 +178,7 @@
         }
 
         .project-slide:hover img {
-            transform: scale(1.06);
+            transform: scale(1.04);
         }
 
         .project-slide-overlay {
@@ -164,7 +189,7 @@
             transition: opacity 0.3s ease;
             display: flex;
             align-items: flex-end;
-            padding: 14px;
+            padding: 16px;
         }
 
         .project-slide:hover .project-slide-overlay {
@@ -175,7 +200,6 @@
             from {
                 transform: translateX(0);
             }
-
             to {
                 transform: translateX(-50%);
             }
@@ -203,14 +227,26 @@
                 max-width: 100%;
             }
 
+            .project-track,
+            .project-track.few-items,
+            .project-track.single-item {
+                --slide-gap: 12px;
+                animation-duration: 20s;
+            }
+
             .project-slide {
                 width: 230px;
                 height: 135px;
             }
 
-            .project-track {
-                gap: 10px;
-                animation-duration: 24s;
+            .project-slide.is-wide {
+                width: calc((100cqw - var(--slide-gap)) / 2);
+                height: 150px;
+            }
+
+            .project-slide.is-single {
+                width: 100cqw;
+                height: 200px;
             }
         }
 
@@ -248,7 +284,7 @@
     </div>
 
     <!-- =========================================================
-         SECTION 2 : PROJECT / WORKPHASE ACCORDION
+         SECTION : PROJECT / WORKPHASE ACCORDION
          ========================================================= -->
     <section id="projects" class="bg-[#1112A2] text-white py-20 md:py-24 px-6 md:px-12 overflow-hidden">
         <div class="max-w-[1050px] mx-auto">
@@ -299,44 +335,52 @@
 
                                 <!-- SELECTED PROJECTS (PRODUCTS) -->
                                 @if($category->products->isNotEmpty())
+                                    @php
+                                        $productCount = $category->products->count();
+                                        $isSingle = $productCount === 1;
+                                        $isFew = $productCount > 1 && $productCount < 4;
+
+                                        // Satu set produk sudah >= lebar container,
+                                        // jadi cukup 2x agar loop translateX(-50%) selalu utuh tanpa jeda kosong
+                                        $repeatTimes = 2;
+
+                                        $trackClass = $isSingle ? 'single-item' : ($isFew ? 'few-items' : '');
+                                        $slideClass = $isSingle ? 'is-single' : ($isFew ? 'is-wide' : '');
+                                    @endphp
+
                                     <div>
-                                        <p class="text-[10px] md:text-[11px] text-white/70 mb-3">Selected Projects</p>
+                                        <p class="text-[10px] md:text-[11px] text-white/70 mb-3">{{ __('Selected Projects') }}</p>
+
                                         <div class="project-slider">
-                                            <div class="project-track">
-                                                
-                                                {{-- Loop 2x untuk infinite carousel loop effect --}}
-                                                @foreach([1, 2] as $set)
+                                            <div class="project-track {{ $trackClass }}">
+
+                                                @for ($i = 0; $i < $repeatTimes; $i++)
                                                     @foreach($category->products as $product)
                                                         @php
-                                                            // PERBAIKAN PEMANGGILAN GAMBAR:
-                                                            // 1. Cek apakah img_url terisi
-                                                            // 2. Jika merupakan URL eksternal (http/https), pakai langsung
-                                                            // 3. Jika file lokal storage, gunakan \Illuminate\Support\Facades\Storage::url()
                                                             if ($product->img_url) {
-                                                                if (filter_var($product->img_url, FILTER_VALIDATE_URL)) {
-                                                                    $imageUrl = $product->img_url;
-                                                                } else {
-                                                                    $imageUrl = \Illuminate\Support\Facades\Storage::url($product->img_url);
-                                                                }
+                                                                $imageUrl = filter_var($product->img_url, FILTER_VALIDATE_URL)
+                                                                    ? $product->img_url
+                                                                    : \Illuminate\Support\Facades\Storage::url($product->img_url);
                                                             } else {
                                                                 $imageUrl = asset('images/default.jpg');
                                                             }
                                                         @endphp
-                                                        <div class="project-slide cursor-pointer"
-                                                            onclick="openProjectModal(
-                                                                '{{ e($product->name) }}',
-                                                                '{{ e($product->description) }}',
-                                                                '{{ $imageUrl }}'
-                                                            )">
+
+                                                        <div class="project-slide {{ $slideClass }}"
+                                                            data-title="{{ $product->name }}"
+                                                            data-description="{{ $product->description }}"
+                                                            data-image="{{ $imageUrl }}"
+                                                            data-link="{{ $product->link_url }}"
+                                                            onclick="openProjectModal(this)">
                                                             <img src="{{ $imageUrl }}" alt="{{ $product->name }}">
                                                             <div class="project-slide-overlay">
-                                                                <span class="text-white text-[11px] font-medium">
+                                                                <span class="text-white text-xs md:text-sm font-medium">
                                                                     {{ $product->name }}
                                                                 </span>
                                                             </div>
                                                         </div>
                                                     @endforeach
-                                                @endforeach
+                                                @endfor
 
                                             </div>
                                         </div>
@@ -383,6 +427,20 @@
                 </span>
                 <h3 id="projectModalTitle" class="text-xl md:text-2xl font-bold text-gray-900 mb-3"></h3>
                 <p id="projectModalDescription" class="text-[14px] text-gray-600 leading-relaxed"></p>
+
+                <!-- PRODUCT LINK (disembunyikan kalau link_url kosong) -->
+                <a id="projectModalLink" href="#" target="_blank" rel="noopener noreferrer"
+                    class="hidden mt-5 items-center gap-3 max-w-full border border-[#1112A2]/20 rounded-md px-4 py-3 text-[#1112A2] hover:bg-[#1112A2] hover:text-white transition group">
+                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 6H18v4.5M18 6l-8 8M10.5 6H7a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2v-3.5" />
+                    </svg>
+                    <span class="flex flex-col min-w-0">
+                        <span class="text-[10px] uppercase tracking-wide font-semibold opacity-70">{{ __('Visit Product') }}</span>
+                        <span id="projectModalLinkText" class="text-[13px] font-medium truncate"></span>
+                    </span>
+                </a>
             </div>
         </div>
     </div>
@@ -405,11 +463,37 @@
             currentAccordion.classList.toggle('active');
         }
 
-        function openProjectModal(title, description, image) {
+        function openProjectModal(el) {
             const modal = document.getElementById('projectModal');
-            document.getElementById('projectModalTitle').textContent = title;
-            document.getElementById('projectModalDescription').textContent = description;
-            document.getElementById('projectModalImage').src = image;
+            document.getElementById('projectModalTitle').textContent = el.dataset.title || '';
+            document.getElementById('projectModalDescription').textContent = el.dataset.description || '';
+            document.getElementById('projectModalImage').src = el.dataset.image || '';
+
+            // Link produk
+            const linkEl = document.getElementById('projectModalLink');
+            const linkText = document.getElementById('projectModalLinkText');
+            let link = (el.dataset.link || '').trim();
+
+            if (link && !/^https?:\/\//i.test(link)) {
+                link = 'https://' + link; // kalau lupa tulis http(s)://
+            }
+
+            let validLink = false;
+            try {
+                const parsed = new URL(link);
+                validLink = ['http:', 'https:'].includes(parsed.protocol);
+            } catch (e) {}
+
+            if (validLink) {
+                linkEl.href = link;
+                linkText.textContent = link.replace(/^https?:\/\//i, '').replace(/\/$/, '');
+                linkEl.classList.remove('hidden');
+                linkEl.classList.add('inline-flex');
+            } else {
+                linkEl.removeAttribute('href');
+                linkEl.classList.remove('inline-flex');
+                linkEl.classList.add('hidden');
+            }
 
             modal.classList.remove('hidden');
             modal.classList.add('flex');

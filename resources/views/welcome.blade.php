@@ -239,8 +239,8 @@
             </div>
         </div>
     </section>
-    {{-- =========================================================
-         3. WHY CHOOSE US SECTION
+{{-- =========================================================
+         3. WHY CHOOSE US SECTION (Responsive Mobile Click)
     ========================================================= --}}
     @php
         $chooseUses = $chooseUses ?? \App\Models\ChooseUs::where('is_active', true)->orderBy('sort_order', 'asc')->get();
@@ -258,6 +258,7 @@
                     <h2 class="text-3xl sm:text-4xl md:text-[2.6rem] font-medium text-gray-900 mb-10 leading-[1.15] font-['Inter_Tight']">
                         {{ __('Elevating Your Strategy With Measurable Impact') }}
                     </h2>
+                    
                     <div class="space-y-0">
                         @forelse ($chooseUses as $index => $item)
                             @php
@@ -265,20 +266,25 @@
                                 $itemDesc  = $item->getTranslation('description', $locale, false) ?? $item->getTranslation('description', 'en', false) ?? '';
                             @endphp
 
-                            <div class="group border-t border-gray-200 {{ $loop->last ? 'border-b' : '' }} py-6 cursor-pointer">
+                            {{-- Ditambahkan onclick dan class identifikasi --}}
+                            <div class="accordion-item border-t border-gray-200 {{ $loop->last ? 'border-b' : '' }} py-6 cursor-pointer" onclick="toggleAccordion(this)">
                                 <div class="flex items-center gap-5">
                                     <span class="text-base font-bold text-[#1218ae] w-6">{{ $index + 1 }}</span>
-                                    <h4 class="text-base md:text-lg font-semibold text-gray-800 group-hover:text-[#1218ae] transition flex-1">
+                                    
+                                    {{-- group-hover dihapus, dikendalikan via JS --}}
+                                    <h4 class="accordion-title text-base md:text-lg font-semibold text-gray-800 transition flex-1">
                                         {{ $itemTitle }}
                                     </h4>
-                                    <span class="text-gray-400 group-hover:text-[#1218ae] transition-all duration-300">
-                                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    
+                                    <span class="accordion-icon-wrapper text-gray-400 transition-all duration-300">
+                                        <svg class="accordion-icon w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
                                         </svg>
                                     </span>
                                 </div>
 
-                                <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
+                                {{-- group-hover:grid-rows-[1fr] diganti menjadi status default 0fr --}}
+                                <div class="accordion-content grid grid-rows-[0fr] transition-all duration-300 ease-in-out">
                                     <div class="overflow-hidden">
                                         <p class="pt-3 pl-11 text-xs md:text-sm text-gray-600 leading-relaxed max-w-lg">
                                             {{ $itemDesc }}
@@ -300,6 +306,35 @@
             </div>
         </div>
     </section>
+
+    {{-- Tambahkan script ini tepat di bawah tag </section> atau sebelum </body> --}}
+    <script>
+        function toggleAccordion(element) {
+            const content = element.querySelector('.accordion-content');
+            const title = element.querySelector('.accordion-title');
+            const iconWrapper = element.querySelector('.accordion-icon-wrapper');
+            const icon = element.querySelector('.accordion-icon');
+
+            // Cek apakah sedang terbuka
+            const isOpen = content.classList.contains('grid-rows-[1fr]');
+
+            // Logika tutup semua accordion lainnya terlebih dahulu (Opsional: agar terlihat lebih rapi)
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.querySelector('.accordion-content').classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]');
+                item.querySelector('.accordion-title').classList.remove('text-[#1218ae]');
+                item.querySelector('.accordion-icon-wrapper').classList.remove('text-[#1218ae]');
+                item.querySelector('.accordion-icon').classList.remove('rotate-90');
+            });
+
+            // Jika sebelumnya tertutup, maka buka
+            if (!isOpen) {
+                content.classList.replace('grid-rows-[0fr]', 'grid-rows-[1fr]');
+                title.classList.add('text-[#1218ae]');
+                iconWrapper.classList.add('text-[#1218ae]');
+                icon.classList.add('rotate-90');
+            }
+        }
+    </script>
 
 {{-- =========================================================
      4. PORTFOLIO / PROJECTS SECTION
@@ -549,9 +584,18 @@
                 <span id="modalProjectSubName" class="text-sm font-medium text-gray-900"></span>
             </div>
 
+            {{-- PROJECT LINK (disembunyikan kalau link_url kosong) --}}
             <a id="modalProjectLink" href="#" target="_blank" rel="noopener noreferrer"
-               class="hidden mt-6 inline-flex items-center gap-2 bg-[#1112A2] text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-[#1112A2]/90 transition">
-                {{ __('Visit Project') }} &rarr;
+                class="hidden mt-6 items-center gap-3 max-w-full border border-[#1112A2]/20 rounded-md px-4 py-3 text-[#1112A2] hover:bg-[#1112A2] hover:text-white transition group">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M13.5 6H18v4.5M18 6l-8 8M10.5 6H7a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2v-3.5" />
+                </svg>
+                <span class="flex flex-col min-w-0">
+                    <span class="text-[10px] uppercase tracking-wide font-semibold opacity-70">{{ __('Visit Project') }}</span>
+                    <span id="modalProjectLinkText" class="text-[13px] font-medium truncate"></span>
+                </span>
             </a>
         </div>
     </div>
@@ -682,12 +726,29 @@
         document.getElementById('modalProjectCategory').textContent = categoryName;
         document.getElementById('modalProjectImage').src = image;
 
+        // Link project
         const linkEl = document.getElementById('modalProjectLink');
-        if (link && link.trim() !== '') {
-            linkEl.href = link;
+        const linkText = document.getElementById('modalProjectLinkText');
+        let url = (link || '').trim();
+
+        if (url && !/^https?:\/\//i.test(url)) {
+            url = 'https://' + url; // kalau lupa tulis http(s)://
+        }
+
+        let validLink = false;
+        try {
+            const parsed = new URL(url);
+            validLink = ['http:', 'https:'].includes(parsed.protocol);
+        } catch (e) {}
+
+        if (validLink) {
+            linkEl.href = url;
+            linkText.textContent = url.replace(/^https?:\/\//i, '').replace(/\/$/, '');
             linkEl.classList.remove('hidden');
+            linkEl.classList.add('inline-flex');
         } else {
-            linkEl.href = '#';
+            linkEl.removeAttribute('href');
+            linkEl.classList.remove('inline-flex');
             linkEl.classList.add('hidden');
         }
 

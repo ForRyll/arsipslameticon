@@ -153,8 +153,8 @@
              class="h-full w-full object-cover">
     </div>
 
-    {{-- Small Image (Produk IT Pertama) --}}
-    <div class="absolute bottom-[12%] right-0 aspect-[4/3] w-[45%] overflow-hidden shadow-[0_12px_25px_rgba(0,0,0,0.18)]">
+{{-- Small Image (Produk IT Pertama) --}}
+    <div class="hidden md:block absolute bottom-[12%] right-0 aspect-[4/3] w-[45%] overflow-hidden shadow-[0_12px_25px_rgba(0,0,0,0.18)]">
         @php
             $smallImage = !empty($itProduct?->img_url) 
                 ? asset('storage/' . $itProduct->img_url) 
