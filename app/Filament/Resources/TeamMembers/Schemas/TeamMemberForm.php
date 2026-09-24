@@ -32,6 +32,14 @@ class TeamMemberForm
                     ->placeholder('Contoh: S1 Teknik Informatika')
                     ->maxLength(255),
 
+                TextInput::make('display_order')
+                    ->label('Urutan Tampilan')
+                    ->numeric()
+                    ->default(0)
+                    ->required()
+                    ->minValue(0)
+                    ->helperText('Semakin kecil nilainya, semakin atas posisi tampilannya.'),
+
                 FileUpload::make('photo_url')
                     ->label('Foto Profil')
                     ->image()

@@ -17,6 +17,8 @@ class TeamMembersTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->reorderable('display_order')
+            ->defaultSort('display_order', 'asc')
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
@@ -36,6 +38,11 @@ class TeamMembersTable
                 TextColumn::make('position.name')
                     ->label('Jabatan')
                     ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('display_order')
+                    ->label('Urutan')
+                    ->numeric()
                     ->sortable(),
 
                 TextColumn::make('last_education')

@@ -25,10 +25,13 @@ class PeopleController extends Controller
             return str_contains($rawJson, 'founder') || str_contains($rawJson, 'pendiri');
         });
 
-        // Ambil sisanya untuk $teams (selain founder)
-        $teams = $allMembers->reject(function ($member) use ($founder) {
-            return $founder && $member->id === $founder->id;
-        });
+        // Ambil sisanya untuk $teams (selain founder) dan urutkan berdasarkan display_order
+        $teams = $allMembers
+            ->reject(function ($member) use ($founder) {
+                return $founder && $member->id === $founder->id;
+            })
+            ->sortBy('display_order')
+            ->values(); // Reset key index array
 
         return view('our-people', compact('founder', 'teams'));
     }

@@ -44,39 +44,21 @@
     <section class="relative min-h-screen w-full bg-[#f2f2f0] overflow-hidden pt-24 pb-16" id="home">
         <div class="max-w-[1440px] mx-auto min-h-[calc(100vh-100px)] relative px-6 md:px-12 flex flex-col">
 
-            {{-- Hero visual (marquee diagonal, data dinamis dari tabel products) --}}
-            <div class="relative order-1 w-full h-[500px] md:absolute md:inset-0 md:h-full overflow-hidden pointer-events-none">
-                <div class="hero-diagonal-wrap">
-                    <div class="hero-track">
-                        @if ($products->count() > 0)
-                            {{-- Loop diduplikasi 2x untuk efek infinite seamless scroll --}}
-                            @for ($i = 0; $i < 2; $i++)
-                                @foreach ($products as $product)
-                                    @php
-                                        // Mendukung storage upload Laravel maupun URL eksternal
-                                        $imagePath = Str::startsWith($product->img_url, ['http://', 'https://'])
-                                            ? $product->img_url
-                                            : asset('storage/' . $product->img_url);
-                                    @endphp
-                                    <div class="hero-card bg-white">
-                                        <img src="{{ $imagePath }}"
-                                             alt="{{ $product->getTranslation('name', $locale, false) ?? 'Product Preview' }}">
-                                    </div>
-                                @endforeach
-                            @endfor
-                        @else
-                            {{-- Fallback statis jika data produk masih kosong --}}
-                            @for ($i = 0; $i < 2; $i++)
-                                <div class="hero-card"><img src="{{ asset('images/bimbelio.jpeg') }}" alt="Project Preview 1"></div>
-                                <div class="hero-card"><img src="{{ asset('images/humanusia.jpeg') }}" alt="Project Preview 2"></div>
-                                <div class="hero-card"><img src="{{ asset('images/soemitro.jpeg') }}" alt="Project Preview 3"></div>
-                                <div class="hero-card bg-white"><img src="{{ asset('images/logo1.png') }}" class="!object-contain" alt="Project Preview 4"></div>
-                                <div class="hero-card bg-white"><img src="{{ asset('images/slameticon.png') }}" class="!object-contain p-4" alt="Project Preview 5"></div>
-                            @endfor
-                        @endif
-                    </div>
-                </div>
-            </div>
+{{-- Hero visual (marquee diagonal statis) --}}
+<div class="relative order-1 w-full h-[500px] md:absolute md:inset-0 md:h-full overflow-hidden pointer-events-none">
+    <div class="hero-diagonal-wrap">
+        <div class="hero-track">
+            {{-- Loop diduplikasi 2x untuk efek infinite seamless scroll --}}
+            @for ($i = 0; $i < 2; $i++)
+                <div class="hero-card"><img src="{{ asset('images/ig.png') }}" alt="Project Preview 1"></div>
+                <div class="hero-card"><img src="{{ asset('images/jalu2.png') }}" alt="Project Preview 2"></div>
+                <div class="hero-card"><img src="{{ asset('images/humanusia.png') }}" alt="Project Preview 3"></div>
+                <div class="hero-card"><img src="{{ asset('images/jalu1.png') }}"  alt="Project Preview 4"></div>
+                <div class="hero-card"><img src="{{ asset('images/etawa.png') }}"  alt="Project Preview 5"></div>
+            @endfor
+        </div>
+    </div>
+</div>
 
             {{-- Hero copy / tagline --}}
             <div class="relative z-20 order-2 md:absolute md:left-[5%] md:top-[10%] max-w-xl mt-10 md:mt-0 mb-0 md:mb-0">
@@ -137,7 +119,7 @@
                 align-items: center;
                 gap: 32px;
                 width: 100%;
-                animation: heroScrollLoop 30s linear infinite;
+                animation: heroScrollLoop 40s linear infinite;
                 will-change: transform;
             }
 
@@ -478,7 +460,8 @@
                                                     ? ($product->description[app()->getLocale()] ?? reset($product->description))
                                                     : $product->description;
 
-                                                $prodDescShort = \Illuminate\Support\Str::limit(strip_tags($prodDesc ?? ''), 110);
+                                                // Batas karakter dinaikkan; pemotongan baris diatur lewat CSS line-clamp
+                                                $prodDescShort = \Illuminate\Support\Str::limit(strip_tags($prodDesc ?? ''), 400);
 
                                                 $imageSrc = $product->img_url ? asset('storage/' . $product->img_url) : asset('images/default-project.png');
                                             @endphp
@@ -520,7 +503,7 @@
                                                         ? ($product->description[app()->getLocale()] ?? reset($product->description))
                                                         : $product->description;
 
-                                                    $prodDescShort = \Illuminate\Support\Str::limit(strip_tags($prodDesc ?? ''), 110);
+                                                    $prodDescShort = \Illuminate\Support\Str::limit(strip_tags($prodDesc ?? ''), 400);
 
                                                     $imageSrc = $product->img_url ? asset('storage/' . $product->img_url) : asset('images/default-project.png');
                                                 @endphp
@@ -836,7 +819,11 @@
         }
     }
 
+    /* ===== Marquee ===== */
     .project-marquee-container {
+        /* Atur kecepatan di sini: makin besar = makin pelan */
+        --marquee-duration: 40s;
+
         width: 100%;
         height: 520px;
         overflow: hidden;
@@ -848,7 +835,7 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
-        animation: verticalProjectScroll 18s linear infinite;
+        animation: verticalProjectScroll var(--marquee-duration) linear infinite;
     }
 
     .project-marquee-container:hover .project-marquee {
@@ -910,13 +897,15 @@
         line-height: 1.3;
     }
 
+    /* Deskripsi hover: maksimal 5 baris di desktop */
     .project-overlay-desc {
         font-size: 11px;
         line-height: 1.5;
         color: rgba(255, 255, 255, 0.85);
         margin-bottom: 12px;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -946,11 +935,16 @@
     }
 
     @media (max-width: 768px) {
-        .project-marquee-container { height: 430px; }
-        .project-marquee           { animation-duration: 24s; }
+        .project-marquee-container { --marquee-duration: 60s; height: 430px; }
         .project-item              { aspect-ratio: 1.1 / 1; padding: 10px; }
         .project-overlay-title     { font-size: 13px; }
-        .project-overlay-desc      { font-size: 10px; }
+
+        /* Deskripsi hover: maksimal 2 baris di mobile */
+        .project-overlay-desc {
+            font-size: 10px;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+        }
     }
 </style>
 

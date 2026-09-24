@@ -31,6 +31,7 @@ class TeamMember extends Model
         'instagram_url',
         'facebook_url',
         'x_url',
+        'display_order',
     ];
 
     public function position(): BelongsTo

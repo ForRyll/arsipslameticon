@@ -27,6 +27,9 @@ class TeamMemberInfolist
                 TextEntry::make('position.name')
                     ->label('Jabatan'),
 
+                TextEntry::make('display_order')
+                    ->label('Urutan Tampilan'),
+
                 TextEntry::make('last_education')
                     ->label('Pendidikan Terakhir')
                     ->placeholder('-'),

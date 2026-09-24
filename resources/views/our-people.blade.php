@@ -114,7 +114,8 @@
             {{-- TEAM GRID --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
 
-                @forelse ($teams as $person)
+                {{-- Diurutkan berdasarkan display_order secara ascending --}}
+                @forelse ($teams->sortBy('display_order') as $person)
                     <div class="bg-[#f8f9fb] border border-gray-100 rounded-2xl p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300">
 
                         <!-- FOTO PROFIL -->
