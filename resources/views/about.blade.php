@@ -124,13 +124,13 @@
                     <img src="{{ $logoSrc }}" alt="{{ $companyName }}" class="w-full max-w-xs md:max-w-sm h-auto object-contain">
                 </div>
 
-                {{-- Nama & deskripsi perusahaan --}}
+                {{-- Nama & deskripsi perusahaan (Justified) --}}
                 <div class="lg:col-span-7 flex flex-col justify-center">
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1112A2] mb-6 tracking-tight leading-tight">
                         {{ $companyName }}
                     </h1>
 
-                    <p class="text-[17px] md:text-[17px] text-black/90 leading-relaxed space-y-4 font-normal text-justify">
+                    <p class="text-[17px] text-black/90 leading-relaxed font-normal text-justify">
                         {{ $description ?: 'Deskripsi perusahaan belum dikonfigurasi.' }}
                     </p>
                 </div>
@@ -149,10 +149,10 @@
             {{-- Garis pemisah miring (desktop/tablet) --}}
             <div class="hidden md:block absolute left-1/2 top-4 bottom-4 w-[2px] bg-[#1112A2] transform -translate-x-1/2 rotate-[15deg]"></div>
 
-            {{-- Vision --}}
+            {{-- Vision (Justified) --}}
             <div class="w-full md:w-1/2 md:pr-16 flex flex-col text-center md:text-right">
                 <h2 class="text-2xl md:text-3xl font-semibold text-[#1112A2] mb-6">Our Vision</h2>
-                <p class="text-[15px] text-gray-500 leading-relaxed max-w-sm mx-auto md:ml-auto md:mr-0">
+                <p class="text-[15px] text-gray-500 leading-relaxed max-w-sm mx-auto md:ml-auto md:mr-0 text-justify">
                     {{ $vision ?: 'Visi perusahaan belum ditambahkan.' }}
                 </p>
             </div>
@@ -160,14 +160,14 @@
             {{-- Garis pemisah horizontal (mobile) --}}
             <div class="block md:hidden w-3/4 h-[2px] bg-[#1112A2] mx-auto rounded-full"></div>
 
-            {{-- Mission --}}
+            {{-- Mission (Justified) --}}
             <div class="w-full md:w-1/2 md:pl-16 flex flex-col text-left">
                 <h2 class="text-2xl md:text-3xl font-semibold text-[#1112A2] mb-6 text-center md:text-left">
                     Our Mission
                 </h2>
 
                 @if (!empty($missions))
-                    <ul class="text-[15px] text-gray-500 leading-relaxed list-disc list-outside ml-5 space-y-2 max-w-lg mx-auto md:mx-0">
+                    <ul class="text-[15px] text-gray-500 leading-relaxed list-disc list-outside ml-5 space-y-2 max-w-lg mx-auto md:mx-0 text-justify">
                         @foreach ($missions as $item)
                             @if (is_string($item))
                                 <li>{{ $item }}</li>

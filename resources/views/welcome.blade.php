@@ -178,7 +178,7 @@
             <div class="flex flex-col md:flex-row gap-6 md:gap-12 mb-20">
                 <div class="md:w-3/4">
                     <h2 class="text-3xl md:text-[2.65rem] leading-[1.3] font-medium text-[#1218ae] tracking-tight font-['Inter_Tight'] [text-align:justify]">
-                        {{ __('Slameticon redefines the digital journey with a smarter, faster, and reliable approach to business growth. Combine modern technology with strategic execution to ensure real-time visibility.') }}
+                        {{ __('Slameticon introduces a new approach to a smarter, faster, and more reliable digital business journey. By combining modern technology with the right strategies, we help businesses grow with real-time visibility and control.') }}
                     </h2>
                 </div>
             </div>
