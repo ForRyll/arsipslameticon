@@ -91,7 +91,7 @@
 
             {{-- Hero info & CTA --}}
             <div class="relative z-30 order-3 max-w-md mt-10 md:mt-0 md:absolute md:right-[5%] md:bottom-[10%]">
-<p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6 font-normal">
+<p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6 font-normal text-justify">
     {{ $companyProfile?->headline ?: 'Empowering businesses with cutting-edge digital solutions. We deliver innovative technology services tailored to your needs.' }}
 </p>
 
@@ -367,9 +367,9 @@
                     <div class="{{ $isDarkBg ? 'bg-[#1112A2] text-white' : 'bg-[#f0f2f5] text-gray-900' }} rounded-2xl p-6 md:p-10 lg:p-12">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-                            {{-- Left — workphases --}}
-                            <div>
-                                <div class="mb-10">
+                            {{-- Left — Workphase --}}
+                            <div class="flex flex-col h-full">
+                                <div class="mb-6">
                                     <span class="text-[14px] font-semibold {{ $isDarkBg ? 'text-white/60' : 'text-gray-400' }} uppercase tracking-widest">
                                         Portfolio
                                     </span>
@@ -378,7 +378,7 @@
                                     </h3>
                                 </div>
 
-                                <div class="mb-5">
+                                <div class="mb-4 flex items-center justify-between">
                                     <span class="text-[14px] font-bold {{ $isDarkBg ? 'text-white/60' : 'text-gray-400' }} tracking-widest uppercase">
                                         Workphase
                                     </span>
@@ -429,67 +429,26 @@
                                 </div>
                             </div>
 
-                            {{-- Right — selected projects marquee --}}
+                            {{-- Right — Selected Projects Auto-scroll + Custom Scrollbar Visible --}}
                             <div>
                                 <div class="flex items-center justify-between mb-5">
                                     <span class="text-[14px] font-bold {{ $isDarkBg ? 'text-white/60' : 'text-gray-400' }} tracking-widest uppercase">
                                         {{ __('Selected Projects') }}
                                     </span>
                                     <span class="text-[10px] {{ $isDarkBg ? 'text-white/40' : 'text-gray-400' }}">
-                                        {{ __('Click to pause') }}
+                                        {{ __('Scroll or click to pause') }}
                                     </span>
                                 </div>
 
-                                <div class="project-marquee-container">
-                                    <div class="project-marquee">
-                                        @php
-                                            $products = $category->products->sortBy('display_order');
-                                        @endphp
-
-                                        @forelse ($products as $product)
+                                {{-- Wrapper dengan Scrollbar Vertikal Selalu Tampak --}}
+                                <div class="projects-scroll-wrapper {{ $isDarkBg ? 'scrollbar-on-dark' : 'scrollbar-on-light' }}" data-auto-scroll>
+                                    <div class="project-marquee-container pr-3">
+                                        <div class="project-marquee">
                                             @php
-                                                $prodName = is_array($product->name)
-                                                    ? ($product->name[app()->getLocale()] ?? reset($product->name))
-                                                    : $product->name;
-
-                                                $prodSubName = is_array($product->sub_name ?? null)
-                                                    ? ($product->sub_name[app()->getLocale()] ?? reset($product->sub_name))
-                                                    : ($product->sub_name ?? $prodName);
-
-                                                $prodDesc = is_array($product->description)
-                                                    ? ($product->description[app()->getLocale()] ?? reset($product->description))
-                                                    : $product->description;
-
-                                                // Batas karakter dinaikkan; pemotongan baris diatur lewat CSS line-clamp
-                                                $prodDescShort = \Illuminate\Support\Str::limit(strip_tags($prodDesc ?? ''), 400);
-
-                                                $imageSrc = $product->img_url ? asset('storage/' . $product->img_url) : asset('images/default-project.png');
+                                                $products = $category->products->sortBy('display_order');
                                             @endphp
 
-                                            <div onclick="openProjectModal(
-                                                    '{{ addslashes($prodName) }}',
-                                                    '{{ addslashes($prodSubName ?? '') }}',
-                                                    '{{ addslashes($prodDesc ?? '') }}',
-                                                    '{{ addslashes($catName) }}',
-                                                    '{{ $imageSrc }}',
-                                                    '{{ addslashes($product->link_url ?? '') }}'
-                                                )" class="project-item cursor-pointer">
-                                                <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="project-image">
-                                                <div class="project-overlay">
-                                                    <div class="project-overlay-content">
-                                                        <h4 class="project-overlay-title">{{ $prodName }}</h4>
-                                                        <p class="project-overlay-desc">{{ $prodDescShort }}</p>
-                                                        <span class="project-overlay-cta">View Project &rarr;</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @empty
-                                            <p class="text-sm opacity-60">Belum ada proyek untuk kategori ini.</p>
-                                        @endforelse
-
-                                        {{-- Duplikasi list produk untuk efek infinite loop --}}
-                                        @if ($products->count() > 0)
-                                            @foreach ($products as $product)
+                                            @forelse ($products as $product)
                                                 @php
                                                     $prodName = is_array($product->name)
                                                         ? ($product->name[app()->getLocale()] ?? reset($product->name))
@@ -515,8 +474,8 @@
                                                         '{{ addslashes($catName) }}',
                                                         '{{ $imageSrc }}',
                                                         '{{ addslashes($product->link_url ?? '') }}'
-                                                    )" class="project-item cursor-pointer">
-                                                    <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="project-image">
+                                                    )" class="project-item cursor-pointer overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
+                                                    <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="w-full h-auto max-h-[350px] object-cover rounded-2xl">
                                                     <div class="project-overlay">
                                                         <div class="project-overlay-content">
                                                             <h4 class="project-overlay-title">{{ $prodName }}</h4>
@@ -525,8 +484,51 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endforeach
-                                        @endif
+                                            @empty
+                                                <p class="text-sm opacity-60">Belum ada proyek untuk kategori ini.</p>
+                                            @endforelse
+
+                                            {{-- Duplikasi list produk untuk efek infinite loop --}}
+                                            @if ($products->count() > 0)
+                                                @foreach ($products as $product)
+                                                    @php
+                                                        $prodName = is_array($product->name)
+                                                            ? ($product->name[app()->getLocale()] ?? reset($product->name))
+                                                            : $product->name;
+
+                                                        $prodSubName = is_array($product->sub_name ?? null)
+                                                            ? ($product->sub_name[app()->getLocale()] ?? reset($product->sub_name))
+                                                            : ($product->sub_name ?? $prodName);
+
+                                                        $prodDesc = is_array($product->description)
+                                                            ? ($product->description[app()->getLocale()] ?? reset($product->description))
+                                                            : $product->description;
+
+                                                        $prodDescShort = \Illuminate\Support\Str::limit(strip_tags($prodDesc ?? ''), 400);
+
+                                                        $imageSrc = $product->img_url ? asset('storage/' . $product->img_url) : asset('images/default-project.png');
+                                                    @endphp
+
+                                                    <div onclick="openProjectModal(
+                                                            '{{ addslashes($prodName) }}',
+                                                            '{{ addslashes($prodSubName ?? '') }}',
+                                                            '{{ addslashes($prodDesc ?? '') }}',
+                                                            '{{ addslashes($catName) }}',
+                                                            '{{ $imageSrc }}',
+                                                            '{{ addslashes($product->link_url ?? '') }}'
+                                                        )" class="project-item cursor-pointer overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
+                                                        <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="w-full h-auto max-h-[350px] object-cover rounded-2xl">
+                                                        <div class="project-overlay">
+                                                            <div class="project-overlay-content">
+                                                                <h4 class="project-overlay-title">{{ $prodName }}</h4>
+                                                                <p class="project-overlay-desc">{{ $prodDescShort }}</p>
+                                                                <span class="project-overlay-cta">View Project &rarr;</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -567,7 +569,7 @@
                 <span id="modalProjectSubName" class="text-sm font-medium text-gray-900"></span>
             </div>
 
-            {{-- PROJECT LINK (disembunyikan kalau link_url kosong) --}}
+            {{-- PROJECT LINK --}}
             <a id="modalProjectLink" href="#" target="_blank" rel="noopener noreferrer"
                 class="hidden mt-6 items-center gap-3 max-w-full border border-[#1112A2]/20 rounded-md px-4 py-3 text-[#1112A2] hover:bg-[#1112A2] hover:text-white transition group">
                 <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -583,6 +585,174 @@
         </div>
     </div>
 </div>
+
+<style>
+/* Container scrollbar harus punya tinggi pasti dan memicu overflow vertikal */
+.projects-scroll-wrapper {
+    height: 520px !important;
+    max-height: 520px !important;
+    overflow-y: scroll !important; /* Paksa memunculkan scrollbar aktif */
+    overflow-x: hidden !important;
+    position: relative;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    scrollbar-gutter: stable;
+    padding-right: 8px;
+}
+
+/* Pastikan elemen anak tidak mengunci height wrapper */
+.project-marquee-container {
+    position: relative;
+    width: 100%;
+    height: auto !important; /* Biarkan tinggi menyesuaikan isi agar scrollbar muncul */
+}
+
+.project-marquee {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: auto !important;
+}
+
+/* Styling Scrollbar Webkit agar thumb (batang penyeret) muncul jelas */
+.scrollbar-on-dark::-webkit-scrollbar { 
+    width: 10px !important; 
+    display: block !important;
+}
+.scrollbar-on-dark::-webkit-scrollbar-track { 
+    background: rgba(255, 255, 255, 0.15) !important; 
+    border-radius: 8px; 
+}
+.scrollbar-on-dark::-webkit-scrollbar-thumb { 
+    background: #ffffff !important; /* Thumb penyeret warna putih terang */
+    border-radius: 8px; 
+    border: 2px solid #1112A2;
+    min-height: 40px !important; /* Memastikan thumb punya ukuran minimal agar bisa ditarik */
+}
+.scrollbar-on-dark::-webkit-scrollbar-thumb:hover { 
+    background: #e0e0e0 !important; 
+}
+
+/* Styling Scrollbar Tema Terang */
+.scrollbar-on-light::-webkit-scrollbar { 
+    width: 10px !important; 
+    display: block !important;
+}
+.scrollbar-on-light::-webkit-scrollbar-track { 
+    background: rgba(0, 0, 0, 0.08) !important; 
+    border-radius: 8px; 
+}
+.scrollbar-on-light::-webkit-scrollbar-thumb { 
+    background: #1112A2 !important; 
+    border-radius: 8px; 
+    min-height: 40px !important;
+}
+.scrollbar-on-light::-webkit-scrollbar-thumb:hover { 
+    background: #0a0b66 !important; 
+}
+</style>
+
+<script>
+function switchPortfolioTab(targetId) {
+    document.querySelectorAll('.portfolio-content').forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+    });
+
+    document.querySelectorAll('.portfolio-tab').forEach(tab => {
+        tab.classList.remove('active', 'bg-[#1112A2]', 'text-white');
+        tab.classList.add('text-gray-400');
+    });
+
+    const activeContent = document.getElementById(targetId);
+    if (activeContent) {
+        activeContent.classList.remove('hidden');
+        activeContent.classList.add('block');
+    }
+
+    const activeTab = document.querySelector(`[data-target="${targetId}"]`);
+    if (activeTab) {
+        activeTab.classList.add('active', 'bg-[#1112A2]', 'text-white');
+        activeTab.classList.remove('text-gray-400');
+    }
+
+    window.dispatchEvent(new CustomEvent('portfolio-tab-changed', { detail: { targetId } }));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const SPEED = 35; // Pixel per detik
+
+    document.querySelectorAll('[data-auto-scroll]').forEach(wrapper => {
+        let isInteracting = false;
+        let resumeTimer = null;
+        let lastTime = null;
+
+        const pause = () => {
+            isInteracting = true;
+            if (resumeTimer) clearTimeout(resumeTimer);
+        };
+
+        const resume = (delay = 2000) => {
+            if (resumeTimer) clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(() => {
+                isInteracting = false;
+            }, delay);
+        };
+
+        // Event listener saat kursor/mouse/touch berinteraksi
+        wrapper.addEventListener('mouseenter', pause);
+        wrapper.addEventListener('mouseleave', () => resume(500));
+        wrapper.addEventListener('mousedown', pause); // Menangkap klik pada scrollbar
+        wrapper.addEventListener('mouseup', () => resume(2000));
+        wrapper.addEventListener('touchstart', pause, { passive: true });
+        wrapper.addEventListener('touchend', () => resume(2000), { passive: true });
+
+        // Jika user melakukan scroll (wheel atau dragging scrollbar)
+        wrapper.addEventListener('scroll', () => {
+            pause();
+            resume(2500); // Tahan auto-scroll 2.5 detik setelah user selesai scroll
+        }, { passive: true });
+
+        window.addEventListener('portfolio-tab-changed', () => {
+            lastTime = null;
+        });
+
+        function animate(currentTime) {
+            if (!lastTime) lastTime = currentTime;
+            const dt = (currentTime - lastTime) / 1000;
+            lastTime = currentTime;
+
+            const isVisible = wrapper.offsetWidth > 0 && wrapper.offsetHeight > 0;
+
+            if (!isInteracting && isVisible) {
+                const items = wrapper.querySelectorAll('.project-item');
+                if (items.length >= 2) {
+                    const half = Math.floor(items.length / 2);
+                    const item1 = items[0];
+                    const itemHalf = items[half];
+
+                    if (item1 && itemHalf) {
+                        const period = itemHalf.offsetTop - item1.offsetTop;
+
+                        if (period > 0) {
+                            let nextScroll = wrapper.scrollTop + (SPEED * dt);
+                            if (nextScroll >= period) {
+                                nextScroll -= period;
+                            }
+                            wrapper.scrollTop = nextScroll;
+                        }
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
+    });
+});
+</script>
 
 {{-- =========================================================
      5. SERVICES SECTION

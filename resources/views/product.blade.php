@@ -115,13 +115,36 @@
         }
 
         /* =========================================
-           PROJECT IMAGE SLIDER (MARQUEE)
+           PROJECT IMAGE SLIDER (MARQUEE + MANUAL SCROLL)
            ========================================= */
         .project-slider {
             width: 100%;
-            overflow: hidden;
+            overflow-x: auto; /* Mengaktifkan scroll horizontal manual */
             position: relative;
-            container-type: inline-size; /* supaya satuan cqw mengacu ke lebar slider */
+            container-type: inline-size;
+            scrollbar-width: thin; /* Kustomisasi scrollbar halus */
+            scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .project-slider:active {
+            cursor: grabbing;
+        }
+
+        /* Hide scrollbar untuk Webkit jika ingin bersih, atau beri styling tipis */
+        .project-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+        .project-slider::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .project-slider::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 10px;
+        }
+        .project-slider::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .project-track {
@@ -141,7 +164,9 @@
             animation-duration: 30s;
         }
 
-        .project-slider:hover .project-track {
+        /* Hentikan marquee jika sedang di-hover atau di-scroll manual */
+        .project-slider:hover .project-track,
+        .project-slider.is-scrolling .project-track {
             animation-play-state: paused;
         }
 
@@ -154,7 +179,7 @@
             border-radius: 4px;
             cursor: pointer;
             position: relative;
-            margin-right: var(--slide-gap); /* pakai margin, bukan gap, supaya loop -50% mulus */
+            margin-right: var(--slide-gap);
         }
 
         /* 2 - 3 produk: pas 2 gambar per layar */
@@ -174,6 +199,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            pointer-events: none; /* Mencegah bug drag-and-drop bawaan browser */
             transition: transform 0.5s ease;
         }
 
@@ -340,8 +366,6 @@
                                         $isSingle = $productCount === 1;
                                         $isFew = $productCount > 1 && $productCount < 4;
 
-                                        // Satu set produk sudah >= lebar container,
-                                        // jadi cukup 2x agar loop translateX(-50%) selalu utuh tanpa jeda kosong
                                         $repeatTimes = 2;
 
                                         $trackClass = $isSingle ? 'single-item' : ($isFew ? 'few-items' : '');
@@ -428,7 +452,7 @@
                 <h3 id="projectModalTitle" class="text-xl md:text-2xl font-bold text-gray-900 mb-3"></h3>
                 <p id="projectModalDescription" class="text-[14px] text-gray-600 leading-relaxed"></p>
 
-                <!-- PRODUCT LINK (disembunyikan kalau link_url kosong) -->
+                <!-- PRODUCT LINK -->
                 <a id="projectModalLink" href="#" target="_blank" rel="noopener noreferrer"
                     class="hidden mt-5 items-center gap-3 max-w-full border border-[#1112A2]/20 rounded-md px-4 py-3 text-[#1112A2] hover:bg-[#1112A2] hover:text-white transition group">
                     <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8"
@@ -463,6 +487,58 @@
             currentAccordion.classList.toggle('active');
         }
 
+        // Feature: Mouse Drag & Touch Scroll Support for Project Sliders
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.project-slider');
+
+            sliders.forEach(slider => {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+                let isDragging = false;
+
+                slider.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    isDragging = false;
+                    slider.classList.add('is-scrolling');
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                });
+
+                slider.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    slider.classList.remove('is-scrolling');
+                });
+
+                slider.addEventListener('mouseup', () => {
+                    isDown = false;
+                    slider.classList.remove('is-scrolling');
+                });
+
+                slider.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 1.8; // Kecepatan drag
+                    if (Math.abs(walk) > 5) {
+                        isDragging = true;
+                    }
+                    slider.scrollLeft = scrollLeft - walk;
+                });
+
+                // Mencegah trigger klik modal jika pengguna sedang melakukan drag/scroll
+                const slides = slider.querySelectorAll('.project-slide');
+                slides.forEach(slide => {
+                    slide.addEventListener('click', (e) => {
+                        if (isDragging) {
+                            e.stopImmediatePropagation();
+                            e.preventDefault();
+                        }
+                    }, true);
+                });
+            });
+        });
+
         function openProjectModal(el) {
             const modal = document.getElementById('projectModal');
             document.getElementById('projectModalTitle').textContent = el.dataset.title || '';
@@ -475,7 +551,7 @@
             let link = (el.dataset.link || '').trim();
 
             if (link && !/^https?:\/\//i.test(link)) {
-                link = 'https://' + link; // kalau lupa tulis http(s)://
+                link = 'https://' + link;
             }
 
             let validLink = false;
