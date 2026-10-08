@@ -58,7 +58,7 @@
             </h1>
 
             <p class="text-gray-500 text-[14px] md:text-[15px] max-w-xl mx-auto">
-                {{ __('Explore our moments, projects, and behind-the-scenes at Slameticon Digital Valey.') }}
+                {{ __('Explore our moments, projects, and behind-the-scenes at Slameticon Digital Valley.') }}
             </p>
         </div>
 
@@ -178,7 +178,7 @@
                 </div>
             @empty
                 <div class="col-span-full text-center py-12">
-                    <p class="text-gray-500 text-sm">Belum ada foto galeri.</p>
+                    <p class="text-gray-500 text-sm">{{ __('No gallery photos available.') }}</p>
                 </div>
             @endforelse
 

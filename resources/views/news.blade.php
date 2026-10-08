@@ -133,7 +133,7 @@
                     </article>
                 @empty
                     <div class="col-span-full text-center py-12">
-                        <p class="text-gray-500 text-sm">Belum ada berita yang tersedia.</p>
+                        <p class="text-gray-500 text-sm">{{ __('No news available.') }}</p>
                     </div>
                 @endforelse
 
