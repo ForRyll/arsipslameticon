@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,9 +81,9 @@
                 @php
                     $title       = $parseTrans($service, 'title');
                     $description = $parseTrans($service, 'description');
-                    
+
                     // Pola selang-seling warna kartu: Indeks Ganjil = Abu-abu, Indeks Genap = Biru
-                    $isBlue = ($index % 2 !== 0); 
+                    $isBlue = ($index % 2 !== 0);
                 @endphp
 
                 <div class="{{ $isBlue ? 'bg-[#1112A2] text-white shadow-lg' : 'bg-[#f0f2f5] text-gray-900 shadow-sm' }} rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[460px] transition-transform duration-300 hover:-translate-y-1">
@@ -143,12 +143,12 @@
     {{-- Main Image (Company Logo) --}}
     <div class="aspect-square w-[78%] overflow-hidden">
         @php
-            $mainImage = !empty($company?->logo_url) 
-                ? asset('storage/' . $company->logo_url) 
-                : asset('images/slameticon.png');
+            $mainImage = !empty($company?->logo_url)
+                ? asset('storage/' . $company->logo_url)
+                : asset('images/logo_sdv.png');
         @endphp
 
-        <img src="{{ $mainImage }}" 
+        <img src="{{ $mainImage }}"
              alt="{{ $company?->name ?? 'Digital Business Solutions' }}"
              class="h-full w-full object-cover">
     </div>
@@ -156,12 +156,12 @@
 {{-- Small Image (Produk IT Pertama) --}}
     <div class="hidden md:block absolute bottom-[12%] right-0 aspect-[4/3] w-[45%] overflow-hidden shadow-[0_12px_25px_rgba(0,0,0,0.18)]">
         @php
-            $smallImage = !empty($itProduct?->img_url) 
-                ? asset('storage/' . $itProduct->img_url) 
+            $smallImage = !empty($itProduct?->img_url)
+                ? asset('storage/' . $itProduct->img_url)
                 : asset('images/humanusia.jpeg');
         @endphp
 
-        <img src="{{ $smallImage }}" 
+        <img src="{{ $smallImage }}"
              alt="{{ $itProduct?->getTranslation('name', app()->getLocale()) ?? 'Digital Solutions' }}"
              class="h-full w-full object-cover">
     </div>
@@ -261,7 +261,7 @@
         <div class="max-w-[520px]">
 
             <p class="text-[14px] leading-[1.5] text-white/95 md:text-[15px]">
-                {{ __('More than a service provider, PT Slameticon Digital Valley serves as a strategic partner for businesses navigating the digital landscape. We combine technology, creativity, and business insight to transform ideas into practical solutions and help our clients stay competitive in a rapidly evolving market.') }}
+                {{ __('More than a service provider, PT Slameticon Digital Valey serves as a strategic partner for businesses navigating the digital landscape. We combine technology, creativity, and business insight to transform ideas into practical solutions and help our clients stay competitive in a rapidly evolving market.') }}
             </p>
 
         </div>

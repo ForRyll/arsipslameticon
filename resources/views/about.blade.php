@@ -60,7 +60,7 @@
     $logoPath = $companyProfile->logo_url ?? null;
 
     if (!$logoPath) {
-        $logoSrc = asset('images/slameticon.png');
+        $logoSrc = asset('images/logo_sdv.png');
     } elseif (str_starts_with($logoPath, 'http://') || str_starts_with($logoPath, 'https://')) {
         $logoSrc = $logoPath;
     } elseif (str_starts_with($logoPath, 'storage/')) {

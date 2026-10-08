@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {{-- TITLE DINAMIS --}}
-    <title>{{ is_array($news->title) ? ($news->title[app()->getLocale()] ?? reset($news->title)) : $news->title }} - Slameticon Digital Valley</title>
-    
+    <title>{{ is_array($news->title) ? ($news->title[app()->getLocale()] ?? reset($news->title)) : $news->title }} - Slameticon Digital Valey</title>
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,8 +57,8 @@
                     {{-- KATEGORI --}}
                     <div class="mb-5">
                         <span class="text-[13px] md:text-[14px] font-semibold text-[#1112A2] tracking-wide uppercase">
-                            {{ is_array($news->category->name ?? null) 
-                                ? ($news->category->name[app()->getLocale()] ?? reset($news->category->name)) 
+                            {{ is_array($news->category->name ?? null)
+                                ? ($news->category->name[app()->getLocale()] ?? reset($news->category->name))
                                 : ($news->category->name ?? 'Slameticon News') }}
                         </span>
                     </div>
@@ -76,7 +76,7 @@
                         <span class="hidden sm:inline">•</span>
                         <span>
                             {{-- MENGAMBIL NAMA AUTHOR SAJA (BUKAN OBJECT JSON) --}}
-                            {{ $news->author->name ?? $news->author_name ?? 'Slameticon Digital Valley' }}
+                            {{ $news->author->name ?? $news->author_name ?? 'Slameticon Digital Valey' }}
                         </span>
                     </div>
 
@@ -85,11 +85,11 @@
                 {{-- GAMBAR UTAMA DINAMIS --}}
                 @php
                     if ($news->img_url) {
-                        $imageUrl = filter_var($news->img_url, FILTER_VALIDATE_URL) 
-                            ? $news->img_url 
+                        $imageUrl = filter_var($news->img_url, FILTER_VALIDATE_URL)
+                            ? $news->img_url
                             : \Illuminate\Support\Facades\Storage::url($news->img_url);
                     } else {
-                        $imageUrl = asset('images/slameticon.png');
+                        $imageUrl = asset('images/logo_sdv.png');
                     }
                 @endphp
 
@@ -111,3 +111,4 @@
 
 </body>
 </html>
+

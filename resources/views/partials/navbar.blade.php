@@ -39,7 +39,7 @@
                            tracking-normal
                            font-['Inter',sans-serif]
                            mt-0.5">
-                    Digital Valley
+                    Digital Valey
                 </span>
 
             </div>

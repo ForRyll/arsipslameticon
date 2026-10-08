@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Our People - Slameticon Digital Valley</title>
+    <title>Our People - Slameticon Digital Valey</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -49,8 +49,8 @@
 
                     {{-- FOTO FOUNDER --}}
                     <div class="w-[280px] h-[320px] flex-shrink-0 overflow-hidden rounded-lg shadow-sm">
-                        <img src="{{ !empty($founder->photo_url) ? asset('storage/' . $founder->photo_url) : asset('images/harryadin.png') }}" 
-                             alt="{{ $founder->name }}" 
+                        <img src="{{ !empty($founder->photo_url) ? asset('storage/' . $founder->photo_url) : asset('images/harryadin.png') }}"
+                             alt="{{ $founder->name }}"
                              class="w-full h-full object-cover object-top">
                     </div>
 
@@ -120,7 +120,7 @@
 
                         <!-- FOTO PROFIL -->
                         <div class="w-32 h-32 md:w-36 md:h-36 rounded-2xl overflow-hidden mb-5 flex-shrink-0">
-                            <img src="{{ !empty($person->photo_url) ? asset('storage/' . $person->photo_url) : asset('images/default-profile.png') }}" 
+                            <img src="{{ !empty($person->photo_url) ? asset('storage/' . $person->photo_url) : asset('images/default-profile.png') }}"
                                  alt="{{ $person->name }}"
                                  class="w-full h-full object-cover">
                         </div>

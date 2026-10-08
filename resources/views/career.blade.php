@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <title>About Us - Slameticon Digital Valley</title> --}}
+    {{-- <title>About Us - Slameticon Digital Valey</title> --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
     <style>
         body {
             font-family: 'Inter Tight', sans-serif;
@@ -47,7 +47,7 @@
                 </h1>
 
                 <p class="text-gray-600 font-medium text-[15px] md:text-[16px] mb-8 leading-relaxed">
-                    {{ __('What\'s the best thing about working PT Slameticon Digital Valley?') }}<br>
+                    {{ __('What\'s the best thing about working PT Slameticon Digital Valey?') }}<br>
                     {{ __('Easy. The people.') }}
                 </p>
 
@@ -59,7 +59,7 @@
             <!-- KOLOM KANAN: FOTO CAREER -->
             <div class="flex justify-center lg:justify-end">
                 <div class="w-full max-w-[520px] overflow-hidden rounded-xl">
-                    <img src="{{ asset('images/career.png') }}" alt="Career Slameticon Digital Valley"
+                    <img src="{{ asset('images/career.png') }}" alt="Career Slameticon Digital Valey"
                         class="w-full h-auto object-cover">
                 </div>
             </div>
@@ -111,7 +111,7 @@
                         <div id="job-{{ $job->id }}" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
                             style="max-height: 0px;">
                             <div class="p-6 border-t border-gray-200 bg-gray-50">
-                                
+
                                 @if($job->description)
                                     <h4 class="font-semibold text-gray-900 mb-2 text-sm">Job Description</h4>
                                     <div class="text-[14px] text-gray-600 mb-5 leading-relaxed prose max-w-none">
@@ -121,7 +121,7 @@
 
                                 @if(!empty($job->requirements))
                                     <h4 class="font-semibold text-gray-900 mb-2 text-sm">Requirements</h4>
-                                    
+
                                     @if(is_array($job->requirements))
                                         <ul class="list-disc list-outside ml-4 text-[14px] text-gray-600 mb-6 space-y-1.5">
                                             @foreach($job->requirements as $req)

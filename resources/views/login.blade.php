@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Slameticon Digital Valley</title>
+    <title>Login - Slameticon Digital Valey</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
 
     <style>
         body {
@@ -30,7 +30,7 @@
         <!-- LEFT SIDE - ILLUSTRATION -->
         <section class="flex w-1/2 min-h-screen shrink-0 items-stretch p-[22px] max-lg:w-[48%] max-lg:p-[18px] max-md:hidden 2xl:p-[22px]">
             <div class="relative flex min-h-[calc(100vh-44px)] w-full items-center justify-center overflow-hidden rounded-[28px] bg-[#0c1285] 2xl:rounded-[30px]">
-                <img src="{{ asset('images/login.png') }}" alt="Slameticon Digital Valley Login Illustration"
+                <img src="{{ asset('images/login.png') }}" alt="Slameticon Digital valey Login Illustration"
                     class="relative z-[2] block h-auto w-[58%] max-w-[430px] object-contain max-lg:w-[62%] max-lg:max-w-[380px] 2xl:w-[56%] 2xl:max-w-[500px]">
             </div>
         </section>
@@ -40,7 +40,7 @@
 
             <!-- WATERMARK & LINES -->
             <div class="pointer-events-none absolute left-0 right-0 top-0 z-0 h-[330px] w-full bg-[7%_0] bg-no-repeat opacity-[0.035] max-lg:h-[300px] max-lg:bg-[5%_0] max-md:h-[260px] max-md:bg-[10%_0] max-md:opacity-[0.025] 2xl:h-[350px] 2xl:bg-[6%_0]" style="background-size: 500px auto;"></div>
-            
+
             <div class="pointer-events-none absolute left-0 right-0 top-0 z-0 h-[230px] w-full opacity-[0.035] max-lg:h-[210px] max-md:h-[180px] max-md:opacity-[0.025] 2xl:h-[250px]"
                  style="background-image: linear-gradient(90deg, transparent 0%, transparent 7%, #8d3cc7 7%, #8d3cc7 9%, transparent 9%, transparent 15%, #8d3cc7 15%, #8d3cc7 17%, transparent 17%, transparent 23%, #8d3cc7 23%, #8d3cc7 25%, transparent 25%, transparent 31%, #8d3cc7 31%, #8d3cc7 33%, transparent 33%, transparent 39%, #8d3cc7 39%, #8d3cc7 41%, transparent 41%, transparent 47%, #8d3cc7 47%, #8d3cc7 49%, transparent 49%, transparent 55%, #8d3cc7 55%, #8d3cc7 57%, transparent 57%, transparent 63%, #8d3cc7 63%, #8d3cc7 65%, transparent 65%, transparent 71%, #8d3cc7 71%, #8d3cc7 73%, transparent 73%, transparent 79%, #8d3cc7 79%, #8d3cc7 81%, transparent 81%, transparent 87%, #8d3cc7 87%, #8d3cc7 89%, transparent 89%, transparent 100%); mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);">
             </div>
@@ -50,13 +50,13 @@
 
                 <!-- LOGO -->
                 <div class="mb-[42px] flex items-center gap-[9px] max-md:mb-[48px]">
-                    <img src="{{ asset('images/slameticon.png') }}" alt="Slameticon Digital Valley" class="h-[34px] w-auto object-contain">
+                    <img src="{{ asset('images/logo_sdv.png') }}" alt="Slameticon Digital valey" class="h-[34px] w-auto object-contain">
                     <div class="leading-[1.05]">
                         <span class="block font-['Inter_Tight'] text-[15px] font-bold leading-[1.1] text-[#0c1285]">
                             Slameticon
                         </span>
                         <span class="mt-[2px] block font-['Inter_Tight'] text-[14px] font-semibold leading-[1.1] text-[#2364e8]">
-                            Digital Valley
+                            Digital valey
                         </span>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                         <div class="relative">
                             <input name="password" id="passwordInput" type="password" placeholder="Enter password" autocomplete="current-password"
                                 class="h-[48px] w-full rounded-[7px] border-none bg-[#f2f2f2] pl-[15px] pr-[48px] text-[14px] text-[#222222] outline-none transition-all duration-200 placeholder:text-[#999999] focus:bg-[#eeeeee] focus:ring-2 focus:ring-[#0c1285]/12 2xl:h-[50px]" required>
-                            
+
                             <button type="button" onclick="togglePassword()" class="absolute right-[14px] top-1/2 flex h-[28px] w-[28px] -translate-y-1/2 items-center justify-center border-none bg-transparent p-0 text-[#8b8b8b] hover:text-[#555555]" aria-label="Show password">
                                 <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-[18px] w-[18px]">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
@@ -131,7 +131,7 @@
 
             <!-- COPYRIGHT -->
             <div class="absolute bottom-[25px] right-[35px] z-[5] text-[10px] font-normal leading-[1.4] text-[#7d8492] max-md:bottom-[22px] max-md:left-[28px] max-md:right-auto max-md:text-[9px]">
-                &copy; {{ date('Y') }} Slameticon Digital Valley. All rights reserved.
+                &copy; {{ date('Y') }} Slameticon Digital valey. All rights reserved.
             </div>
 
         </section>

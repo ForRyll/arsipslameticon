@@ -5,8 +5,8 @@
 <!-- Kolom 1: Logo, Deskripsi, & Kontak -->
 <div class="lg:pr-6">
     {{-- Logo Perusahaan (Fallback ke logo default jika logo_url di DB kosong) --}}
-    <img src="{{ $companyProfile?->logo_url ? asset('storage/' . $companyProfile->logo_url) : asset('images/sdv_log.png') }}" 
-         alt="{{ $companyProfile?->name ?? 'Slameticon Digital Valley' }}"
+    <img src="{{ $companyProfile?->logo_url ? asset('storage/' . $companyProfile->logo_url) : asset('images/sdv_log.png') }}"
+         alt="{{ $companyProfile?->name ?? 'Slameticon Digital Valey' }}"
          class="h-29 w-auto object-contain mb-12">
 
     {{-- Headline Perusahaan --}}
@@ -99,8 +99,8 @@
 
         <!-- Garis Bawah & Copyright -->
         <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-gray-500">
-            <p>&copy; {{ date('Y') }} Slameticon Digital Valley. {{ __('All rights reserved.') }}</p>
-            <p>{{ __('Designed & Built by Slameticon Digital Valley') }}</p>
+            <p>&copy; {{ date('Y') }} Slameticon Digital Valey. {{ __('All rights reserved.') }}</p>
+            <p>{{ __('Designed & Built by Slameticon Digital Valey') }}</p>
         </div>
     </div>
 </footer>

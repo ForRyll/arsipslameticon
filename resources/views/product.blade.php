@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product - Slameticon Digital Valley</title>
+    <title>Product - Slameticon Digital Valey</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

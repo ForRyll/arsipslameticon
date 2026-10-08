@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gallery - Slameticon Digital Valley</title>
+    <title>Gallery - Slameticon Digital Valey</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@
             </h1>
 
             <p class="text-gray-500 text-[14px] md:text-[15px] max-w-xl mx-auto">
-                {{ __('Explore our moments, projects, and behind-the-scenes at Slameticon Digital Valley.') }}
+                {{ __('Explore our moments, projects, and behind-the-scenes at Slameticon Digital Valey.') }}
             </p>
         </div>
 
@@ -141,7 +141,7 @@
                             ? $item->img_url
                             : \Illuminate\Support\Facades\Storage::url($item->img_url);
                     } else {
-                        $imageUrl = asset('images/slameticon.png');
+                        $imageUrl = asset('images/logo_sdv.png');
                     }
 
                     $itemYear = $item->created_at ? $item->created_at->format('Y') : '';

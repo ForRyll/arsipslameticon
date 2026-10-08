@@ -7,9 +7,9 @@
     <title>Slameticon — Modern Studio Experience</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/slameticon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/slameticon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -186,7 +186,7 @@
             {{-- Image & stats --}}
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="w-full aspect-[4/3] bg-gray-100 rounded-md overflow-hidden">
-                    <img src="{{ asset('images/slameticon.png') }}" alt="Slameticon Model" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/logo_sdv.png') }}" alt="Slameticon Model" class="w-full h-full object-cover">
                 </div>
 
                 <div class="flex flex-col justify-center">
@@ -240,7 +240,7 @@
                     <h2 class="text-3xl sm:text-4xl md:text-[2.6rem] font-medium text-gray-900 mb-10 leading-[1.15] font-['Inter_Tight']">
                         {{ __('Elevating Your Strategy With Measurable Impact') }}
                     </h2>
-                    
+
                     <div class="space-y-0">
                         @forelse ($chooseUses as $index => $item)
                             @php
@@ -252,12 +252,12 @@
                             <div class="accordion-item border-t border-gray-200 {{ $loop->last ? 'border-b' : '' }} py-6 cursor-pointer" onclick="toggleAccordion(this)">
                                 <div class="flex items-center gap-5">
                                     <span class="text-base font-bold text-[#1218ae] w-6">{{ $index + 1 }}</span>
-                                    
+
                                     {{-- group-hover dihapus, dikendalikan via JS --}}
                                     <h4 class="accordion-title text-base md:text-lg font-semibold text-gray-800 transition flex-1">
                                         {{ $itemTitle }}
                                     </h4>
-                                    
+
                                     <span class="accordion-icon-wrapper text-gray-400 transition-all duration-300">
                                         <svg class="accordion-icon w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
@@ -282,7 +282,7 @@
 
                 {{-- Illustration --}}
                 <div class="w-full h-full min-h-[420px] lg:min-h-[520px] flex items-center justify-center p-8">
-                    <img src="{{ asset('images/slameticon.png') }}" alt="Why Choose Us" class="w-full h-full object-contain">
+                    <img src="{{ asset('images/logo_sdv.png') }}" alt="Why Choose Us" class="w-full h-full object-contain">
                 </div>
 
             </div>
@@ -616,40 +616,40 @@
 }
 
 /* Styling Scrollbar Webkit agar thumb (batang penyeret) muncul jelas */
-.scrollbar-on-dark::-webkit-scrollbar { 
-    width: 10px !important; 
+.scrollbar-on-dark::-webkit-scrollbar {
+    width: 10px !important;
     display: block !important;
 }
-.scrollbar-on-dark::-webkit-scrollbar-track { 
-    background: rgba(255, 255, 255, 0.15) !important; 
-    border-radius: 8px; 
+.scrollbar-on-dark::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px;
 }
-.scrollbar-on-dark::-webkit-scrollbar-thumb { 
+.scrollbar-on-dark::-webkit-scrollbar-thumb {
     background: #ffffff !important; /* Thumb penyeret warna putih terang */
-    border-radius: 8px; 
+    border-radius: 8px;
     border: 2px solid #1112A2;
     min-height: 40px !important; /* Memastikan thumb punya ukuran minimal agar bisa ditarik */
 }
-.scrollbar-on-dark::-webkit-scrollbar-thumb:hover { 
-    background: #e0e0e0 !important; 
+.scrollbar-on-dark::-webkit-scrollbar-thumb:hover {
+    background: #e0e0e0 !important;
 }
 
 /* Styling Scrollbar Tema Terang */
-.scrollbar-on-light::-webkit-scrollbar { 
-    width: 10px !important; 
+.scrollbar-on-light::-webkit-scrollbar {
+    width: 10px !important;
     display: block !important;
 }
-.scrollbar-on-light::-webkit-scrollbar-track { 
-    background: rgba(0, 0, 0, 0.08) !important; 
-    border-radius: 8px; 
+.scrollbar-on-light::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.08) !important;
+    border-radius: 8px;
 }
-.scrollbar-on-light::-webkit-scrollbar-thumb { 
-    background: #1112A2 !important; 
-    border-radius: 8px; 
+.scrollbar-on-light::-webkit-scrollbar-thumb {
+    background: #1112A2 !important;
+    border-radius: 8px;
     min-height: 40px !important;
 }
-.scrollbar-on-light::-webkit-scrollbar-thumb:hover { 
-    background: #0a0b66 !important; 
+.scrollbar-on-light::-webkit-scrollbar-thumb:hover {
+    background: #0a0b66 !important;
 }
 </style>
 
