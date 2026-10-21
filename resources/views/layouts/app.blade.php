@@ -31,7 +31,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/slameticon.png') }}">
 
     {{-- Asset CSS dari HTML --}}
-    <link rel="stylesheet" href="{{ asset('css/studio-style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/studio-style.css') }}"> --}}
+    @vite(['resources/css/app.css', 'resources/js/studio-app.js'])
 
     {{-- Google Fonts & Icons --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +56,7 @@
     </div>
 
     {{-- Asset JS --}}
-    <script src="{{ asset('js/studio-app.js') }}"></script>
+    {{-- <script src="{{ asset('js/studio-app.js') }}"></script> --}}
     @stack('scripts')
 </body>
 </html>

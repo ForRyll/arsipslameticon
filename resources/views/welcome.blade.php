@@ -18,7 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
         rel="stylesheet">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/studio-app.js'])
 </head>
 
 <body class="bg-[#f2f2f0] text-[#171717] font-['Inter',sans-serif] overflow-x-hidden antialiased">
