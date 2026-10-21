@@ -71,17 +71,31 @@
 @endphp
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - {{ $companyName }}</title>
+
+    {{-- SEO / Global Metadata --}}
+    <title>About Us | Slameticon Digital Valey</title>
+    <meta name="description" content="Mengenal PT Slameticon Digital Valey, perusahaan solusi digital yang menyediakan software development, digital marketing, social media management, dan branding dengan solusi inovatif, praktis, dan berorientasi pada hasil.">
+    <meta name="keywords" content="Slameticon Digital Valey, PT Slameticon Digital Valey, digital solutions, software development, software development Indonesia, digital marketing, digital marketing Indonesia, social media management, branding, brand identity, digital transformation, custom software development, digital platform, business digital solutions">
+    <meta name="author" content="PT Slameticon Digital Valey">
+    <meta name="robots" content="index, follow">
+
+    {{-- Open Graph (Meta Sharing Social Media) --}}
+    <meta property="og:site_name" content="Slameticon Digital Valey">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="About Us | Slameticon Digital Valey">
+    <meta property="og:description" content="Mengenal PT Slameticon Digital Valey, perusahaan solusi digital yang menyediakan software development, digital marketing, social media management, dan branding dengan solusi inovatif, praktis, dan berorientasi pada hasil.">
+    <meta property="og:image" content="{{ asset('images/slameticon.png') }}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ $logoSrc }}">
-    <link rel="shortcut icon" type="image/png" href="{{ $logoSrc }}">
-    <link rel="apple-touch-icon" href="{{ $logoSrc }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/slameticon.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>News</title>
+    {{-- SEO / Global Metadata --}}
+    <title>News & Insights | Slameticon Digital Valey</title>
+    <meta name="description" content="Temukan berita, insight, informasi, dan perkembangan terbaru dari PT Slameticon Digital Valey seputar teknologi, digital marketing, branding, dan perkembangan industri digital.">
+    <meta name="keywords" content="Slameticon Digital Valey, PT Slameticon Digital Valey, digital solutions, software development, software development Indonesia, digital marketing, digital marketing Indonesia, social media management, branding, brand identity, digital transformation, custom software development, digital platform, business digital solutions">
+    <meta name="author" content="PT Slameticon Digital Valey">
+    <meta name="robots" content="index, follow">
+
+    {{-- Open Graph (Meta Sharing Social Media) --}}
+    <meta property="og:site_name" content="Slameticon Digital Valey">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="News & Insights | Slameticon Digital Valey">
+    <meta property="og:description" content="Temukan berita, insight, informasi, dan perkembangan terbaru dari PT Slameticon Digital Valey seputar teknologi, digital marketing, branding, dan perkembangan industri digital.">
+    <meta property="og:image" content="{{ asset('images/slameticon.png') }}">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/slameticon.png') }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
