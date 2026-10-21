@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/studio-app.js'])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
