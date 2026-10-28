@@ -21,7 +21,7 @@
         ======================================= -->
         <a href="{{ url('/') }}" class="flex items-center gap-3 group shrink-0">
 
-            <img src="{{ asset('images/logo_sdv.png') }}" alt="Slameticon Logo" class="h-9 w-auto object-contain">
+            <img src="{{ asset('images/logo.png') }}" alt="Slameticon Logo" class="h-9 w-auto object-contain">
 
             <div class="flex flex-col justify-center leading-none">
 
