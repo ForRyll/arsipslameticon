@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - PT Slameticon Digital Valey</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- SEO / Global Metadata --}}
+    <title>Contact Us | Slameticon Digital Valey</title>
+    <meta name="description" content="Hubungi PT Slameticon Digital Valey untuk mendiskusikan kebutuhan software development, digital marketing, social media management, branding, dan solusi digital untuk bisnis Anda.">
+    <meta name="keywords" content="Slameticon Digital Valey, PT Slameticon Digital Valey, digital solutions, software development, software development Indonesia, digital marketing, digital marketing Indonesia, social media management, branding, brand identity, digital transformation, custom software development, digital platform, business digital solutions">
+    <meta name="author" content="PT Slameticon Digital Valey">
+    <meta name="robots" content="index, follow">
+
+    {{-- Open Graph (Meta Sharing Social Media) --}}
+    <meta property="og:site_name" content="Slameticon Digital Valey">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Contact Us | Slameticon Digital Valey">
+    <meta property="og:description" content="Hubungi PT Slameticon Digital Valey untuk mendiskusikan kebutuhan software development, digital marketing, social media management, branding, dan solusi digital untuk bisnis Anda.">
+    <meta property="og:image" content="{{ asset('images/slameticon.png') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/slameticon.png') }}">
+
+    @vite(['resources/css/app.css', 'resources/js/studio-app.js'])
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo_sdv.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo_sdv.png') }}">
+
     <style>
         body {
             font-family: 'Inter Tight', sans-serif;
