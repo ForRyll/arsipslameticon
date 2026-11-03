@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Database\Factories\UserFactory;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasApiTokens, HasFactory, Notifiable, HasUuids;
@@ -31,6 +33,11 @@ class User extends Authenticatable
         'password_hash',
         'remember_token',
     ];
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return in_array($this->role->name, ['Super Admin']);
+    }
 
     public function role(): BelongsTo
     {
@@ -56,14 +63,6 @@ class User extends Authenticatable
     public function getAuthPassword()
     {
         return $this->password_hash;
-    }
-
-    /**
-     * Beritahu Laravel nama kolom password di database
-     */
-    public function getAuthPasswordName()
-    {
-        return 'password_hash';
     }
 
     /**
