@@ -67,7 +67,7 @@ class DummyDataSeeder extends Seeder
             'manage-jobs',
             'manage-products',
         ])->pluck('id');
-        
+
         $staffRole->permissions()->sync($staffPermissions);
 
         // Ambil User Admin untuk relasi
@@ -200,7 +200,6 @@ class DummyDataSeeder extends Seeder
         TeamMember::create([
             'position_id' => $position->id,
             'name'        => 'Hadiq Fadlul Wafi',
-            'bio'         => ['id' => 'Pengembang sistem digital dan IT Enthusiast.'],
             'about'       => ['id' => 'Fokus pada arsitektur perangkat lunak yang scalable.'],
             'quote'       => ['id' => 'Continuous improvement through clean code.'],
         ]);
