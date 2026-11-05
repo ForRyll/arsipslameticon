@@ -9,14 +9,14 @@
      */
     $parseJsonField = function ($field) {
         if (is_array($field)) {
-            return $field['id'] ?? $field['en'] ?? reset($field) ?? '';
+            return $field['id'] ?? ($field['en'] ?? (reset($field) ?? ''));
         }
 
         if (is_string($field)) {
             $decoded = json_decode($field, true);
 
             if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                return $decoded['id'] ?? $decoded['en'] ?? reset($decoded) ?? '';
+                return $decoded['id'] ?? ($decoded['en'] ?? (reset($decoded) ?? ''));
             }
 
             return $field;
@@ -25,10 +25,25 @@
         return '';
     };
 
+    $pickTranslation = function ($model, $attr) {
+        if (!$model) {
+            return '';
+        }
+
+        $t = $model->getTranslations($attr);
+
+        if (empty($t)) {
+            return '';
+        }
+
+        return $t[app()->getLocale()] ?? ($t['id'] ?? ($t['en'] ?? (reset($t) ?? '')));
+    };
+
     // Company name, description, vision
     $companyName = $companyProfile->name ?? 'PT Slameticon Digital Valey';
-    $description = $parseJsonField($companyProfile->description ?? '');
-    $vision      = $parseJsonField($companyProfile->vision ?? '');
+    $description = $pickTranslation($companyProfile, 'description');
+    $vision = $pickTranslation($companyProfile, 'vision');
+    $mission = $pickTranslation($companyProfile, 'mission');
 
     /**
      * Mission bisa berupa:
@@ -39,8 +54,8 @@
     $missionData = $companyProfile->mission ?? [];
 
     if (is_string($missionData)) {
-        $decoded     = json_decode($missionData, true);
-        $missionData = (json_last_error() === JSON_ERROR_NONE) ? $decoded : [$missionData];
+        $decoded = json_decode($missionData, true);
+        $missionData = json_last_error() === JSON_ERROR_NONE ? $decoded : [$missionData];
     }
 
     if (isset($missionData['id']) && is_array($missionData['id'])) {
@@ -79,8 +94,10 @@
 
     {{-- SEO / Global Metadata --}}
     <title>About Us | Slameticon Digital Valey</title>
-    <meta name="description" content="Mengenal PT Slameticon Digital Valey, perusahaan solusi digital yang menyediakan software development, digital marketing, social media management, dan branding dengan solusi inovatif, praktis, dan berorientasi pada hasil.">
-    <meta name="keywords" content="Slameticon Digital Valey, PT Slameticon Digital Valey, digital solutions, software development, software development Indonesia, digital marketing, digital marketing Indonesia, social media management, branding, brand identity, digital transformation, custom software development, digital platform, business digital solutions">
+    <meta name="description"
+        content="Mengenal PT Slameticon Digital Valey, perusahaan solusi digital yang menyediakan software development, digital marketing, social media management, dan branding dengan solusi inovatif, praktis, dan berorientasi pada hasil.">
+    <meta name="keywords"
+        content="Slameticon Digital Valey, PT Slameticon Digital Valey, digital solutions, software development, software development Indonesia, digital marketing, digital marketing Indonesia, social media management, branding, brand identity, digital transformation, custom software development, digital platform, business digital solutions">
     <meta name="author" content="PT Slameticon Digital Valey">
     <meta name="robots" content="index, follow">
 
@@ -89,7 +106,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="About Us | Slameticon Digital Valey">
-    <meta property="og:description" content="Mengenal PT Slameticon Digital Valey, perusahaan solusi digital yang menyediakan software development, digital marketing, social media management, dan branding dengan solusi inovatif, praktis, dan berorientasi pada hasil.">
+    <meta property="og:description"
+        content="Mengenal PT Slameticon Digital Valey, perusahaan solusi digital yang menyediakan software development, digital marketing, social media management, dan branding dengan solusi inovatif, praktis, dan berorientasi pada hasil.">
     <meta property="og:image" content="{{ asset('images/slameticon.png') }}">
 
     <!-- Favicon -->
@@ -103,11 +121,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
 
     <style>
         body {
             font-family: 'Inter Tight', sans-serif;
+        }
+
+        .about-rich ul {
+            list-style: disc;
+            margin-left: 1.25rem;
+        }
+
+        .about-rich ol {
+            list-style: decimal;
+            margin-left: 1.25rem;
+        }
+
+        .about-rich p+p,
+        .about-rich ul,
+        .about-rich ol {
+            margin-top: 0.75rem;
         }
     </style>
 </head>
@@ -134,19 +168,22 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
                 {{-- Kotak logo --}}
-                <div class="lg:col-span-5 bg-white rounded-2xl p-8 md:p-12 flex items-center justify-center min-h-[350px] md:min-h-[420px]">
-                    <img src="{{ $logoSrc }}" alt="{{ $companyName }}" class="w-full max-w-xs md:max-w-sm h-auto object-contain">
+                <div
+                    class="lg:col-span-5 bg-white rounded-2xl p-8 md:p-12 flex items-center justify-center min-h-[350px] md:min-h-[420px]">
+                    <img src="{{ $logoSrc }}" alt="{{ $companyName }}"
+                        class="w-full max-w-xs md:max-w-sm h-auto object-contain">
                 </div>
 
                 {{-- Nama & deskripsi perusahaan (Justified) --}}
                 <div class="lg:col-span-7 flex flex-col justify-center">
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1112A2] mb-6 tracking-tight leading-tight">
+                    <h1
+                        class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1112A2] mb-6 tracking-tight leading-tight">
                         {{ $companyName }}
                     </h1>
 
-                    <p class="text-[17px] text-black/90 leading-relaxed font-normal text-justify">
-                        {{ $description ?: 'Deskripsi perusahaan belum dikonfigurasi.' }}
-                    </p>
+                    <div class="about-rich text-[17px] text-black/90 leading-relaxed font-normal text-justify">
+                        {!! $description ?: 'Deskripsi perusahaan belum dikonfigurasi.' !!}
+                    </div>
                 </div>
 
             </div>
@@ -161,14 +198,17 @@
         <div class="max-w-[1100px] mx-auto relative flex flex-col md:flex-row items-stretch gap-12 md:gap-0">
 
             {{-- Garis pemisah miring (desktop/tablet) --}}
-            <div class="hidden md:block absolute left-1/2 top-4 bottom-4 w-[2px] bg-[#1112A2] transform -translate-x-1/2 rotate-[15deg]"></div>
+            <div
+                class="hidden md:block absolute left-1/2 top-4 bottom-4 w-[2px] bg-[#1112A2] transform -translate-x-1/2 rotate-[15deg]">
+            </div>
 
             {{-- Vision (Justified) --}}
             <div class="w-full md:w-1/2 md:pr-16 flex flex-col text-center md:text-right">
                 <h2 class="text-2xl md:text-3xl font-semibold text-[#1112A2] mb-6">Our Vision</h2>
-                <p class="text-[15px] text-gray-500 leading-relaxed max-w-sm mx-auto md:ml-auto md:mr-0 text-justify">
-                    {{ $vision ?: 'Visi perusahaan belum ditambahkan.' }}
-                </p>
+                <div
+                    class="about-rich text-[15px] text-gray-500 leading-relaxed max-w-sm mx-auto md:ml-auto md:mr-0 text-justify">
+                    {!! $vision ?: 'Visi perusahaan belum ditambahkan.' !!}
+                </div>
             </div>
 
             {{-- Garis pemisah horizontal (mobile) --}}
@@ -180,16 +220,11 @@
                     Our Mission
                 </h2>
 
-                @if (!empty($missions))
-                    <ul class="text-[15px] text-gray-500 leading-relaxed list-disc list-outside ml-5 space-y-2 max-w-lg mx-auto md:mx-0 text-justify">
-                        @foreach ($missions as $item)
-                            @if (is_string($item))
-                                <li>{{ $item }}</li>
-                            @elseif (is_array($item))
-                                <li>{{ $item['id'] ?? $item['en'] ?? reset($item) }}</li>
-                            @endif
-                        @endforeach
-                    </ul>
+                @if (!empty($mission))
+                    <div
+                        class="about-rich text-[15px] text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0 text-justify">
+                        {!! $mission !!}
+                    </div>
                 @else
                     <p class="text-[15px] text-gray-500 leading-relaxed text-center md:text-left">
                         Misi perusahaan belum ditambahkan.
