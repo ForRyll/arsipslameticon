@@ -796,9 +796,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         : null;
                 @endphp
 
-                <div class="{{ $cardBg }} rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[460px] transition-transform duration-300 hover:-translate-y-1">
+                <div class="{{ $cardBg }} rounded-2xl p-6 md:p-8 lg:p-10 flex flex-col justify-between gap-6 lg:min-h-[460px] transition-transform duration-300 hover:-translate-y-1">
                     <div>
-                        <h3 class="text-xl md:text-2xl font-bold min-h-[64px] mb-6 font-['Inter_Tight'] {{ $textColor }}">
+                        <h3 class="text-xl md:text-2xl font-bold lg:min-h-[64px] mb-4 lg:mb-6 font-['Inter_Tight'] {{ $textColor }}">
                             {!! nl2br(e($serviceTitle)) !!}
                         </h3>
                         <p class="text-xs md:text-sm {{ $descColor }} leading-relaxed">
@@ -806,7 +806,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </p>
                     </div>
 
-                    <div class="w-full h-28 mt-6 flex items-end justify-start {{ $iconOpacity }}">
+                    <div class="w-full h-24 lg:h-28 lg:mt-6 flex items-end justify-start {{ $iconOpacity }}">
                         @if ($iconPath)
                             <img src="{{ $iconPath }}" alt="{{ $serviceTitle }}" class="w-24 h-24 object-contain">
                         @else
