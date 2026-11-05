@@ -475,7 +475,7 @@
                                                         '{{ $imageSrc }}',
                                                         '{{ addslashes($product->link_url ?? '') }}'
                                                     )" class="project-item cursor-pointer overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
-                                                    <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="w-full h-auto max-h-[350px] object-cover rounded-2xl">
+                                                    <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="w-full h-auto block rounded-2xl">
                                                     <div class="project-overlay">
                                                         <div class="project-overlay-content">
                                                             <h4 class="project-overlay-title">{{ $prodName }}</h4>
@@ -517,7 +517,7 @@
                                                             '{{ $imageSrc }}',
                                                             '{{ addslashes($product->link_url ?? '') }}'
                                                         )" class="project-item cursor-pointer overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:shadow-xl">
-                                                        <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="w-full h-auto max-h-[350px] object-cover rounded-2xl">
+                                                        <img src="{{ $imageSrc }}" alt="{{ $prodName }}" class="w-full h-auto block rounded-2xl">
                                                         <div class="project-overlay">
                                                             <div class="project-overlay-content">
                                                                 <h4 class="project-overlay-title">{{ $prodName }}</h4>
@@ -1014,13 +1014,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     .project-item {
         width: 100%;
-        aspect-ratio: 1.15 / 1;
+        aspect-ratio: auto;
         flex-shrink: 0;
         position: relative;
         overflow: hidden;
         border-radius: 12px;
         background: white;
-        padding: 14px;
+        padding: 0px;
         cursor: pointer;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
@@ -1106,7 +1106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     @media (max-width: 768px) {
         .project-marquee-container { --marquee-duration: 60s; height: 430px; }
-        .project-item              { aspect-ratio: 1.1 / 1; padding: 10px; }
+        .project-item              { aspect-ratio: auto; padding: 0px; }
         .project-overlay-title     { font-size: 13px; }
 
         /* Deskripsi hover: maksimal 2 baris di mobile */
